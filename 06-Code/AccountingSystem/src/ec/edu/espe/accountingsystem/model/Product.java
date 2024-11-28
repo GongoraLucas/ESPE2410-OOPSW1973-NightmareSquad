@@ -3,45 +3,44 @@ package ec.edu.espe.accountingsystem.model;
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
  */
 
 public class Product {
     
-    private int id;
+    private String id;
     private String reference;
     private String description; 
     private Price price;
     private int amount;
-    private String unit;
 
     @Override
     public String toString() {
         return "Inventory{" + "id=" + id + ", reference=" + reference + 
                ", description=" + description + ", price=" + price +
-               ", amount=" + amount + ", unit=" + unit + '}';
+               ", amount=" + amount + '}';
     }
 
-    public Product(int id, String reference, String description, Price price, int amount, String unit) {
+    public Product(String id, String reference, String description, Price price, int amount) {
         this.id = id;
         this.reference = reference;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.unit = unit;
     }
     
 
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -101,20 +100,8 @@ public class Product {
         this.amount = amount;
     }
 
-    /**
-     * @return the unit
-     */
-    public String getUnit() {
-        return unit;
+    public float calculateTotalPrice(){
+        //TODO algorithm
+        return 0.0f;
     }
-
-    /**
-     * @param unit the unit to set
-     */
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-    
-    
-    
 }

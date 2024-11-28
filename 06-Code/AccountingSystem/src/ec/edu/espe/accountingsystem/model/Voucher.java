@@ -1,36 +1,40 @@
 package ec.edu.espe.accountingsystem.model;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
  */
 public class Voucher {
 
     private String type;
     private int id;
     private Date issueDate;
-    private List<Product> products;
+    private ArrayList<Product> products;
     private Client client;
+    private Supplier supplier;
     private float VAT;
 
     @Override
     public String toString() {
-        return "Voucher{" + "type=" + type + ", id=" + id + 
-               ", issueDate=" + issueDate + ", products=" + products + 
-               ", client=" + client + ", VAT=" + VAT + '}';
+        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", products=" + products + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + '}';
     }
 
-    public Voucher(String type, int id, Date issueDate, List<Product> products, Client client, float VAT) {
+
+
+    public Voucher(String type, int id, Date issueDate, ArrayList<Product> products, Client client, Supplier supplier, float VAT) {
         this.type = type;
         this.id = id;
         this.issueDate = issueDate;
         this.products = products;
         this.client = client;
+        this.supplier = supplier;
         this.VAT = VAT;
     }
+
     
 
     /**
@@ -78,14 +82,14 @@ public class Voucher {
     /**
      * @return the products
      */
-    public List<Product> getProducts() {
+    public ArrayList<Product> getProducts() {
         return products;
     }
 
     /**
      * @param products the products to set
      */
-    public void setProducts(List<Product> products) {
+    public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
 
@@ -117,6 +121,51 @@ public class Voucher {
         this.VAT = VAT;
     }
 
+    /**
+     * @return the supplier
+     */
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    /**
+     * @param supplier the supplier to set
+     */
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public float calculateVAT(){
+        //TODO algorithm
+        return 0.0f;
+    }
+    
+    public float calculateSubtotal(){
+        //TODO algorithm
+        return 0.0f;
+    }
+    
+    public float calculateTotal(){
+        //TODO algortithm
+        return 0.0f;
+    }
+    
+    public void generateVoucher(){
+        //TODO algorithm
+    }
+    
+    public void sendVoucher(){
+        //TODO algorithm
+    }
+    
+    public void addProduct(Product product){
+        //TODO algorithm
+    }
+    
+    public void deleteProduct(String productId){
+        //TODO algorithm
+    }
+    
     
         
     }

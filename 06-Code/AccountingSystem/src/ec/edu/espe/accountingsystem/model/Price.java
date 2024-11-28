@@ -3,6 +3,7 @@ package ec.edu.espe.accountingsystem.model;
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
  */
 public class Price {
 
@@ -97,6 +98,13 @@ public class Price {
     public void setDiscount(float discount) {
         this.discount = discount;
     }
-
+    
+    public void adjustCurrentPrice(String typePrice){
+        //TODO algorithm
+    }
+    
+    public void applyDiscount(){
+        //TODO algorithm
+    }
     
 }
