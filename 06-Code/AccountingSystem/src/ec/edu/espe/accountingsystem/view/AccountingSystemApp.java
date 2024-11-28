@@ -9,7 +9,7 @@ public class AccountingSystemApp {
     
     public static void main(String[] args) {
         
-        System.out.println("Project of Accounting System");
+        System.out.println("Accounting System Project");
         System.out.println("Team 2");
     }
     
