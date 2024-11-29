@@ -22,15 +22,21 @@ public class Inventory {
     }
     
     public void add(Product product){
-        products.add(product);
+        boolean add = products.add(product);
+        if(add==true){
+            System.out.println("El elemento ha sido añadido correctamente");
+        }
     }
     
     public void delete(String productId){
-        //TODO algorithm
+        int index = products.indexOf(productId);
+        Product remove = products.remove(index);
+        System.out.println("El elemento -->" + remove + "ha sido eliminado");
     }
     
     public void update(String productId){
         //TODO algorithm
+        
     }
     public void read (String productID){
         //TODO algorithm
