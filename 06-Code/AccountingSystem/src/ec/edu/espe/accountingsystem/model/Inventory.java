@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Andrés Espinosa
  */
 public class Inventory {
-
+    
     private ArrayList<Product> products;
 
     @Override
@@ -22,7 +22,7 @@ public class Inventory {
     }
     
     public void add(Product product){
-        //TODO algorithm
+        products.add(product);
     }
     
     public void delete(String productId){
