@@ -6,6 +6,7 @@ import java.util.ArrayList;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Inventory {
 
@@ -29,6 +30,9 @@ public class Inventory {
     }
     
     public void update(String productId){
+        //TODO algorithm
+    }
+    public void read (String productID){
         //TODO algorithm
     }
 
