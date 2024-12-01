@@ -1,7 +1,5 @@
 package ec.edu.espe.accountingsystem.model;
 
-import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFromArrobaToPound;
-import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFromPoundToArroba;
 import java.util.HashMap;
 import java.util.Map;
 
