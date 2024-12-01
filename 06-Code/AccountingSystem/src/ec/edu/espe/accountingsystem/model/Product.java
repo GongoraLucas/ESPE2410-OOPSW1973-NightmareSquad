@@ -108,7 +108,6 @@ public class Product {
 
     
     public float calculateTotalPrice(){
-        //TODO algorithm
-        return 0.0f;
+        return this.getAmount() * this.getPrice().getCurrent();
     }
 }

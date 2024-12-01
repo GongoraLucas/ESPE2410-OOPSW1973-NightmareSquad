@@ -4,7 +4,7 @@ import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFro
 import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFromPoundToArroba;
 
 /**
- *
+ * @author Lucas Gongora 
  * @author Andrés Espinosa
  */
 public class MeasuredItem {
@@ -70,30 +70,36 @@ public class MeasuredItem {
         if (finalUnit == this.getUnit()) {
             return;
         }
-        
-        switch (this.getUnit()) {
-            case "lb":
-                switch (finalUnit) {
-                    case "arroba":
-                        this.setValue(convertFromPoundToArroba(this.getValue()));
-                        break;
+        try {
+            switch (this.getUnit()) {
+                case "lb":
+                    switch (finalUnit) {
+                        case "arroba":
+                            this.setValue(convertFromPoundToArroba(this.getValue()));
+                            break;
 
-                    default:
-                        return;
-                }
-                break;
-            case "arroba":
-                switch (finalUnit) {
-                    case "lb":
-                        this.setValue(convertFromArrobaToPound(this.getValue()));
-                        break;
+                        default:
+                            throw new IllegalArgumentException("There is no such unity");
+                    }
+                    break;
+                case "arroba":
+                    switch (finalUnit) {
+                        case "lb":
+                            this.setValue(convertFromArrobaToPound(this.getValue()));
+                            break;
 
-                    default:
-                        return;
-                }
-                break;
-                
+                        default:
+                            throw new IllegalArgumentException("There is no such unity");
+                    }
+                    break;
+
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Unexpected error: " + e.getMessage());
         }
+
     }
 
 }
