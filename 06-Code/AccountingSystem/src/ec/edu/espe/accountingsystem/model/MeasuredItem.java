@@ -2,9 +2,11 @@ package ec.edu.espe.accountingsystem.model;
 
 import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFromArrobaToPound;
 import static ec.edu.espe.accountingsystem.controller.WeightConverter.convertFromPoundToArroba;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * @author Lucas Gongora 
+ * @author Lucas Gongora
  * @author Andrés Espinosa
  */
 public class MeasuredItem {
@@ -12,6 +14,19 @@ public class MeasuredItem {
     private String description;
     private float value;
     private String unit;
+
+    private static final Map<String, Map<String, Float>> conversionMap = new HashMap<>();
+
+    static {
+        Map<String, Float> lbConversions = new HashMap<>();
+        Map<String, Float> arrobaConversions = new HashMap<>();
+
+        lbConversions.put("arroba", 0.0667f);
+        arrobaConversions.put("lb", 15f);
+
+        conversionMap.put("lb", lbConversions);
+        conversionMap.put("arroba", arrobaConversions);
+    }
 
     @Override
     public String toString() {
@@ -67,39 +82,20 @@ public class MeasuredItem {
     }
 
     public void convertUnit(String finalUnit) {
-        if (finalUnit == this.getUnit()) {
-            return;
-        }
         try {
-            switch (this.getUnit()) {
-                case "lb":
-                    switch (finalUnit) {
-                        case "arroba":
-                            this.setValue(convertFromPoundToArroba(this.getValue()));
-                            break;
-
-                        default:
-                            throw new IllegalArgumentException("There is no such unity");
-                    }
-                    break;
-                case "arroba":
-                    switch (finalUnit) {
-                        case "lb":
-                            this.setValue(convertFromArrobaToPound(this.getValue()));
-                            break;
-
-                        default:
-                            throw new IllegalArgumentException("There is no such unity");
-                    }
-                    break;
-
+            if (conversionMap.containsKey(this.unit)) {
+                if (conversionMap.get(this.unit).containsKey(finalUnit)) {
+                    float conversionFactor = conversionMap.get(this.unit).get(finalUnit);
+                    this.value = this.value * conversionFactor;
+                } else {
+                    throw new IllegalArgumentException("The unit to be converted is not available");
+                }
+            } else {
+                throw new IllegalArgumentException("The item unit is not enabled for conversions at this time");
             }
-        } catch (IllegalArgumentException e) {
+        } catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Unexpected error: " + e.getMessage());
-        }
-
+        } 
     }
 
 }
