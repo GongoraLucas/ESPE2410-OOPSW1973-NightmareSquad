@@ -23,7 +23,7 @@ public class Inventory {
     
     public void add(Product product){
         boolean add = products.add(product);
-        if(add==true){
+        if(add){
             System.out.println("El elemento ha sido añadido correctamente");
         }
     }

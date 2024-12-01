@@ -15,6 +15,7 @@ public class AccountingSystemApp {
         
         System.out.println("Proyecto Sistema Contable");
         System.out.println("Grupo 2");
+        
     }
     
 }

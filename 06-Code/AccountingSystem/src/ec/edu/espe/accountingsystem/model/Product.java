@@ -14,23 +14,25 @@ public class Product {
     private String description; 
     private Price price;
     private int amount;
-    private String weightUnit;
+    private MeasuredItem measuredItem;
 
     @Override
     public String toString() {
-        return "Inventory{" + "id=" + id + ", reference=" + reference + 
-               ", description=" + description + ", price=" + price +
-               ", amount=" + amount + '}';
+        return "Product{" + "id=" + id + ", reference=" + reference + ", description=" + description + ", price=" + price + ", amount=" + amount + ", measuredItem=" + measuredItem + '}';
     }
 
-    public Product(String id, String reference, String description, Price price, int amount) {
+    
+
+    public Product(String id, String reference, String description, Price price, int amount, MeasuredItem measuredItem) {
         this.id = id;
         this.reference = reference;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.weightUnit = weightUnit;
+        this.measuredItem = measuredItem;
     }
+
+
     
 
     /**
@@ -103,19 +105,7 @@ public class Product {
         this.amount = amount;
     }
     
-    /**
-     * @return the id
-     */
-    public String getweightUnit() {
-        return weightUnit;
-    }
 
-    /**
-     * @param weightUnit the id to set
-     */
-    public void setweightUnit(String weightUnit) {
-        this.weightUnit = weightUnit;
-    }
     
     public float calculateTotalPrice(){
         //TODO algorithm

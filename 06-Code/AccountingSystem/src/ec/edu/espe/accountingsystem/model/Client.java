@@ -15,16 +15,11 @@ public class Client extends Entity{
         return "Client{" + "type=" + getType() + '}';
     }
     
-    public Client(String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
+    public Client(String type,String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
         super(id, name, identityCard, address, phoneNumber, email);
-    }
-
-    public Client() {
+        this.type=type;
     }
     
-    
-    
-
     /**
      * @return the type
      */
