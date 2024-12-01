@@ -1,5 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,29 +15,31 @@ public class Voucher {
     private String type;
     private int id;
     private Date issueDate;
-    private ArrayList<Product> products;
+    private ArrayList<Product> shoppingCart;
     private Client client;
     private Supplier supplier;
     private float VAT;
+    private float subtotal;
+    private float valueWithVAT;
+    private float total;
 
     @Override
     public String toString() {
-        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", products=" + products + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + '}';
+        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", shoppingCart=" + shoppingCart + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + ", subtotal=" + subtotal + ", total=" + total + '}';
     }
-
-
 
     public Voucher(String type, int id, Date issueDate, ArrayList<Product> products, Client client, Supplier supplier, float VAT) {
         this.type = type;
         this.id = id;
         this.issueDate = issueDate;
-        this.products = products;
+        this.shoppingCart = products;
         this.client = client;
         this.supplier = supplier;
         this.VAT = VAT;
+        this.subtotal = this.calculateSubtotal();
+        this.valueWithVAT = this.calculateVAT();
+        this.total = this.calculateTotal();
     }
-
-    
 
     /**
      * @return the type
@@ -83,15 +86,15 @@ public class Voucher {
     /**
      * @return the products
      */
-    public ArrayList<Product> getProducts() {
-        return products;
+    public ArrayList<Product> getShoppingCart() {
+        return shoppingCart;
     }
 
     /**
-     * @param products the products to set
+     * @param shoppingCart the products to set
      */
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+    public void setShoppingCart(ArrayList<Product> shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
     /**
@@ -136,37 +139,87 @@ public class Voucher {
         this.supplier = supplier;
     }
 
-    public float calculateVAT(){
-        //TODO algorithm
-        return 0.0f;
+    public float calculateSubtotal() {
+        float subTotal;
+
+        subTotal = 0.0f;
+
+        for (Product product : this.shoppingCart) {
+            subTotal += product.calculateTotalPrice();
+        }
+        return subTotal;
     }
-    
-    public float calculateSubtotal(){
-        //TODO algorithm
-        return 0.0f;
+
+    public float calculateVAT() {
+        float valueWithVAT;
+
+        valueWithVAT = subtotal * VAT;
+
+        return valueWithVAT;
     }
-    
-    public float calculateTotal(){
-        //TODO algortithm
-        return 0.0f;
+
+    public float calculateTotal() {
+
+        return this.subtotal + this.valueWithVAT;
     }
-    
-    public void generateVoucher(){
-        //TODO algorithm
-    }
-    
-    public void sendVoucher(){
-        //TODO algorithm
-    }
-    
-    public void addProduct(Product product){
-        //TODO algorithm
-    }
-    
-    public void deleteProduct(String productId){
+
+    public void generateVoucher() {
         //TODO algorithm
     }
-    
-    
-        
+
+    public void sendVoucher() {
+        //TODO algorithm
     }
+
+    public void addToShoppingCart(Inventory inventory, String productId, int amount) {
+
+        this.shoppingCart.add(inventory.getProductQuantity(productId, amount));
+    }
+
+    public void deleteToShoppingCart(Inventory inventory, String productId) {
+
+        for (Product product : this.shoppingCart) {
+
+            if (product.getId().equals(productId)) {
+
+                this.shoppingCart.remove(product);
+
+                inventory.addProductQuantity(productId, product.getAmount());
+                return;
+
+            }
+        }
+        throw new Error("the product was not found");
+
+    }
+
+    public void generateVoucherForConsole() {
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        System.out.println("===========================================");
+        System.out.println("               VOUCHER");
+        System.out.println("===========================================");
+        System.out.printf("%-20s: %s%n", "Supplier", this.supplier.getName());
+        System.out.printf("%-20s: %s%n", "Client", this.client.getName());
+        System.out.printf("%-20s: %s%n", "Fecha de Emisión", this.issueDate);
+        System.out.printf("%-20s: %s%n", "ID", id);
+        System.out.printf("%-20s: %s%n", "Tipo", this.type);
+        System.out.println("-------------------------------------------");
+
+
+        System.out.printf("%-30s %-10s %-10s %-10s%n", "Producto", "Cantidad", "Precio", "Total");
+        System.out.println("-------------------------------------------");
+        for (Product product : this.shoppingCart) {
+            System.out.printf("%-30s %-10d %-10s %-10s%n", product.getDescription(), product.getAmount(),
+                    "$" + df.format(product.getPrice().getCurrent()), "$" + df.format(product.calculateTotalPrice()));
+        }
+
+
+        System.out.println("-------------------------------------------");
+        System.out.printf("%-40s: $%s%n", "Subtotal", df.format(this.subtotal));
+        System.out.printf("%-40s: $%s%n", "Total", df.format(this.total));
+        System.out.println("===========================================");
+
+    }
+
+}
