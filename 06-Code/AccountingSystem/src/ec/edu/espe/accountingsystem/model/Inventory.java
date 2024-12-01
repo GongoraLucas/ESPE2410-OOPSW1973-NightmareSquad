@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Andrés Espinosa
  */
 public class Inventory {
-    
+
     private ArrayList<Product> products;
 
     @Override
@@ -20,28 +20,66 @@ public class Inventory {
     public Inventory(ArrayList<Product> products) {
         this.products = products;
     }
-    
-    public void add(Product product){
+
+    public void add(Product product) {
         boolean add = products.add(product);
-        if(add){
+        if (add) {
             System.out.println("El elemento ha sido añadido correctamente");
         }
     }
-    
-    public void delete(String productId){
-        int index = products.indexOf(productId);
-        Product remove = products.remove(index);
-        System.out.println("El elemento -->" + remove + "ha sido eliminado");
-    }
-    
-    public void update(String productId){
-        //TODO algorithm
-        
-    }
-    public void read (String productID){
-        //TODO algorithm
+
+    public Product searchById(String productId) {
+
+        for (Product product : products) {
+            if (product.getId() == productId) {
+                return product;
+            }
+        }
+        throw new Error("The product was not found");
     }
 
-    
-    
+    public void delete(String productId) {
+        this.products.remove(this.searchById(productId));
+    }
+
+    public void update(String productId) {
+        //TODO algorithm
+
+    }
+
+    public void viewProductsForConsole() {
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        for (Product product : this.products) {
+            System.out.printf("%-10s %-20s %-10.2f %-8d %-30s %-15s\n",
+                    product.getId(), product.getReference(),
+                    product.getDescription(), product.getPrice().getCurrent(),
+                    product.getAmount(), product.getMeasuredItem().getDescription());
+        }
+
+    }
+
+    public void readProductForConsole(String productId) {
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        Product selectedProduct = this.searchById(productId);
+
+        System.out.printf("%-10s %-20s %-10.2f %-8d %-30s %-15s\n",
+                selectedProduct.getId(), selectedProduct.getReference(),
+                selectedProduct.getDescription(), selectedProduct.getPrice().getCurrent(),
+                selectedProduct.getAmount(), selectedProduct.getMeasuredItem().getDescription());
+
+    }
+
+    public String readProductsForCSV() {
+        String viewProducts;
+
+        viewProducts = "";
+
+        for (int i = 0; i < this.products.size(); i++) {
+            viewProducts += products.get(i).toString() + "\n";
+        }
+        return viewProducts;
+    }
+
 }
