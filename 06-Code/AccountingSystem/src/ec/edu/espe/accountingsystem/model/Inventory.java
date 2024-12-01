@@ -31,7 +31,7 @@ public class Inventory {
     public Product searchById(String productId) {
 
         for (Product product : products) {
-            if (product.getId() == productId) {
+            if (product.getId().equals(productId)) {
                 return product;
             }
         }
@@ -46,6 +46,29 @@ public class Inventory {
         //TODO algorithm
 
     }
+    
+    public Product getProductQuantity(String productId,int amount){
+        Product selectedProduct;
+        for (Product product : this.products) {
+            if (product.getId().equals(productId)) {
+                product.setAmount(product.getAmount()-amount);
+                selectedProduct=product;
+                selectedProduct.setAmount(amount);
+                return selectedProduct;
+            }
+        }
+        throw new Error("the product was not found");
+        
+    }
+    public void addProductQuantity(String productId,int amount){
+        for (Product product : this.products) {
+            if (product.getId().equals(productId)) {
+                product.setAmount(product.getAmount()+amount);
+            }
+        }
+        
+    }
+    
 
     public void viewProductsForConsole() {
         System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
