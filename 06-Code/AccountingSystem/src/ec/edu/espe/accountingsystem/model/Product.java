@@ -6,22 +6,19 @@ package ec.edu.espe.accountingsystem.model;
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-
 public class Product {
-    
+
     private String id;
     private String reference;
-    private String description; 
+    private String description;
     private Price price;
     private int amount;
     private MeasuredItem measuredItem;
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", reference=" + reference + ", description=" + description + ", price=" + price + ", amount=" + amount + ", measuredItem=" + measuredItem + '}';
+        return this.id + ", " + this.reference + ", " + this.description + ", " + this.price.getCurrent() + ", " + this.amount + ", " + this.getMeasuredItem().getDescription();
     }
-
-    
 
     public Product(String id, String reference, String description, Price price, int amount, MeasuredItem measuredItem) {
         this.id = id;
@@ -31,9 +28,6 @@ public class Product {
         this.amount = amount;
         this.measuredItem = measuredItem;
     }
-
-
-    
 
     /**
      * @return the id
@@ -104,10 +98,23 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-    
 
-    
-    public float calculateTotalPrice(){
+    /**
+     * @return the measuredItem
+     */
+    public MeasuredItem getMeasuredItem() {
+        return measuredItem;
+    }
+
+    /**
+     * @param measuredItem the measuredItem to set
+     */
+    public void setMeasuredItem(MeasuredItem measuredItem) {
+        this.measuredItem = measuredItem;
+    }
+
+    public float calculateTotalPrice() {
         return this.getAmount() * this.getPrice().getCurrent();
     }
+
 }
