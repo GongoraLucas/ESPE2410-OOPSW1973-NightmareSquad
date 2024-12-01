@@ -7,6 +7,7 @@ import java.util.Date;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Voucher {
 

@@ -4,6 +4,7 @@ package ec.edu.espe.accountingsystem.model;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 
 public class Product {
@@ -13,6 +14,7 @@ public class Product {
     private String description; 
     private Price price;
     private int amount;
+    private String weightUnit;
 
     @Override
     public String toString() {
@@ -27,6 +29,7 @@ public class Product {
         this.description = description;
         this.price = price;
         this.amount = amount;
+        this.weightUnit = weightUnit;
     }
     
 
@@ -99,7 +102,21 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+    
+    /**
+     * @return the id
+     */
+    public String getweightUnit() {
+        return weightUnit;
+    }
 
+    /**
+     * @param weightUnit the id to set
+     */
+    public void setweightUnit(String weightUnit) {
+        this.weightUnit = weightUnit;
+    }
+    
     public float calculateTotalPrice(){
         //TODO algorithm
         return 0.0f;

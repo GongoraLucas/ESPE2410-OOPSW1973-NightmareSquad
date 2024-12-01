@@ -6,9 +6,10 @@ import java.util.ArrayList;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Inventory {
-
+    
     private ArrayList<Product> products;
 
     @Override
@@ -21,14 +22,23 @@ public class Inventory {
     }
     
     public void add(Product product){
-        //TODO algorithm
+        boolean add = products.add(product);
+        if(add==true){
+            System.out.println("El elemento ha sido añadido correctamente");
+        }
     }
     
     public void delete(String productId){
-        //TODO algorithm
+        int index = products.indexOf(productId);
+        Product remove = products.remove(index);
+        System.out.println("El elemento -->" + remove + "ha sido eliminado");
     }
     
     public void update(String productId){
+        //TODO algorithm
+        
+    }
+    public void read (String productID){
         //TODO algorithm
     }
 

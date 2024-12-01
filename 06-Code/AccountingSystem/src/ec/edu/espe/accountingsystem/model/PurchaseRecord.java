@@ -6,6 +6,7 @@ import java.util.ArrayList;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class PurchaseRecord {
 

@@ -4,6 +4,7 @@ package ec.edu.espe.accountingsystem.model;
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Client extends Entity{
          
@@ -11,7 +12,7 @@ public class Client extends Entity{
 
     @Override
     public String toString() {
-        return "Client{" + "type=" + type + '}';
+        return "Client{" + "type=" + getType() + '}';
     }
     
     public Client(String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
