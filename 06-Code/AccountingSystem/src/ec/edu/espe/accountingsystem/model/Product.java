@@ -116,5 +116,6 @@ public class Product {
     public float calculateTotalPrice() {
         return this.getAmount() * this.getPrice().getCurrent();
     }
+    
 
 }

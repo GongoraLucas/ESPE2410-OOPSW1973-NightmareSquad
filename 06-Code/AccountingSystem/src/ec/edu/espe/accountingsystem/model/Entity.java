@@ -119,5 +119,16 @@ public class Entity {
         this.email = email;
     }
     
+    public String getData() {
+        return "ID: " + id + ", Name: " + name + ", IdentityCard: " + identityCard + ", Address: " + address
+                + ", PhoneNumber: " + phoneNumber + ", Email: " + email;
+    }
+
+    public void updateData(String name, String address, String phoneNumber, String email) {
+        if (name != null) this.name = name;
+        if (address != null) this.address = address;
+        if (phoneNumber != null) this.phoneNumber = phoneNumber;
+        if (email != null) this.email = email;
+    }
     
 }

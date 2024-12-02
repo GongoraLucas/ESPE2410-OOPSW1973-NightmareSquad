@@ -16,6 +16,8 @@ public class Inventory {
     public String toString() {
         return "Inventory{" + "products=" + products + '}';
     }
+    
+    
 
     public Inventory(ArrayList<Product> products) {
         this.products = products;

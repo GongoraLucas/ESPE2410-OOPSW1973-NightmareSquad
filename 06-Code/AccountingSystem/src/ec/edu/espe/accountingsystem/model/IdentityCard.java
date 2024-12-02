@@ -19,9 +19,7 @@ public class IdentityCard {
     public IdentityCard(String type, String id) {
         this.type = type;
         this.id = id;
-    }
-    
-    
+    }    
 
     /**
      * @return the type
@@ -50,4 +48,6 @@ public class IdentityCard {
     public void setId(String id) {
         this.id = id;
     }
+    
+    
 }
