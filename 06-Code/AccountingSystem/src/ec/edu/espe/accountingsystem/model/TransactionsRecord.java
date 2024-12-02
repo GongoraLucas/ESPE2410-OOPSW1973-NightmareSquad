@@ -72,4 +72,43 @@ public class TransactionsRecord {
 
     }
 
+    public void viewTransactionsForConsole() {
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        for (Transaction transaction : this.transactions) {
+            System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
+                    transaction.getId(), transaction.getType(),
+                    transaction.getVoucher().getId(), transaction.getVoucher().getIssueDate(),
+                    transaction.getVoucher().getPaymentMethod(), transaction.getVoucher().getTotal());
+        }
+
+    }
+
+    public void viewOnlyTransactionForConsole(String transactionId) {
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        Transaction selectedTransaction = this.searchById(transactionId);
+
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
+                selectedTransaction.getId(), selectedTransaction.getType(),
+                selectedTransaction.getVoucher().getId(), selectedTransaction.getVoucher().getIssueDate(),
+                selectedTransaction.getVoucher().getPaymentMethod(), selectedTransaction.getVoucher().getTotal());
+
+    }
+    public void viewTransactionsByTypeForConsole(String type) {
+        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        ArrayList<Transaction> selectedTransactions = this.getTransactionByType(type);
+        for (Transaction transaction : selectedTransactions) {
+            System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
+                    transaction.getId(), transaction.getType(),
+                    transaction.getVoucher().getId(), transaction.getVoucher().getIssueDate(),
+                    transaction.getVoucher().getPaymentMethod(), transaction.getVoucher().getTotal());
+        }
+        
+
+    }
+    
+    
+
 }
