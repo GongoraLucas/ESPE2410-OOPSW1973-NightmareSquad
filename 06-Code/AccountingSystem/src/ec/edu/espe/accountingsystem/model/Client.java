@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.accountingsystem.model;
 
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Client extends Entity{
          
@@ -14,10 +12,14 @@ public class Client extends Entity{
 
     @Override
     public String toString() {
-        return "Client{" + "type=" + type + '}';
+        return "Client{" + "type=" + getType() + '}';
     }
     
-
+    public Client(String type,String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
+        super(id, name, identityCard, address, phoneNumber, email);
+        this.type=type;
+    }
+    
     /**
      * @return the type
      */

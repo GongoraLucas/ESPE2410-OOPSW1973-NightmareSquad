@@ -3,45 +3,43 @@ package ec.edu.espe.accountingsystem.model;
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
-
 public class Product {
-    
-    private int id;
+
+    private String id;
     private String reference;
-    private String description; 
+    private String description;
     private Price price;
     private int amount;
-    private String unit;
+    private MeasuredItem measuredItem;
 
     @Override
     public String toString() {
-        return "Inventory{" + "id=" + id + ", reference=" + reference + 
-               ", description=" + description + ", price=" + price +
-               ", amount=" + amount + ", unit=" + unit + '}';
+        return this.id + ", " + this.reference + ", " + this.description + ", " + this.price.getCurrent() + ", " + this.amount + ", " + this.getMeasuredItem().getDescription();
     }
 
-    public Product(int id, String reference, String description, Price price, int amount, String unit) {
+    public Product(String id, String reference, String description, Price price, int amount, MeasuredItem measuredItem) {
         this.id = id;
         this.reference = reference;
         this.description = description;
         this.price = price;
         this.amount = amount;
-        this.unit = unit;
+        this.measuredItem = measuredItem;
     }
-    
 
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -102,19 +100,21 @@ public class Product {
     }
 
     /**
-     * @return the unit
+     * @return the measuredItem
      */
-    public String getUnit() {
-        return unit;
+    public MeasuredItem getMeasuredItem() {
+        return measuredItem;
     }
 
     /**
-     * @param unit the unit to set
+     * @param measuredItem the measuredItem to set
      */
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setMeasuredItem(MeasuredItem measuredItem) {
+        this.measuredItem = measuredItem;
     }
-    
-    
-    
+
+    public float calculateTotalPrice() {
+        return this.getAmount() * this.getPrice().getCurrent();
+    }
+
 }

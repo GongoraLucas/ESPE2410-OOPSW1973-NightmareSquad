@@ -3,6 +3,8 @@ package ec.edu.espe.accountingsystem.model;
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Price {
 
@@ -10,21 +12,19 @@ public class Price {
     private float retail;
     private float wholesale;
     private float distributor;
-    private float discount;
 
     @Override
     public String toString() {
         return "Price{" + "current=" + current + ", retail=" + retail + 
                ", wholesale=" + wholesale + ", distributor=" + distributor + 
-               ", discount=" + discount + '}';
+               ", discount=" +'}';
     }
 
-    public Price(float current, float retail, float wholesale, float distributor, float discount) {
-        this.current = current;
+    public Price(float retail, float wholesale, float distributor) {
+        this.current = retail;
         this.retail = retail;
         this.wholesale = wholesale;
         this.distributor = distributor;
-        this.discount = discount;
     }
        
     
@@ -84,19 +84,28 @@ public class Price {
         this.distributor = distributor;
     }
 
-    /**
-     * @return the discount
-     */
-    public float getDiscount() {
-        return discount;
-    }
 
-    /**
-     * @param discount the discount to set
-     */
-    public void setDiscount(float discount) {
-        this.discount = discount;
+    
+    public void adjustCurrentPrice(String typePrice){
+        switch(typePrice){
+            case "retail":
+                this.current=this.retail;
+                break;
+            case "wholesale":
+                this.current=this.wholesale;
+                break;
+            case "distributor":
+                this.current=this.distributor;
+                break;
+            default:
+                System.out.println("Valid price types: retail, wholesale and distributor");
+                break;
+        }
     }
-
+    
+    public void applyDiscount(float discount){
+        float discountValue = this.current * discount;
+        this.current = this.current - discountValue;
+    }
     
 }

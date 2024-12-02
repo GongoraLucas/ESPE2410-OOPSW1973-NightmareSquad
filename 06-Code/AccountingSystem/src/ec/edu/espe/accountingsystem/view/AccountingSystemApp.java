@@ -5,10 +5,12 @@ import java.util.Scanner;
 /**
  *
  * @author Sebastian Charij
+ * @author Andrés Espinosa
  */
 public class AccountingSystemApp {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
 
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -74,5 +76,14 @@ public class AccountingSystemApp {
             }
         } while (opcion != 10);
         scanner.close();
+=======
+        
+        System.out.println("Accounting System Project");
+        System.out.println("Team 2");
+        
+        System.out.println("Proyecto Sistema Contable");
+        System.out.println("Grupo 2");
+       
+>>>>>>> 198e0992327d04438ba9533b487656e112a7982f
     }
 }

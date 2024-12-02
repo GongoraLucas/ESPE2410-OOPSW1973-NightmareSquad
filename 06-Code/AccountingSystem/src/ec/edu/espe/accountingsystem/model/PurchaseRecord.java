@@ -1,39 +1,50 @@
 package ec.edu.espe.accountingsystem.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author Sebastian Charij
+ * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
-
 public class PurchaseRecord {
 
-    private List<Purchase> purchases;
+    private ArrayList<Purchase> purchases;
 
     @Override
     public String toString() {
         return "PurchaseRecord{" + "purchases=" + purchases + '}';
     }
 
-    public PurchaseRecord(List<Purchase> purchases) {
+    public PurchaseRecord(ArrayList<Purchase> purchases) {
         this.purchases = purchases;
     }
-    
-    
+
     /**
      * @return the purchases
      */
-    public List<Purchase> getPurchases() {
+    public ArrayList<Purchase> getPurchases() {
         return purchases;
     }
 
     /**
      * @param purchases the purchases to set
      */
-    public void setPurchases(List<Purchase> purchases) {
+    public void setPurchases(ArrayList<Purchase> purchases) {
         this.purchases = purchases;
     }
-    
-    
+
+    public void add(Purchase purchase) {
+        //TODO algorithm
+    }
+
+    public void delete(String purchaseId) {
+        //TODO algorithm
+    }
+
+    public void update(String purchaseId) {
+        //TODO algorithm
+    }
+
 }
