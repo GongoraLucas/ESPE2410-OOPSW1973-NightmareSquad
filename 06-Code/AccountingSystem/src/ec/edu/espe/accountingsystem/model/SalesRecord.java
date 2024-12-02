@@ -35,16 +35,51 @@ public class SalesRecord {
         this.sales = sales;
     }
 
-    public void add(Supplier supplier) {
-        //TODO algorithm
+    public void add(Sale sale) {
+        boolean add = this.sales.add(sale);
+        if (add) {
+            System.out.println("The sale has been added successfully");
+        }
     }
 
-    public void delete(String supplierId) {
-        //TODO algorithm
+    public Sale searchById(String saleId) {
+
+        for (Sale sale : sales) {
+            if (sale.getId().equals(saleId)) {
+                return sale;
+            }
+        }
+        throw new Error("The sale was not found");
+    }
+
+    public void delete(String saleId) {
+        this.sales.remove(searchById(saleId));
     }
 
     public void update(String supplierId) {
         //TODO algorithm
+    }
+
+    public void viewSalesForConsole() {
+        System.out.printf("%-10s %-20s %-15s %-10s %-30s %-30s %-20s %-15s\n",
+                "ID", "Issue Date", "Voucher Type", "Voucher ID",
+                "Client Name", "Client Type", "Payment Method", "TOTAL");
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+
+
+        for (Sale sale : this.sales) {
+           
+            System.out.printf("%-10s %-20s %-15s %-10s %-30s %-30s %-20s %-15.2f\n",
+                    sale.getId(),
+                    sale.getVoucher().getIssueDate(),
+                    sale.getVoucher().getType(),
+                    sale.getVoucher().getId(),
+                    sale.getVoucher().getClient().getName(),
+                    sale.getVoucher().getClient().getType(),
+                    sale.getVoucher().getPaymentMethod(),
+                    sale.getVoucher().getTotal()); 
+        }
+
     }
 
 }

@@ -10,6 +10,10 @@ import java.util.Scanner;
 public class AccountingSystemApp {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
+=======
+        System.out.println("Accounting System Project");
+>>>>>>> ba68ea0070b59cc9c3f6fc2036456f0bb78854de
 
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -75,6 +79,7 @@ public class AccountingSystemApp {
             }
         } while (opcion != 10);
         scanner.close();
+<<<<<<< HEAD
 
         
         System.out.println("Accounting System Project");
@@ -84,5 +89,7 @@ public class AccountingSystemApp {
         System.out.println("Grupo 2");
        
 
+=======
+>>>>>>> ba68ea0070b59cc9c3f6fc2036456f0bb78854de
     }
 }

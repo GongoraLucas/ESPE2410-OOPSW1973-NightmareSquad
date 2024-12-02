@@ -22,13 +22,17 @@ public class Voucher {
     private float subtotal;
     private float valueWithVAT;
     private float total;
+    private String paymentMethod;
 
     @Override
     public String toString() {
-        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", shoppingCart=" + shoppingCart + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + ", subtotal=" + subtotal + ", total=" + total + '}';
+        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", shoppingCart=" + shoppingCart + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + ", subtotal=" + subtotal + ", valueWithVAT=" + valueWithVAT + ", total=" + getTotal() + ", paymentMethod=" + getPaymentMethod() + '}';
     }
+    
 
-    public Voucher(String type, int id, Date issueDate, ArrayList<Product> products, Client client, Supplier supplier, float VAT) {
+    
+
+    public Voucher(String type, int id, Date issueDate, ArrayList<Product> products, Client client, Supplier supplier, float VAT,String paymentMethod) {
         this.type = type;
         this.id = id;
         this.issueDate = issueDate;
@@ -39,6 +43,7 @@ public class Voucher {
         this.subtotal = this.calculateSubtotal();
         this.valueWithVAT = this.calculateVAT();
         this.total = this.calculateTotal();
+        this.paymentMethod=paymentMethod;
     }
 
     /**
@@ -138,7 +143,35 @@ public class Voucher {
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
+    
+    /**
+     * @return the paymentMethod
+     */
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
 
+    /**
+     * @param paymentMethod the paymentMethod to set
+     */
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+        /**
+     * @return the total
+     */
+    public float getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(float total) {
+        this.total = total;
+    }
+    
     public float calculateSubtotal() {
         float subTotal;
 
@@ -201,9 +234,10 @@ public class Voucher {
         System.out.println("===========================================");
         System.out.printf("%-20s: %s%n", "Supplier", this.supplier.getName());
         System.out.printf("%-20s: %s%n", "Client", this.client.getName());
-        System.out.printf("%-20s: %s%n", "Fecha de Emisión", this.issueDate);
-        System.out.printf("%-20s: %s%n", "ID", id);
-        System.out.printf("%-20s: %s%n", "Tipo", this.type);
+        System.out.printf("%-20s: %s%n", "Issue Date", this.issueDate);
+        System.out.printf("%-20s: %s%n", "Id", id);
+        System.out.printf("%-20s: %s%n", "Type", this.type);
+        System.out.printf("%-20s: %s%n", "Payment method", this.paymentMethod);
         System.out.println("-------------------------------------------");
 
 
@@ -221,5 +255,9 @@ public class Voucher {
         System.out.println("===========================================");
 
     }
+
+
+
+    
 
 }

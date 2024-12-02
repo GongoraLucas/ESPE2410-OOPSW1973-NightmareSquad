@@ -26,7 +26,7 @@ public class Inventory {
     public void add(Product product) {
         boolean add = products.add(product);
         if (add) {
-            System.out.println("El elemento ha sido añadido correctamente");
+            System.out.println("the product has been added successfully");
         }
     }
 
