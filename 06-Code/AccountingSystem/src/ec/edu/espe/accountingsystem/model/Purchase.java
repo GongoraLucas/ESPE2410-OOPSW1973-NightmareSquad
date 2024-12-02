@@ -15,6 +15,14 @@ public class Purchase extends Transaction{
     public String toString() {
         return "Purchase{" + "supplier=" + supplier + '}';
     }
+
+    public Purchase(Supplier supplier, String id, Voucher voucher) {
+        super(id, voucher);
+        this.supplier = supplier;
+    }
+
+    
+    
     
 
     /**
