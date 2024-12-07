@@ -24,8 +24,8 @@ public class Inventory {
     }
 
     public void add(Product product) {
-        boolean add = products.add(product);
-        if (add) {
+        boolean newProduct = products.add(product);
+        if (newProduct) {
             System.out.println("the product has been added successfully");
         }
     }
@@ -76,7 +76,7 @@ public class Inventory {
         System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
         System.out.println("-----------------------------------------------------------------------------------------------------");
         for (Product product : this.products) {
-            System.out.printf("%-10s %-20s %-10.2f %-8d %-30s %-15s\n",
+            System.out.printf("%-10s %-20s %-10s %-8.2f %-30d %-15s\n",
                     product.getId(), product.getReference(),
                     product.getDescription(), product.getPrice().getCurrent(),
                     product.getAmount(), product.getMeasuredItem().getDescription());
@@ -84,7 +84,7 @@ public class Inventory {
 
     }
 
-    public void readProductForConsole(String productId) {
+    public void viewOnlyProductForConsole(String productId) {
         System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
         System.out.println("-----------------------------------------------------------------------------------------------------");
         Product selectedProduct = this.searchById(productId);
