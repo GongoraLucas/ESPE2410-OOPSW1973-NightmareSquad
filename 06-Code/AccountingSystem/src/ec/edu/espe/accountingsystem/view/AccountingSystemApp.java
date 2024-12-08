@@ -25,6 +25,7 @@ public class AccountingSystemApp {
 
         System.out.println("Accounting System Project");
         ArrayList<Product> products;
+        char opcion;
 
         products = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -34,56 +35,12 @@ public class AccountingSystemApp {
 
             Inventory inventory;
 
-            switch (opcion) {
-                case 1:
-                    // Lógica para gestión de clientes
-                    //gestionarClientes(scanner);
-                    break;
-                case 2:
-                    // Lógica para gestión de proveedores
-                    //gestionarProveedores(scanner);
-                    break;
-                case 3:
-                    // Lógica para gestión de productos
-                    //gestionarProductos(scanner);
-                    break;
-                case 4:
-                    // Lógica para gestión de precios
-                    //gestionarPrecios(scanner);
-                    break;
-                case 5:
-                    // Lógica para gestión de compras
-                    //gestionarCompras(scanner);
-                    break;
-                case 6:
-                    // Lógica para gestión de ventas
-                    //gestionarVentas(scanner);
-                    break;
-                case 7:
-                    // Lógica para gestión de transacciones
-                    //gestionarTransacciones(scanner);
-                    break;
-                case 8:
-                    // Lógica para gestión de identificaciones
-                    //gestionarIdentificaciones(scanner);
-                    break;
-                case 9:
-                    // Lógica para gestión de vouchers
-                    //gestionarVouchers(scanner);
-                    break;
-                case 10:
-                    System.out.println("Saliendo del programa...");
-                    break;
-                default:
-                    System.out.println("Opción no valida. Intente de nuevo.");
-            }
-        } while (opcion != 10);
-        scanner.close();
             measuredItemMilkChocolate = new MeasuredItem("funda", 2f + i, "lb");
             priceMilkChocolate = new Price(1.7f + i, 1.5f + i, 1.4f + i);
             milkChocolate = new Product("1" + (i + 1), "chocolate" + (i + 1), "milkChocolate" + (i + 1), priceMilkChocolate, 40 + i, measuredItemMilkChocolate);
             products.add(milkChocolate);
         }
+        
         Inventory inventory = new Inventory(products);
         Client client;
         IdentityCard identityCard;
@@ -101,30 +58,28 @@ public class AccountingSystemApp {
         Date date;
         date = new Date();
         voucher = new Voucher("invoice", 1, date, products, client, supplier, 0.15f, "transferencia");
-        
+
         Transaction transaction;
         ArrayList<Transaction> transactions;
-        
+
         transactions = new ArrayList<>();
-        
+
         transaction = new Transaction("1", "sale", voucher, "pagado");
         transactions.add(transaction);
-        
+
         TransactionsRecord record;
         record = new TransactionsRecord(transactions);
 
         inventory.viewProductsForConsole();
         System.out.println("------------------------------------------------------------");
         voucher.generateVoucherForConsole();
-         System.out.println("------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         record.viewTransactionsByTypeForConsole("compra");
-         System.out.println("------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------");
         record.viewTransactionsForConsole();
-        
-        
-        
-        
-        
+
+    }
+}
 
 //        Scanner scanner = new Scanner(System.in);
 //        int opcion;
@@ -151,12 +106,12 @@ public class AccountingSystemApp {
 //                    //gestionarClientes(scanner);
 //                    break;
 //                case 2:
+
 //                    // Lógica para gestión de proveedores
 //                    //gestionarProveedores(scanner);
 //                    break;
 //                case 3:
-//                    // Lógica para gestión de productos
-//                    //gestionarProductos(scanner);
+//                    
 //                    break;
 //                case 4:
 //                    // Lógica para gestión de precios
@@ -190,6 +145,6 @@ public class AccountingSystemApp {
 //            }
 //        } while (opcion != 10);
 //        scanner.close();
+//    }
+//}
 
-    }
-}

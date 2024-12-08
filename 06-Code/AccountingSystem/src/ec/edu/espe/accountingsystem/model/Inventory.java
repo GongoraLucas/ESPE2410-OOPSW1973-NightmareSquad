@@ -1,6 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.ArrayList;
+import Utils.FileManagerInventory;
 
 /**
  *
@@ -17,8 +18,6 @@ public class Inventory {
         return "Inventory{" + "products=" + products + '}';
     }
     
-    
-
     public Inventory(ArrayList<Product> products) {
         this.products = products;
     }
@@ -106,5 +105,14 @@ public class Inventory {
         }
         return viewProducts;
     }
+    
+    public void saveInventory(Inventory inventory) {
+        FileManagerInventory fileManager = new FileManagerInventory();
+        fileManager.saveInventory(inventory);
+    }
 
+    public static Inventory loadInventory() {
+        FileManagerInventory fileManager = new FileManagerInventory();
+        return fileManager.loadInventory();
+    }
 }
