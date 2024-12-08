@@ -8,7 +8,6 @@ package ec.edu.espe.accountingsystem.model;
  */
 public class Entity {
 
-    private String id;
     private String name;
     private IdentityCard identityCard;
     private String address;
@@ -17,13 +16,13 @@ public class Entity {
 
     @Override
     public String toString() {
-        return "Entity{" + "id=" + id + ", name=" + name + 
-               ", identityCard=" + identityCard + ", address=" + address + 
-               ", phoneNumber=" + phoneNumber + ", email=" + email + '}';
+        return "Entity{" + "name=" + name + ", identityCard=" + identityCard + ", address=" + address + ", phoneNumber=" + phoneNumber + ", email=" + email + '}';
     }
 
-    public Entity(String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
-        this.id = id;
+    
+
+    public Entity(String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
+        
         this.name = name;
         this.identityCard = identityCard;
         this.address = address;
@@ -35,19 +34,6 @@ public class Entity {
         
     }
     
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
 
     /**
      * @return the name
@@ -120,7 +106,7 @@ public class Entity {
     }
     
     public String getData() {
-        return "ID: " + id + ", Name: " + name + ", IdentityCard: " + identityCard + ", Address: " + address
+        return "Name: " + name + ", IdentityCard: " + identityCard + ", Address: " + address
                 + ", PhoneNumber: " + phoneNumber + ", Email: " + email;
     }
 

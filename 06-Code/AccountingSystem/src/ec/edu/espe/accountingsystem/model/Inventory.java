@@ -1,7 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.ArrayList;
-import Utils.FileManagerInventory;
+import Utils.JsonFileManager;
 
 /**
  *
@@ -15,7 +15,27 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return "Inventory{" + "products=" + products + '}';
+        String horizontalLine;
+        StringBuilder content;
+   
+        horizontalLine = "-------------------------------------------------------";
+        content = new StringBuilder();
+        
+        content.append(horizontalLine);
+        content.append(horizontalLine);
+        content.append(String.format("\n| %12s | %12s | %30s | %12s | %12s | %12s |\n", 
+                "ID", "Reference", "Description", "Price", "Amount", "Measured Item"));
+
+       
+        for (Product product : products) {
+            content.append(product.toString());
+        }
+
+ 
+        content.append(horizontalLine);
+        content.append("\n");
+        
+        return content.toString();
     }
     
     public Inventory(ArrayList<Product> products) {
@@ -106,13 +126,5 @@ public class Inventory {
         return viewProducts;
     }
     
-    public void saveInventory(Inventory inventory) {
-        FileManagerInventory fileManager = new FileManagerInventory();
-        fileManager.saveInventory(inventory);
-    }
-
-    public static Inventory loadInventory() {
-        FileManagerInventory fileManager = new FileManagerInventory();
-        return fileManager.loadInventory();
-    }
+    
 }

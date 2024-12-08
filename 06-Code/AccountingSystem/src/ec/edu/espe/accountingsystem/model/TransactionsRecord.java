@@ -10,9 +10,21 @@ public class TransactionsRecord {
 
     private ArrayList<Transaction> transactions;
 
+
     @Override
     public String toString() {
-        return "TransactionsRecord{" + "transactions=" + transactions + '}';
+        StringBuilder content;
+        
+        content = new StringBuilder();
+        
+        content.append(String.format("%-10s %-20s %-10s %-8s %-30s %-15s\n", 
+                "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total"));
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        for (Transaction transaction : this.transactions) {
+            content.append(transaction.toString());
+        }
+        
+        return content.toString();
     }
 
     public TransactionsRecord(ArrayList<Transaction> transactions) {

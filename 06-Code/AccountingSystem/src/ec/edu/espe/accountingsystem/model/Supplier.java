@@ -15,8 +15,8 @@ public class Supplier extends Entity{
         return "Supplier{" + "type=" + type + '}';
     }
 
-    public Supplier(String type, String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
-        super(id, name, identityCard, address, phoneNumber, email);
+    public Supplier(String type, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
+        super(name, identityCard, address, phoneNumber, email);
         this.type = type;
     }
 

@@ -15,7 +15,10 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" + "id=" + id + ", type=" + type + ", voucher=" + voucher + ", paymentStatus=" + paymentStatus + '}';
+        return String.format("%-10s %-20s %-10s %-8s %-30s %-15s\n",
+                    this.id, this.type,
+                    this.voucher.getId(), this.voucher.getIssueDate(),
+                    this.voucher.getPaymentMethod(), this.voucher.getTotal());
     }
 
     public Transaction(String id, String type, Voucher voucher, String paymentStatus) {

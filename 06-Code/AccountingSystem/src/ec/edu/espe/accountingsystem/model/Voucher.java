@@ -13,14 +13,14 @@ import java.util.Date;
 public class Voucher {
 
     private String type;
-    private int id;
+    private String id;
     private Date issueDate;
     private ArrayList<Product> shoppingCart;
     private Client client;
     private Supplier supplier;
     private float VAT;
     private float subtotal;
-    private float valueWithVAT;
+    private static float valueWithVAT = 0.15f;
     private float total;
     private String paymentMethod;
 
@@ -32,14 +32,13 @@ public class Voucher {
 
     
 
-    public Voucher(String type, int id, Date issueDate, ArrayList<Product> products, Client client, Supplier supplier, float VAT,String paymentMethod) {
+    public Voucher(String type, String id, Client client, Supplier supplier,String paymentMethod) {
         this.type = type;
         this.id = id;
-        this.issueDate = issueDate;
-        this.shoppingCart = products;
+        this.issueDate = new Date();
+        this.shoppingCart = new ArrayList<>();
         this.client = client;
         this.supplier = supplier;
-        this.VAT = VAT;
         this.subtotal = this.calculateSubtotal();
         this.valueWithVAT = this.calculateVAT();
         this.total = this.calculateTotal();
@@ -63,14 +62,14 @@ public class Voucher {
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

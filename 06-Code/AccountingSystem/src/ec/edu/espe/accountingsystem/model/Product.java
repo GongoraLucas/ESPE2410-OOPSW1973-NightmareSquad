@@ -17,7 +17,18 @@ public class Product {
 
     @Override
     public String toString() {
-        return this.id + ", " + this.reference + ", " + this.description + ", " + this.price.getCurrent() + ", " + this.amount + ", " + this.getMeasuredItem().getDescription();
+         String horizontalLine ="------------------------------------------------------";
+         return String.format("%s%s\n| %12s | %12s | %30s | %12s | %12s | %12s |\n%s",
+                horizontalLine,
+                horizontalLine,
+                id,              
+                reference,       
+                description,     
+                price.getCurrent(),
+                amount,          
+                measuredItem.getDescription(), 
+                horizontalLine); 
+
     }
 
     public Product(String id, String reference, String description, Price price, int amount, MeasuredItem measuredItem) {
