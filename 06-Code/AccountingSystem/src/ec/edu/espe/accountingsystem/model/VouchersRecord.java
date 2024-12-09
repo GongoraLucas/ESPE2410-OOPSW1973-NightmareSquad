@@ -2,7 +2,7 @@
 
 package ec.edu.espe.accountingsystem.model;
 
-import Utils.JsonFileManager;
+import utils.JsonFileManager;
 import java.util.ArrayList;
 
 /**

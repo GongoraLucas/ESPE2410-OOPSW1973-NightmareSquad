@@ -5,6 +5,7 @@ package ec.edu.espe.accountingsystem.model;
  * @author Sebastian Charij
  * @author Lucas Gongora
  * @author Andrés Espinosa
+ * @author David Cuichan
  */
 public class IdentityCard {
     private String type;

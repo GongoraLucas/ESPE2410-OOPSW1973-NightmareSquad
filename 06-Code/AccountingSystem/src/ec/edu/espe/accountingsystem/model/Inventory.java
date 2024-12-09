@@ -1,13 +1,14 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.ArrayList;
-import Utils.JsonFileManager;
+import utils.JsonFileManager;
 
 /**
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
  * @author Andrés Espinosa
+ * @author David Cuichan
  */
 public class Inventory {
 

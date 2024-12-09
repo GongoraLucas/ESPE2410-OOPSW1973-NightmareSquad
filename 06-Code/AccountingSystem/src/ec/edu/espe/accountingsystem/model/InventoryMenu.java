@@ -1,6 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
-import Utils.JsonFileManager;
+import utils.JsonFileManager;
 import java.util.Locale;
 import java.util.Scanner;
 
