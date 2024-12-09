@@ -6,7 +6,7 @@ package ec.edu.espe.accountingsystem.model;
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-public class Client extends Entity{
+public class Customer extends Entity{
          
     private String type;
 
@@ -15,7 +15,7 @@ public class Client extends Entity{
         return "Client{" + "type=" + getType() + '}';
     }
     
-    public Client(String type, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
+    public Customer(String type, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
         super(name, identityCard, address, phoneNumber, email);
         this.type=type;
     }

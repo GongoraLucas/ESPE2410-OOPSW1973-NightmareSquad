@@ -11,120 +11,117 @@ import Utils.JsonFileManager;
  */
 public class Inventory {
 
+    private String fileName;
+    private JsonFileManager productsJson;
     private ArrayList<Product> products;
 
     @Override
     public String toString() {
         String horizontalLine;
         StringBuilder content;
-   
+
         horizontalLine = "-------------------------------------------------------";
         content = new StringBuilder();
-        
+
         content.append(horizontalLine);
         content.append(horizontalLine);
-        content.append(String.format("\n| %12s | %12s | %30s | %12s | %12s | %12s |\n", 
+        content.append(String.format("\n| %12s | %12s | %30s | %12s | %12s | %12s |\n",
                 "ID", "Reference", "Description", "Price", "Amount", "Measured Item"));
 
-       
-        for (Product product : products) {
+        for (Product product : getProducts()) {
             content.append(product.toString());
         }
 
- 
         content.append(horizontalLine);
         content.append("\n");
-        
+
         return content.toString();
     }
-    
-    public Inventory(ArrayList<Product> products) {
-        this.products = products;
+
+    public Inventory(String fileName) {
+        this.fileName = fileName;
+        this.productsJson = new JsonFileManager(this.fileName);
+        this.products = this.productsJson.read(Product.class);
     }
 
     public void add(Product product) {
-        boolean newProduct = products.add(product);
-        if (newProduct) {
-            System.out.println("the product has been added successfully");
-        }
+        this.productsJson.create(product, Product.class);
     }
 
-    public Product searchById(String productId) {
+    public void delete(String productId) {
+        this.productsJson.delete(productId, Product.class);
+    }
 
-        for (Product product : products) {
+    public void update(String productId, Product product) {
+        this.productsJson.update(productId, product, Product.class);
+
+    }
+
+    public void updateJsonFile() {
+        this.products = this.productsJson.read(Product.class);
+    }
+
+    public void updateInventoryByTypeCustomer(String typeCustomer) {
+    for (int i = 0; i < this.products.size(); i++) {
+        Product product = this.products.get(i);
+        try {
+            product.getPrice().adjustCurrentPrice(typeCustomer);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Valid price types: retail, wholesale and distributor");
+        }
+        this.products.set(i, product);
+    }
+}
+
+    public Product findProductById(String productId) {
+        for (Product product : this.products) {
             if (product.getId().equals(productId)) {
                 return product;
             }
         }
-        throw new Error("The product was not found");
+        return null;
     }
 
-    public void delete(String productId) {
-        this.products.remove(this.searchById(productId));
-    }
+    public Product getProductQuantity(String productId, int amount) {
 
-    public void update(String productId) {
-        //TODO algorithm
-
-    }
-    
-    public Product getProductQuantity(String productId,int amount){
         Product selectedProduct;
-        for (Product product : this.products) {
+        try {
+            for (Product product : this.getProducts()) {
+                if (product.getId().equals(productId)) {
+                    if (amount > product.getAmount()) {
+                        throw new Error("Exceeds the amount of the product");
+                    }
+
+                    product.setAmount(product.getAmount() - amount);
+                    this.productsJson.update(productId, product, Product.class);
+                    selectedProduct = product;
+                    selectedProduct.setAmount(amount);
+                    return selectedProduct;
+                }
+            }
+            throw new Error("the product was not found");
+        } catch (Error er) {
+            System.out.println(er.getMessage());
+            return null;
+        }
+
+    }
+
+    public void addProductQuantity(String productId, int amount) {
+        for (Product product : this.getProducts()) {
             if (product.getId().equals(productId)) {
-                product.setAmount(product.getAmount()-amount);
-                selectedProduct=product;
-                selectedProduct.setAmount(amount);
-                return selectedProduct;
+                product.setAmount(product.getAmount() + amount);
+                this.productsJson.update(productId, product, Product.class);
             }
         }
-        throw new Error("the product was not found");
-        
-    }
-    public void addProductQuantity(String productId,int amount){
-        for (Product product : this.products) {
-            if (product.getId().equals(productId)) {
-                product.setAmount(product.getAmount()+amount);
-            }
-        }
-        
-    }
-    
-
-    public void viewProductsForConsole() {
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        for (Product product : this.products) {
-            System.out.printf("%-10s %-20s %-10s %-8.2f %-30d %-15s\n",
-                    product.getId(), product.getReference(),
-                    product.getDescription(), product.getPrice().getCurrent(),
-                    product.getAmount(), product.getMeasuredItem().getDescription());
-        }
 
     }
 
-    public void viewOnlyProductForConsole(String productId) {
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Reference", "Description", "Price", "Amount", "Measured Item");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        Product selectedProduct = this.searchById(productId);
-
-        System.out.printf("%-10s %-20s %-10.2f %-8d %-30s %-15s\n",
-                selectedProduct.getId(), selectedProduct.getReference(),
-                selectedProduct.getDescription(), selectedProduct.getPrice().getCurrent(),
-                selectedProduct.getAmount(), selectedProduct.getMeasuredItem().getDescription());
-
+    /**
+     * @return the products
+     */
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
-    public String readProductsForCSV() {
-        String viewProducts;
-
-        viewProducts = "";
-
-        for (int i = 0; i < this.products.size(); i++) {
-            viewProducts += products.get(i).toString() + "\n";
-        }
-        return viewProducts;
-    }
-    
-    
 }

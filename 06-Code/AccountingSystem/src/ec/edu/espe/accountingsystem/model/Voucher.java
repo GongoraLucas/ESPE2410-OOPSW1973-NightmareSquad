@@ -16,27 +16,58 @@ public class Voucher {
     private String id;
     private Date issueDate;
     private ArrayList<Product> shoppingCart;
-    private Client client;
+    private Customer client;
     private Supplier supplier;
-    private float VAT;
+    private static float  VAT = 0.15f;
     private float subtotal;
-    private static float valueWithVAT = 0.15f;
+    private float valueWithVAT;
     private float total;
     private String paymentMethod;
 
     @Override
     public String toString() {
-        return "Voucher{" + "type=" + type + ", id=" + id + ", issueDate=" + issueDate + ", shoppingCart=" + shoppingCart + ", client=" + client + ", supplier=" + supplier + ", VAT=" + VAT + ", subtotal=" + subtotal + ", valueWithVAT=" + valueWithVAT + ", total=" + getTotal() + ", paymentMethod=" + getPaymentMethod() + '}';
+        
+        StringBuilder content;
+        
+        content = new StringBuilder();
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        content.append("===========================================\n");
+        content.append("               VOUCHER\n");
+        content.append("===========================================\n");
+        content.append(String.format("%-20s: %s%n", "Supplier", this.supplier.getName()));
+        content.append(String.format("%-20s: %s%n", "Client", this.client.getName()));
+        content.append(String.format("%-20s: %s%n", "Issue Date", this.issueDate));
+        content.append(String.format("%-20s: %s%n", "Id", id));
+        content.append(String.format("%-20s: %s%n", "Type", this.type));
+        content.append(String.format("%-20s: %s%n", "Payment method", this.paymentMethod));
+        content.append("-------------------------------------------\n");
+
+
+        content.append(String.format("%n%-30s %-10s %-10s %-10s%n", "Producto", "Cantidad", "Precio", "Total"));
+        content.append("-------------------------------------------\n");
+        for (Product product : this.shoppingCart) {
+            content.append(String.format("%-30s %-10d %-10s %-10s%n", product.getDescription(), product.getAmount(),
+                    "$" + df.format(product.getPrice().getCurrent()), "$" + df.format(product.calculateTotalPrice())));
+        }
+
+
+        content.append("-------------------------------------------\n");
+        content.append(String.format("%-40s: $%s%n", "Subtotal", df.format(this.subtotal)));
+        content.append(String.format("%-40s: $%s%n", "Total", df.format(this.total)));
+        content.append("===========================================");
+        
+        return content.toString();
     }
     
 
     
 
-    public Voucher(String type, String id, Client client, Supplier supplier,String paymentMethod) {
+    public Voucher(String type, String id, Customer client, Supplier supplier,String paymentMethod, ArrayList<Product> shoppingCart) {
         this.type = type;
         this.id = id;
         this.issueDate = new Date();
-        this.shoppingCart = new ArrayList<>();
+        this.shoppingCart = shoppingCart;
         this.client = client;
         this.supplier = supplier;
         this.subtotal = this.calculateSubtotal();
@@ -104,14 +135,14 @@ public class Voucher {
     /**
      * @return the client
      */
-    public Client getClient() {
+    public Customer getCustomer() {
         return client;
     }
 
     /**
      * @param client the client to set
      */
-    public void setClient(Client client) {
+    public void setClient(Customer client) {
         this.client = client;
     }
 
@@ -224,36 +255,10 @@ public class Voucher {
         throw new Error("the product was not found");
 
     }
+    
+    
 
-    public void generateVoucherForConsole() {
-        DecimalFormat df = new DecimalFormat("#.00");
-
-        System.out.println("===========================================");
-        System.out.println("               VOUCHER");
-        System.out.println("===========================================");
-        System.out.printf("%-20s: %s%n", "Supplier", this.supplier.getName());
-        System.out.printf("%-20s: %s%n", "Client", this.client.getName());
-        System.out.printf("%-20s: %s%n", "Issue Date", this.issueDate);
-        System.out.printf("%-20s: %s%n", "Id", id);
-        System.out.printf("%-20s: %s%n", "Type", this.type);
-        System.out.printf("%-20s: %s%n", "Payment method", this.paymentMethod);
-        System.out.println("-------------------------------------------");
-
-
-        System.out.printf("%-30s %-10s %-10s %-10s%n", "Producto", "Cantidad", "Precio", "Total");
-        System.out.println("-------------------------------------------");
-        for (Product product : this.shoppingCart) {
-            System.out.printf("%-30s %-10d %-10s %-10s%n", product.getDescription(), product.getAmount(),
-                    "$" + df.format(product.getPrice().getCurrent()), "$" + df.format(product.calculateTotalPrice()));
-        }
-
-
-        System.out.println("-------------------------------------------");
-        System.out.printf("%-40s: $%s%n", "Subtotal", df.format(this.subtotal));
-        System.out.printf("%-40s: $%s%n", "Total", df.format(this.total));
-        System.out.println("===========================================");
-
-    }
+    
 
 
 

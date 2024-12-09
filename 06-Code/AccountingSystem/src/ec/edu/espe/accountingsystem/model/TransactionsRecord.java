@@ -1,5 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
+import Utils.JsonFileManager;
 import java.util.ArrayList;
 
 /**
@@ -8,27 +9,30 @@ import java.util.ArrayList;
  */
 public class TransactionsRecord {
 
+    private String fileName;
+    private JsonFileManager transactionsJson;
     private ArrayList<Transaction> transactions;
-
 
     @Override
     public String toString() {
         StringBuilder content;
-        
+
         content = new StringBuilder();
-        
-        content.append(String.format("%-10s %-20s %-10s %-8s %-30s %-15s\n", 
+
+        content.append(String.format("%20s %20s %20s %40s %20s %20s\n",
                 "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total"));
         System.out.println("-----------------------------------------------------------------------------------------------------");
         for (Transaction transaction : this.transactions) {
             content.append(transaction.toString());
         }
-        
+
         return content.toString();
     }
 
-    public TransactionsRecord(ArrayList<Transaction> transactions) {
-        this.transactions = transactions;
+    public TransactionsRecord(String fileName) {
+        this.fileName = fileName;
+        this.transactionsJson = new JsonFileManager(this.fileName);
+        this.transactions = this.transactionsJson.read(Transaction.class);
     }
 
     /**
@@ -46,28 +50,30 @@ public class TransactionsRecord {
     }
 
     public void add(Transaction transaction) {
-        boolean newTransaction = this.transactions.add(transaction);
-
-        if (newTransaction) {
-            System.out.println("the transaction has been added successfully");
-
-        }
+        this.transactionsJson.create(transaction, Transaction.class);
 
     }
 
-    public Transaction searchById(String transactionId) {
-
+    public Transaction findTransactionById(String transactionId) {
         for (Transaction transaction : this.transactions) {
             if (transaction.getId().equals(transactionId)) {
                 return transaction;
             }
         }
-        throw new Error("The transaction was not found");
-
+        return null;
     }
 
     public void delete(String transactionId) {
-        this.transactions.remove(this.searchById(transactionId));
+        this.transactionsJson.delete(transactionId, Transaction.class);
+    }
+
+    public void update(String transactionId, Transaction transaction) {
+        this.transactionsJson.update(transactionId, transaction, Transaction.class);
+
+    }
+
+    public void updateJsonFile() {
+        this.transactions = this.transactionsJson.read(Transaction.class);
     }
 
     public ArrayList<Transaction> getTransactionByType(String type) {
@@ -83,44 +89,5 @@ public class TransactionsRecord {
         return transactionsByType;
 
     }
-
-    public void viewTransactionsForConsole() {
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        for (Transaction transaction : this.transactions) {
-            System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
-                    transaction.getId(), transaction.getType(),
-                    transaction.getVoucher().getId(), transaction.getVoucher().getIssueDate(),
-                    transaction.getVoucher().getPaymentMethod(), transaction.getVoucher().getTotal());
-        }
-
-    }
-
-    public void viewOnlyTransactionForConsole(String transactionId) {
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        Transaction selectedTransaction = this.searchById(transactionId);
-
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
-                selectedTransaction.getId(), selectedTransaction.getType(),
-                selectedTransaction.getVoucher().getId(), selectedTransaction.getVoucher().getIssueDate(),
-                selectedTransaction.getVoucher().getPaymentMethod(), selectedTransaction.getVoucher().getTotal());
-
-    }
-    public void viewTransactionsByTypeForConsole(String type) {
-        System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n", "ID", "Transaction Type", "Voucher Id", "Issue Date", "Payment method", "Total");
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        ArrayList<Transaction> selectedTransactions = this.getTransactionByType(type);
-        for (Transaction transaction : selectedTransactions) {
-            System.out.printf("%-10s %-20s %-10s %-8s %-30s %-15s\n",
-                    transaction.getId(), transaction.getType(),
-                    transaction.getVoucher().getId(), transaction.getVoucher().getIssueDate(),
-                    transaction.getVoucher().getPaymentMethod(), transaction.getVoucher().getTotal());
-        }
-        
-
-    }
-    
-    
 
 }

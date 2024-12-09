@@ -15,9 +15,9 @@ public class Price {
 
     @Override
     public String toString() {
-        return "Price{" + "current=" + current + ", retail=" + retail + 
-               ", wholesale=" + wholesale + ", distributor=" + distributor + 
-               ", discount=" +'}';
+        return "Price{" + "current=" + current + ", retail=" + retail
+                + ", wholesale=" + wholesale + ", distributor=" + distributor
+                + ", discount=" + '}';
     }
 
     public Price(float retail, float wholesale, float distributor) {
@@ -26,8 +26,7 @@ public class Price {
         this.wholesale = wholesale;
         this.distributor = distributor;
     }
-       
-    
+
     /**
      * @return the current
      */
@@ -84,28 +83,26 @@ public class Price {
         this.distributor = distributor;
     }
 
-
-    
-    public void adjustCurrentPrice(String typePrice){
-        switch(typePrice){
+    public void adjustCurrentPrice(String typePrice) {
+        switch (typePrice) {
             case "retail":
-                this.current=this.retail;
+                this.current = this.retail;
                 break;
             case "wholesale":
-                this.current=this.wholesale;
+                this.current = this.wholesale;
                 break;
             case "distributor":
-                this.current=this.distributor;
+                this.current = this.distributor;
                 break;
             default:
-                System.out.println("Valid price types: retail, wholesale and distributor");
-                break;
+                throw new IllegalArgumentException("Valid price types: retail, wholesale and distributor");
+
         }
     }
-    
-    public void applyDiscount(float discount){
+
+    public void applyDiscount(float discount) {
         float discountValue = this.current * discount;
         this.current = this.current - discountValue;
     }
-    
+
 }

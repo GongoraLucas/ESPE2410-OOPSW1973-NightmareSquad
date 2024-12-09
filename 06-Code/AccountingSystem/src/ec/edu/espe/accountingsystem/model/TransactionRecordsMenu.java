@@ -1,230 +1,137 @@
 package ec.edu.espe.accountingsystem.model;
 
-
-import Utils.JsonFileManager;
-import ec.edu.espe.accountingsystem.model.Client;
-import ec.edu.espe.accountingsystem.model.IdentityCard;
-import ec.edu.espe.accountingsystem.model.Inventory;
-import ec.edu.espe.accountingsystem.model.MeasuredItem;
-import ec.edu.espe.accountingsystem.model.Price;
-import ec.edu.espe.accountingsystem.model.Product;
-import ec.edu.espe.accountingsystem.model.Supplier;
 import ec.edu.espe.accountingsystem.model.Transaction;
 import ec.edu.espe.accountingsystem.model.TransactionsRecord;
-import ec.edu.espe.accountingsystem.model.Voucher;
 import java.util.Locale;
 import java.util.Scanner;
 
-/**
- *
- * @author Lucas Gongora
- */
 public class TransactionRecordsMenu {
 
     private Scanner scanner;
     private int option;
     private boolean executionMenu;
-    private String fileName;
-    private JsonFileManager jsonFile;
+    private TransactionsRecord transactionsRecord;
 
-    public TransactionRecordsMenu() {
+    // ANSI color codes
+    private static final String RESET = "\u001B[0m";
+    private static final String HEADER_COLOR = "\u001B[34m";  // Blue
+    private static final String SUBHEADER_COLOR = "\u001B[35m";  // Magenta
+    private static final String MENU_OPTION_COLOR = "\u001B[32m";  // Green
+    private static final String ERROR_COLOR = "\u001B[31m";  // Red
+    private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
+
+    public TransactionRecordsMenu(TransactionsRecord transactionsRecord) {
         this.scanner = new Scanner(System.in).useLocale(Locale.US);
         this.option = 0;
         this.executionMenu = true;
-        this.fileName = "Transactions.json";
-        this.jsonFile = new JsonFileManager(this.fileName);
+        this.transactionsRecord = transactionsRecord;
     }
 
     public void runMenu() {
         do {
-            System.out.println("\tAccounting System\t");
-            System.out.println("Transaction record Menu");
-            System.out.println("1. Add transacction");
-            System.out.println("2. View transacctions");
-            System.out.println("3. Update transactions");
-            System.out.println("4. Delete transactions");
-            System.out.println("5. Back to the main menu");
+            try {
+                displayTransactionMenu();
+                option = getUserInput();
 
-            System.out.print("Enter the number option: ");
-            this.option = this.scanner.nextInt();
-            this.scanner.nextLine();
-
-            switch (this.option) {
-
-                case 1:
-                    addTransaction();
-
-                    break;
-                case 2:
-                    viewTransactions();
-
-                    break;
-                case 3:
-                    updateTransaction();
-
-                    break;
-                case 4:
-                    deleteTransaction();
-
-                    break;
-                case 5:
-                    this.executionMenu = false;
-
-                    break;
-                default:
-                    System.out.println("Enter the correct option");
-
+                switch (option) {
+                    case 1:
+                        viewTransactions();
+                        break;
+                    case 2:
+                        updateTransactionPaymentStatus();
+                        break;
+                    case 3:
+                        deleteTransaction();
+                        break;
+                    case 4:
+                        executionMenu = false;
+                        System.out.println(SUCCESS_COLOR + "Returning to the main menu..." + RESET);
+                        break;
+                    default:
+                        System.out.println(ERROR_COLOR + "Invalid option. Please select a number between 1 and 4." + RESET);
+                }
+            } catch (Exception e) {
+                System.out.print(ERROR_COLOR + "An error occurred: " + e.getMessage() + RESET);
+                scanner.nextLine(); 
             }
-        } while (this.executionMenu);
+        } while (executionMenu);
     }
 
-    public void addTransaction() {
-        String id;
-        String type;
-        Voucher voucher;
-        String paymentStatus;
-        Transaction transaction;
-        
-        System.out.print("Enter the id: ");
-        id=this.scanner.nextLine();
-        System.out.print("Enter the type: ");
-        type=this.scanner.nextLine();
-        voucher = this.addVoucher();
-        System.out.print("Enter the payment status: ");
-        paymentStatus = this.scanner.nextLine();
-        
-        transaction = new Transaction(id, type, voucher, paymentStatus);
-        
-        
-        
-        this.jsonFile.create(transaction, Transaction.class);
-        
-        
+    private void displayTransactionMenu() {
+        System.out.println(HEADER_COLOR + "\tAccounting System\t" + RESET);
+        System.out.println(SUBHEADER_COLOR + "Transaction record Menu" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "1. View transactions" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "2. Update payment status" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "3. Delete transactions" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "4. Back to the main menu" + RESET);
+        System.out.print(MENU_OPTION_COLOR + "Enter the option number: " + RESET);
+    }
+
+    private int getUserInput() {
+        int input = -1;
+        while (input == -1) {
+            try {
+                input = scanner.nextInt();
+                scanner.nextLine(); 
+                if (input < 1 || input > 4) {
+                    System.out.println(ERROR_COLOR + "Please enter a valid option between 1 and 4." + RESET);
+                    input = -1; 
+                }
+            } catch (Exception e) {
+                System.out.println(ERROR_COLOR + "Invalid input. Please enter a valid number: " + RESET);
+                scanner.nextLine(); 
+            }
+        }
+        return input;
     }
 
     public void viewTransactions() {
-        TransactionsRecord transactionsRecord;
-        transactionsRecord= new TransactionsRecord(this.jsonFile.read(Transaction.class));
-        System.out.printf(transactionsRecord.toString());
-
+        try {
+            System.out.printf(this.transactionsRecord.toString());
+        } catch (Exception e) {
+            System.out.println(ERROR_COLOR + "Error viewing transactions: " + e.getMessage() + RESET);
+        }
     }
 
-    public void updateTransaction() {
-
-        String id;
-        String type;
-        Voucher voucher;
+    public void updateTransactionPaymentStatus() {
+        String transactionId;
         String paymentStatus;
         Transaction transaction;
-        
-        System.out.print("Enter the id of the transaction: ");
-        id=this.scanner.nextLine();
-        System.out.print("Enter the type: ");
-        type=this.scanner.nextLine();
-        voucher = this.addVoucher();
-        System.out.print("Enter the payment status: ");
-        paymentStatus = this.scanner.nextLine();
-        
-        transaction = new Transaction(id, type, voucher, paymentStatus);
-        
-        this.jsonFile.update(id,transaction, Transaction.class);
 
-        
+        try {
+            System.out.print(MENU_OPTION_COLOR + "Enter the ID of the transaction: " + RESET);
+            transactionId = scanner.nextLine();
 
+            transaction = transactionsRecord.findTransactionById(transactionId);
+            if (transaction == null) {
+                System.out.println(ERROR_COLOR + "Transaction not found." + RESET);
+                return;
+            }
+
+            System.out.print(MENU_OPTION_COLOR + "Enter the new payment status: " + RESET);
+            paymentStatus = scanner.nextLine();
+            transaction.setPaymentStatus(paymentStatus);
+
+            transactionsRecord.update(transactionId, transaction);
+            transactionsRecord.updateJsonFile();
+            System.out.println(SUCCESS_COLOR + "Transaction payment status updated successfully." + RESET);
+        } catch (Exception e) {
+            System.out.println(ERROR_COLOR + "Error updating payment status: " + e.getMessage() + RESET);
+        }
     }
 
     public void deleteTransaction() {
         String id;
 
-        System.out.print("Enter the id of the product: ");
-        id = this.scanner.nextLine();
+        try {
+            System.out.print(MENU_OPTION_COLOR + "Enter the ID of the transaction to delete: " + RESET);
+            id = scanner.nextLine();
 
-        this.jsonFile.delete(id, Transaction.class);
+            transactionsRecord.delete(id);
+            transactionsRecord.updateJsonFile();
+            System.out.println(SUCCESS_COLOR + "Transaction deleted successfully." + RESET);
+        } catch (Exception e) {
+            System.out.println(ERROR_COLOR + "Error deleting transaction: " + e.getMessage() + RESET);
+        }
     }
-
-    public Voucher addVoucher() {
-        String id;
-        String type;
-        String paymentMethod;
-        Client client;
-        Supplier supplier;
-        System.out.println("Enter the voucher data");
-        System.out.print("Enter the id of the voucher: ");
-        id = this.scanner.nextLine();
-        System.out.print("Enter the type of voucher: ");
-        type = this.scanner.nextLine();
-        System.out.print("Enter the payment method: ");
-        paymentMethod = this.scanner.nextLine();
-        supplier = this.addSupplier();
-        client = this.addClient();
-        
-        
-        
-
-        return new Voucher(type, id, client, supplier, paymentMethod);
-    }
-
-    public Supplier addSupplier() {
-        String type;
-        String name;
-        IdentityCard identityCard;
-        String address;
-        String phoneNumber;
-        String email;
-        System.out.println("Enter the supplier data");
-        System.out.print("Enter the type of supplier: ");
-        type= this.scanner.nextLine();
-        System.out.print("Enter the name: ");
-        name=this.scanner.nextLine();
-        identityCard = this.addIdentityCard();
-        System.out.print("Enter the address: ");
-        address = this.scanner.nextLine();
-        System.out.print("Enter the phone number: ");
-        phoneNumber = this.scanner.nextLine();
-        System.out.print("Enter the email");
-        email= this.scanner.nextLine();
-        
-        
-
-        return new Supplier(type, name, identityCard, address, phoneNumber, email);
-
-    }
-    public Client addClient() {
-        String type;
-        String name;
-        IdentityCard identityCard;
-        String address;
-        String phoneNumber;
-        String email;
-        
-        System.out.println("Enter the client data");
-        System.out.print("Enter the type of supplier: ");
-        type= this.scanner.nextLine();
-        System.out.print("Enter the name: ");
-        name=this.scanner.nextLine();
-        identityCard = this.addIdentityCard();
-        System.out.print("Enter the address: ");
-        address = this.scanner.nextLine();
-        System.out.print("Enter the phone number: ");
-        phoneNumber = this.scanner.nextLine();
-        System.out.print("Enter the email");
-        email= this.scanner.nextLine();
-        
-        
-
-        return new Client(type, name, identityCard, address, phoneNumber, email);
-
-    }
-
-    public IdentityCard addIdentityCard() {
-        String type;
-        String id;
-        System.out.println("Enter the identity card data");
-        System.out.print("Enter the type of identity document: ");
-        type=this.scanner.nextLine();
-        System.out.print("Enter the number of identity document: ");
-        id=this.scanner.nextLine();
-        return new IdentityCard(type, id);
-    }
-
 }

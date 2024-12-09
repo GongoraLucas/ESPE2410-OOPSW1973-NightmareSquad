@@ -15,7 +15,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return String.format("%-10s %-20s %-10s %-8s %-30s %-15s\n",
+        return String.format("%20s %20s %20s %40s %20s %20s\n",
                     this.id, this.type,
                     this.voucher.getId(), this.voucher.getIssueDate(),
                     this.voucher.getPaymentMethod(), this.voucher.getTotal());
