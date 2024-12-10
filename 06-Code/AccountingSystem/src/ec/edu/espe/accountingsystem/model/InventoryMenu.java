@@ -36,7 +36,9 @@ public class InventoryMenu {
             System.out.println(MENU_OPTION_COLOR + "2. View products" + RESET);
             System.out.println(MENU_OPTION_COLOR + "3. Update product" + RESET);
             System.out.println(MENU_OPTION_COLOR + "4. Delete product" + RESET);
-            System.out.println(MENU_OPTION_COLOR + "5. Back to the main menu" + RESET);
+            System.out.println(MENU_OPTION_COLOR + "5. Buy Product" + RESET);
+            System.out.println(MENU_OPTION_COLOR + "6. Sell Product" + RESET);
+            System.out.println(MENU_OPTION_COLOR + "7. Back to the main menu" + RESET);
 
             System.out.print("Enter the number option: ");
             try {
@@ -56,6 +58,12 @@ public class InventoryMenu {
                         deleteProduct();
                         break;
                     case 5:
+                        buyProduct();
+                        break;
+                    case 6:
+                        sellProduct();
+                        break;
+                    case 7:
                         this.executionMenu = false;
                         break;
                     default:
@@ -66,6 +74,28 @@ public class InventoryMenu {
                 this.scanner.nextLine();
             }
         } while (this.executionMenu);
+    }
+    
+    public void buyProduct(){
+        System.out.println("Enter de ID of product to buy: ");
+        String id = scanner.nextLine();
+
+        System.out.println("Enter de amount to buy:  ");
+        int amount = scanner.nextInt();
+        
+        this.inventory.addProductQuantity(id,amount);
+        
+    }
+    public void sellProduct(){
+        System.out.println("Enter de ID of product to buy: ");
+        String id = scanner.nextLine();
+   
+        
+        System.out.println("Enter de amount to buy:  ");
+        int amount = scanner.nextInt();
+        amount*=-1;
+        
+        this.inventory.addProductQuantity(id,amount);
     }
 
     public void addProduct() {

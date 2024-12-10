@@ -53,7 +53,7 @@ public class TransactionsRecord {
         this.transactionsJson.create(transaction, Transaction.class);
 
     }
-
+    
     public Transaction findTransactionById(String transactionId) {
         for (Transaction transaction : this.transactions) {
             if (transaction.getId().equals(transactionId)) {

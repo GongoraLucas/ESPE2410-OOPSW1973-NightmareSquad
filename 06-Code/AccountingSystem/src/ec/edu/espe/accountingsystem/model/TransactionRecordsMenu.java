@@ -26,7 +26,7 @@ public class TransactionRecordsMenu {
         this.executionMenu = true;
         this.transactionsRecord = transactionsRecord;
     }
-
+    
     public void runMenu() {
         do {
             try {

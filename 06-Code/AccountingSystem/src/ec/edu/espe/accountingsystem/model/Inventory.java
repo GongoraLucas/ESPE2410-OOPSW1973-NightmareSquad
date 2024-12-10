@@ -117,6 +117,7 @@ public class Inventory {
         }
 
     }
+    
 
     /**
      * @return the products
