@@ -92,7 +92,7 @@ public class ConverterUnitsMenu {
 
     private void viewConversionOfAvailableUnits() {
         try {
-            converterUnits.showAvailableConversions();
+            converterUnits.listAvailableConversions();
         } catch (Exception e) {
             System.out.println(ERROR_COLOR + "Error displaying conversions: " + e.getMessage() + RESET);
         }

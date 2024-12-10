@@ -38,7 +38,7 @@ public class ConverterUnits {
 
  
 
-    public void showAvailableConversions() {
+    public void listAvailableConversions() {
         for (String unit : conversionMap.keySet()) {
             System.out.println("Conversions for " + unit + ":");
             for (String targetUnit : conversionMap.get(unit).keySet()) {
