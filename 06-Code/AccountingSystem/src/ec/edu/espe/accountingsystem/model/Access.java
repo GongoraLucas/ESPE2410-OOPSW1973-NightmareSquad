@@ -1,5 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
+
 import java.util.Scanner;
 
 public class Access {
@@ -33,10 +34,14 @@ public class Access {
             }
             switch (this.option) {
                 case 1:
-                    if (this.logInAsAdministrator()) this.administratorMenu.runMenu();
+                    if (this.logInAsAdministrator()) {
+                        this.administratorMenu.runMenu();
+                    }
                     break;
                 case 2:
-                    if (this.logInAsSeller()) this.sellerMenu.runMenu();
+                    if (this.logInAsSeller()) {
+                        this.sellerMenu.runMenu();
+                    }
                     break;
                 case 3:
                     System.out.println("Exiting...");
@@ -118,13 +123,14 @@ public class Access {
         String username;
         String password;
         boolean isValidPassword = false;
-        
-        password="";
+
+        password = "";
         System.out.print("Username: ");
         username = this.scanner.nextLine();
 
         while (!isValidPassword) {
-            System.out.print("Password (letters and numbers only): ");
+            
+            System.out.print("Password: ");
             password = this.scanner.nextLine();
 
             if (password.matches("[a-zA-Z0-9]+")) {
@@ -136,4 +142,7 @@ public class Access {
 
         return new String[]{username, password};
     }
+
+   
+
 }

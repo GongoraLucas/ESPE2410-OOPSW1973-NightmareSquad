@@ -128,7 +128,7 @@ public class JsonFileManager {
             Type listType = TypeToken.getParameterized(ArrayList.class, typeItem).getType();
             items = this.gson.fromJson(json.toString(), listType);
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
+            
             return new ArrayList<T>();
         } catch (IOException ex) {
             System.out.println("Error -> " + ex.getMessage());
