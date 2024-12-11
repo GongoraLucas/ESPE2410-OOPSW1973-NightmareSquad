@@ -54,7 +54,7 @@ public class Access {
         this.scanner.close();
     }
 
-    public void showMenu() {
+    private void showMenu() {
         System.out.println("Accounting system");
         System.out.println("Login");
         System.out.println("1. Administrator");
@@ -63,7 +63,7 @@ public class Access {
         System.out.print("Enter the number option: ");
     }
 
-    public boolean logInAsAdministrator() {
+    private boolean logInAsAdministrator() {
         String[] credentials;
         User user;
         int attempt = 0;
@@ -91,7 +91,7 @@ public class Access {
         }
     }
 
-    public boolean logInAsSeller() {
+    private boolean logInAsSeller() {
         String[] credentials;
         User user;
         int attempt = 0;
@@ -119,7 +119,7 @@ public class Access {
         }
     }
 
-    public String[] enterCredentials() {
+    private String[] enterCredentials() {
         String username;
         String password;
         boolean isValidPassword = false;

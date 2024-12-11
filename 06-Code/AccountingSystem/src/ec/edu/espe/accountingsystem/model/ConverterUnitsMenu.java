@@ -31,7 +31,7 @@ public class ConverterUnitsMenu {
                 processOption(this.option);
             } catch (Exception e) {
                 System.out.println(ERROR_COLOR + "Invalid input. Please enter a number between 1 and 4: " + RESET);
-                scanner.nextLine(); // Clear the buffer
+                scanner.nextLine();
             }
         } while (this.executionMenu);
     }
