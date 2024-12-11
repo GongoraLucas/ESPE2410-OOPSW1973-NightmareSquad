@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.accountingsystem.model.Inventory;
 import ec.edu.espe.accountingsystem.model.Product;
 import ec.edu.espe.accountingsystem.model.Transaction;
+import ec.edu.espe.accountingsystem.model.User;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 
@@ -32,10 +33,10 @@ public class JsonFileManager {
 
         items.add((T) item);
 
-        this.save(items);
+        this.saveItems(items);
 
     }
-    
+
     public <T> void update(String id, Object updatedItem, Class<T> typeItem) {
         ArrayList<T> items = this.read(typeItem);
 
@@ -45,12 +46,13 @@ public class JsonFileManager {
 
             if (conditionForProduct || conditionForTransaction) {
                 items.set(i, (T) updatedItem);
-                this.save(items);
+                this.saveItems(items);
                 return;
             }
         }
         System.out.println("Product not found");
     }
+
     public <T> void delete(String id, Class<T> typeItem) {
         ArrayList<T> items = this.read(typeItem);
 
@@ -60,22 +62,59 @@ public class JsonFileManager {
 
             if (conditionForProduct || conditionForTransaction) {
                 items.remove(items.get(i));
-                this.save(items);
+                this.saveItems(items);
                 return;
             }
         }
         System.out.println("Product not found");
     }
-    
-    
 
-    public <T> void save(ArrayList<T> objectsGroup) {
+    public <T> void saveItems(ArrayList<T> objectsGroup) {
         try (FileWriter writer = new FileWriter(this.filePath)) {
             this.gson.toJson(objectsGroup, writer);
             System.out.println("saved successfully to " + this.filePath);
         } catch (IOException e) {
             System.err.println("Error saving the list of items to the file. The operation could not be completed.");
         }
+    }
+
+    public void saveUsers(User[] users) {
+        try (FileWriter writer = new FileWriter(this.filePath)) {
+            if (users.length != 2) {
+                throw new IllegalArgumentException("There must be only two users");
+            }
+            this.gson.toJson(users,writer);
+
+        } catch (IOException ex) {
+            System.out.println("Error saving the users");
+        } catch(IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    
+    public User[] readUsers(){
+       User[] users;
+       users= new User[2];
+       try(BufferedReader reader = new BufferedReader(new FileReader(this.filePath))){
+           StringBuilder json;
+           String line;
+           json= new StringBuilder();
+           line = reader.readLine();
+           while(line != null){
+               json.append(line);
+               line = reader.readLine(); 
+           }
+           Type usersArray = new TypeToken<User[]>(){}.getType();
+           users = gson.fromJson(json.toString(),usersArray );
+           return users;
+           
+       }catch (FileNotFoundException ex){
+           return new User[]{null,null};
+       }catch (IOException ex){
+           System.out.println("Error reading the users");
+           return new User[]{null,null};
+       }
     }
 
     public <T> ArrayList<T> read(Class<T> typeItem) {
@@ -98,5 +137,4 @@ public class JsonFileManager {
         return items;
     }
 
-    
 }

@@ -12,7 +12,6 @@ import utils.JsonFileManager;
  */
 public class Inventory {
 
-    private String fileName;
     private JsonFileManager productsJson;
     private ArrayList<Product> products;
 
@@ -39,9 +38,8 @@ public class Inventory {
         return content.toString();
     }
 
-    public Inventory(String fileName) {
-        this.fileName = fileName;
-        this.productsJson = new JsonFileManager(this.fileName);
+    public Inventory() {
+        this.productsJson = new JsonFileManager("Products.json");
         this.products = this.productsJson.read(Product.class);
     }
 

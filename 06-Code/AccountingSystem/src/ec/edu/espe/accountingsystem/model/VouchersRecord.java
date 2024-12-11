@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * @author Lucas Gongora
  */
 public class VouchersRecord {
-    private String fileName;
     private JsonFileManager vouchersJson;
     private ArrayList<Voucher> vouchers;
 
@@ -38,9 +37,8 @@ public class VouchersRecord {
         return content.toString();
     }
     
-    public VouchersRecord(String fileName) {
-        this.fileName = fileName;
-        this.vouchersJson = new JsonFileManager(this.fileName);
+    public VouchersRecord() {
+        this.vouchersJson = new JsonFileManager("Vouchers.json");
         this.vouchers = this.vouchersJson.read(Voucher.class);
     }
 

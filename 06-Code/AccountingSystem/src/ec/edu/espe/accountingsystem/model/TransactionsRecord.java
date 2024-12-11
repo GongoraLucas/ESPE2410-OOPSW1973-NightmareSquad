@@ -29,9 +29,8 @@ public class TransactionsRecord {
         return content.toString();
     }
 
-    public TransactionsRecord(String fileName) {
-        this.fileName = fileName;
-        this.transactionsJson = new JsonFileManager(this.fileName);
+    public TransactionsRecord() {
+        this.transactionsJson = new JsonFileManager("Transactions.json");
         this.transactions = this.transactionsJson.read(Transaction.class);
     }
 

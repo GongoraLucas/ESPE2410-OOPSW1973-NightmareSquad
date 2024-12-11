@@ -1,7 +1,7 @@
 package ec.edu.espe.accountingsystem.view;
 
 import ec.edu.espe.accountingsystem.model.Access;
-import ec.edu.espe.accountingsystem.model.MainMenu;
+import ec.edu.espe.accountingsystem.model.AdministratorMenu;
 /**
  * @author Lucas Gongora
  * @author Sebastian Charij
@@ -14,14 +14,7 @@ public class AccountingSystemApp {
         
         Access access;
         access = new Access();
-        
-        access.login();
-        
-        MainMenu mainMenu;
-        
-        mainMenu = new MainMenu();
-        
-        mainMenu.runMenu();
+        access.runMenu();
     }  
 }
 

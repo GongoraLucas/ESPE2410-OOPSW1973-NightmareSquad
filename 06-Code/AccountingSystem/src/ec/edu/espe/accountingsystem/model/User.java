@@ -2,6 +2,7 @@ package ec.edu.espe.accountingsystem.model;
 
 import java.io.*;
 import java.util.Scanner;
+import utils.JsonFileManager;
 
 /**
  *
@@ -9,13 +10,22 @@ import java.util.Scanner;
  */
 public class User {
 
+    private String type;
     private String userName;
     private String password;
+
+    @Override
+    public String toString() {
+        return "User{" + "type=" + type + ", userName=" + userName + ", password=" + password + '}';
+    }
+    
     
 
-    public User(String userName, String password) {
+    public User(String type,String userName, String password) {
+        this.type = type;
         this.userName = userName;
         this.password = this.encryptPassword(password);
+
     }
 
     public boolean verifyCredential(String loginUser, String loginPassword) {
@@ -30,62 +40,35 @@ public class User {
         return password;
     }
 
-    public void saveUser() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Credentials.txt"))) {
-            writer.write(userName);
-            writer.newLine();
-            writer.write(password);
-            System.out.println("User Registered");
-        } catch (IOException e) {
-            System.out.println("Error" + e.getMessage());
-        }
-    }
-
-    public static User loadUser() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Credentials.txt"))) {
-            String userName = reader.readLine();
-            String password = reader.readLine();
-            return new User(userName, password);
-        } catch (IOException e) {
-            System.out.println("user not found.");
-            return null;
-        }
-    }
-
     private String encryptPassword(String password) {
-        File file = new File("Credentials.txt");
-        if (!file.exists()) {
-            String encryptedPassword;
-            encryptedPassword = "";
-            for (char character : password.toCharArray()) {
-                int ascii = (int) character;
 
-                int encryptedAscii = ascii + 1;
+        String encryptedPassword;
+        encryptedPassword = "";
+        for (char character : password.toCharArray()) {
+            int ascii = (int) character;
 
-                encryptedPassword += (char) encryptedAscii;
-            }
-            return encryptedPassword;
+            int encryptedAscii = ascii + 1;
 
+            encryptedPassword += (char) encryptedAscii;
         }
-        return this.savePasswordTxt();
+        return encryptedPassword;
 
     }
-    
-    private String savePasswordTxt(){
-        String endLine;
-        String line;
-        line="";
-        endLine="";
-        try (BufferedReader br = new BufferedReader(new FileReader("Credentials.txt"))) {
-            
-            while ((line = br.readLine()) != null) {
-                endLine = line; 
-            }
-           
-        } catch (IOException e) {
-            return endLine;
-        }
-        
-        return endLine;
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
     }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }
+
+
