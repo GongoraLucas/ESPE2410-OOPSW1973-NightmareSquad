@@ -1,5 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
+import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
 import utils.JsonFileManager;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,7 +31,7 @@ public class VoucherMenu {
     private static final String ERROR_COLOR = "\u001B[31m";  // Red
     private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
 
-    public VoucherMenu(Inventory inventory, VouchersRecord vouchersRecord, TransactionsRecord transactionRecord) {
+    public VoucherMenu(Inventory inventory, VouchersRecord vouchersRecord, TransactionsRecord transactionRecord) throws InvalidIdentityCardException {
         this.scanner = new Scanner(System.in);
         this.option = 0;
         this.executionMenu = true;
@@ -96,7 +97,7 @@ public class VoucherMenu {
         } while (this.executionMenu);
     }
 
-    public Customer addCustomer() {
+    public Customer addCustomer() throws InvalidIdentityCardException {
         String type;
         String name;
         IdentityCard identityCard;
@@ -138,7 +139,7 @@ public class VoucherMenu {
         return new Customer(type, name, identityCard, address, phoneNumber, email);
     }
 
-    public Supplier addSuplier() {
+    public Supplier addSuplier() throws InvalidIdentityCardException {
         String type;
         String name;
         IdentityCard identityCard;
@@ -162,7 +163,7 @@ public class VoucherMenu {
         return new Supplier(type, name, identityCard, address, phoneNumber, email);
     }
 
-    public IdentityCard addIdentityCard() {
+    public IdentityCard addIdentityCard() throws InvalidIdentityCardException {
         String type;
         String id;
         System.out.println("Enter the identity card data");
