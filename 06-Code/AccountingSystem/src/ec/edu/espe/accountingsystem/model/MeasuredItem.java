@@ -2,17 +2,23 @@ package ec.edu.espe.accountingsystem.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import utils.JsonFileManager;
+
+
 
 /**
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
 public class MeasuredItem {
+    
+    
+    
 
     private String description;
     private float value;
     private String unit;
-
+    
     
 
     @Override
@@ -67,6 +73,8 @@ public class MeasuredItem {
     public void setUnit(String unit) {
         this.unit = unit;
     }
+    
+    
 
     
 

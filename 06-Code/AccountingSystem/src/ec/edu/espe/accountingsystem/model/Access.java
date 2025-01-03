@@ -3,64 +3,51 @@ package ec.edu.espe.accountingsystem.model;
 
 import java.util.Scanner;
 
-public class Access {
+public class Access extends Menu{
 
-    private Scanner scanner;
-    private int option;
-    private boolean executionMenu;
     private UsersRecord usersRecord;
     private AdministratorMenu administratorMenu;
     private SellerMenu sellerMenu;
 
     public Access() {
+        super();
         this.usersRecord = new UsersRecord();
-        this.scanner = new Scanner(System.in);
-        this.option = 0;
-        this.executionMenu = true;
         this.administratorMenu = new AdministratorMenu();
         this.sellerMenu = new SellerMenu();
     }
 
-    public void runMenu() {
-        do {
-            this.showMenu();
-            try {
-                this.option = this.scanner.nextInt();
-                this.scanner.nextLine();  // Consume the newline character
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid option.");
-                this.scanner.nextLine(); // Clear the buffer
-                continue;
-            }
-            switch (this.option) {
-                case 1:
-                    if (this.logInAsAdministrator()) {
-                        this.administratorMenu.runMenu();
-                    }
-                    break;
-                case 2:
-                    if (this.logInAsSeller()) {
-                        this.sellerMenu.runMenu();
-                    }
-                    break;
-                case 3:
-                    System.out.println("Exiting...");
-                    this.executionMenu = false;
-                    break;
-                default:
-                    System.out.println("Enter the correct number option");
-            }
-        } while (executionMenu);
-        this.scanner.close();
-    }
-
-    private void showMenu() {
+    
+    
+    @Override
+    public void showOptions() {
         System.out.println("Accounting system");
         System.out.println("Login");
         System.out.println("1. Administrator");
         System.out.println("2. Seller");
         System.out.println("3. Exit");
         System.out.print("Enter the number option: ");
+    }
+    
+    @Override
+    public void processOption(int option){
+         switch (option) {
+                case 1:
+                    if (this.logInAsAdministrator()) {
+                        this.administratorMenu.run();
+                    }
+                    break;
+                case 2:
+                    if (this.logInAsSeller()) {
+                        this.sellerMenu.run();
+                    }
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    super.setExecutionMenu(false);
+                    break;
+                default:
+                    System.out.println("Enter the correct number option");
+            }
     }
 
     private boolean logInAsAdministrator() {
@@ -126,12 +113,12 @@ public class Access {
 
         password = "";
         System.out.print("Username: ");
-        username = this.scanner.nextLine();
+        username = super.getScanner().nextLine();
 
         while (!isValidPassword) {
             
             System.out.print("Password: ");
-            password = this.scanner.nextLine();
+            password = super.getScanner().nextLine();
 
             if (password.matches("[a-zA-Z0-9]+")) {
                 isValidPassword = true;

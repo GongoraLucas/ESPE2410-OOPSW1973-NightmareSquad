@@ -49,7 +49,7 @@ public class TransactionsRecord {
     }
 
     public void add(Transaction transaction) {
-        this.transactionsJson.create(transaction, Transaction.class);
+        this.transactionsJson.add(transaction, Transaction.class);
 
     }
     

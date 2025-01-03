@@ -2,43 +2,38 @@ package ec.edu.espe.accountingsystem.model;
 
 /**
  *
- * @author Sebastian Charij
  * @author Lucas Gongora
- * @author Andrés Espinosa
  */
-public class Supplier {
+public class Branch {
 
     private String id;
     private String name;
-    private IdentityCard identityCard;
     private String address;
     private int phoneNumber;
-    private String email;
+    private String manager;
 
     @Override
     public String toString() {
          String horizontalLine ="------------------------------------------------------";
-         return String.format("%s%s\n| %12s | %30s | %12s | %12s | %12s | %12s | %12s |\n%s",
+         return String.format("%s%s\n| %12s | %12s | %30s | %12s | %12s |\n%s",
                 horizontalLine,
                 horizontalLine,
                 id,              
-                name,
-                identityCard.getType(),
-                identityCard.getId(),
+                name,       
+                address,     
                 address,
-                phoneNumber,
-                email,
+                phoneNumber,          
+                manager, 
                 horizontalLine); 
 
     }
 
-    public Supplier(String id, String name, IdentityCard identityCard, String address, int phoneNumber, String email) {
+    public Branch(String id, String name, String address, int phoneNumber, String manager) {
         this.id = id;
         this.name = name;
-        this.identityCard = identityCard;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.email = email;
+        this.manager = manager;
     }
 
     /**
@@ -70,20 +65,6 @@ public class Supplier {
     }
 
     /**
-     * @return the identityCard
-     */
-    public IdentityCard getIdentityCard() {
-        return identityCard;
-    }
-
-    /**
-     * @param identityCard the identityCard to set
-     */
-    public void setIdentityCard(IdentityCard identityCard) {
-        this.identityCard = identityCard;
-    }
-
-    /**
      * @return the address
      */
     public String getAddress() {
@@ -112,17 +93,17 @@ public class Supplier {
     }
 
     /**
-     * @return the email
+     * @return the manager
      */
-    public String getEmail() {
-        return email;
+    public String getManager() {
+        return manager;
     }
 
     /**
-     * @param email the email to set
+     * @param manager the manager to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 
 }

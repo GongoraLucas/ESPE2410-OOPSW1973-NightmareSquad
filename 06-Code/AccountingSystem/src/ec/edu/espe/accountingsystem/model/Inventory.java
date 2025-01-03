@@ -43,8 +43,15 @@ public class Inventory {
         this.products = this.productsJson.read(Product.class);
     }
 
+    /**
+     * @return the products
+     */
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
     public void add(Product product) {
-        this.productsJson.create(product, Product.class);
+        this.productsJson.add(product, Product.class);
     }
 
     public void delete(String productId) {
@@ -61,16 +68,16 @@ public class Inventory {
     }
 
     public void updateInventoryByTypeCustomer(String typeCustomer) {
-    for (int i = 0; i < this.products.size(); i++) {
-        Product product = this.products.get(i);
-        try {
-            product.getPrice().adjustCurrentPrice(typeCustomer);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Valid price types: retail, wholesale and distributor");
+        for (int i = 0; i < this.products.size(); i++) {
+            Product product = this.products.get(i);
+            try {
+                product.getPrice().adjustCurrentPrice(typeCustomer);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Valid price types: retail, wholesale and distributor");
+            }
+            this.products.set(i, product);
         }
-        this.products.set(i, product);
     }
-}
 
     public Product findProductById(String productId) {
         for (Product product : this.products) {
@@ -81,7 +88,7 @@ public class Inventory {
         return null;
     }
 
-    public Product getProductQuantity(String productId, int amount) {
+    public Product removeProductQuantity(String productId, int amount) {
 
         Product selectedProduct;
         try {
@@ -114,14 +121,6 @@ public class Inventory {
             }
         }
 
-    }
-    
-
-    /**
-     * @return the products
-     */
-    public ArrayList<Product> getProducts() {
-        return products;
     }
 
 }

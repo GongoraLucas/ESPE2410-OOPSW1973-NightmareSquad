@@ -1,13 +1,11 @@
 package ec.edu.espe.accountingsystem.model;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConverterUnitsMenu {
+public class ConverterUnitsMenu extends Menu {
 
-    private ConverterUnits converterUnits;
-    private Scanner scanner;
-    private int option;
-    private boolean executionMenu;
+    private ConversionsRecord conversionsRecord;
 
     private static final String RESET = "\u001B[0m";
     private static final String HEADER_COLOR = "\u001B[34m";
@@ -17,44 +15,26 @@ public class ConverterUnitsMenu {
     private static final String SUCCESS_COLOR = "\u001B[33m";
 
     public ConverterUnitsMenu() {
-        this.converterUnits = new ConverterUnits();
-        this.scanner = new Scanner(System.in);
-        this.option = 0;
-        this.executionMenu = true;
+        super();
+        this.conversionsRecord = new ConversionsRecord("conversions.json");
     }
 
-    public void runMenu() {
-        do {
-            displayMenu();
-            try {
-                this.option = getUserInput();
-                processOption(this.option);
-            } catch (Exception e) {
-                System.out.println(ERROR_COLOR + "Invalid input. Please enter a number between 1 and 4: " + RESET);
-                scanner.nextLine();
-            }
-        } while (this.executionMenu);
-    }
-
-    private void displayMenu() {
+    @Override
+    public void showOptions() {
         System.out.println(HEADER_COLOR + "\n\t Accounting system \t" + RESET);
         System.out.println(SUBHEADER_COLOR + "Converter" + RESET);
         System.out.println(MENU_OPTION_COLOR + "1. Convert units" + RESET);
         System.out.println(MENU_OPTION_COLOR + "2. View conversion of available units" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "3. Back to the main menu" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "3. Add conversion" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "4. Delete  list of conversion" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "5. Delete conversion" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "6. Update conversion" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "7. Back to main menu" + RESET);
         System.out.print("Enter the number option: ");
     }
 
-    private int getUserInput() throws Exception {
-        int userInput = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
-        if (userInput < 1 || userInput > 4) {
-            throw new IllegalArgumentException("Option must be between 1 and 4.");
-        }
-        return userInput;
-    }
-
-    private void processOption(int option) {
+    @Override
+    public void processOption(int option) throws IllegalArgumentException {
         switch (option) {
             case 1:
                 convertUnits();
@@ -62,41 +42,123 @@ public class ConverterUnitsMenu {
             case 2:
                 viewConversionOfAvailableUnits();
                 break;
-          
             case 3:
-                executionMenu = false;
+                addConversion();
+                break;
+            case 4:
+                deleteAllConversionOfAUnit();
+                break;
+            case 5:
+                deleteTargetUnit();
+                break;
+            case 6:
+                updateConversion();
+                break;
+            case 7:
+                super.setExecutionMenu(false);
                 break;
             default:
-                System.out.println(ERROR_COLOR + "Invalid option. Please choose between 1 and 4." + RESET);
+                throw new IllegalArgumentException("Option must be between 1 and 7.");
         }
     }
 
     private void convertUnits() {
         try {
             System.out.print("Enter the value to convert: ");
-            float value = scanner.nextFloat();
-            scanner.nextLine(); // Consume newline
+            float value = super.getScanner().nextFloat();
+            super.getScanner().nextLine();
 
             System.out.print("Enter the initial unit: ");
-            String initialUnit = scanner.nextLine();
+            String initialUnit = super.getScanner().nextLine();
 
             System.out.print("Enter the final unit: ");
-            String finalUnit = scanner.nextLine();
+            String finalUnit = super.getScanner().nextLine();
 
-            float result = converterUnits.convertUnit(value, initialUnit, finalUnit);
+            float result = ConverterUnits.convertUnit(value, initialUnit, finalUnit);
             System.out.println("The value in " + finalUnit + " is: " + result);
-        } catch (Exception e) {
-            System.out.println(ERROR_COLOR + "Error during conversion: " + e.getMessage() + RESET);
+        } catch (InputMismatchException ex) {
+            System.out.println(ERROR_COLOR + "Error during conversion: " + ex.getMessage() + RESET);
         }
     }
 
     private void viewConversionOfAvailableUnits() {
         try {
-            converterUnits.listAvailableConversions();
+            ConverterUnits.listAvailableConversions();
         } catch (Exception e) {
             System.out.println(ERROR_COLOR + "Error displaying conversions: " + e.getMessage() + RESET);
         }
     }
 
-    
+    private void addConversion() {
+        String sourceUnit;
+        String targetUnit;
+        float conversionFactor;
+
+        try {
+            System.out.print("Enter from source unit: ");
+
+            sourceUnit = super.getScanner().nextLine();
+
+            System.out.print("Enter the unit you want to convert");
+            targetUnit = super.getScanner().nextLine();
+            System.out.print("Enter the conversion factor");
+            conversionFactor = super.getScanner().nextFloat();
+            super.getScanner().nextLine();
+
+            conversionsRecord.add(sourceUnit, targetUnit, conversionFactor);
+        } catch (InputMismatchException ex) {
+            System.out.println("Enter the correct conversionFactor");
+        }
+
+    }
+
+    public void deleteAllConversionOfAUnit() {
+        String sourceUnit;
+
+        System.out.print("Enter from source unit: ");
+
+        sourceUnit = super.getScanner().nextLine();
+
+        conversionsRecord.deleteSourceUnit(sourceUnit);
+
+    }
+
+    public void deleteTargetUnit() {
+        String sourceUnit;
+        String targetUnit;
+
+        System.out.print("Enter from source unit: ");
+        sourceUnit = super.getScanner().nextLine();
+        System.out.print("Enter the target unit: ");
+        targetUnit = super.getScanner().nextLine();
+
+        conversionsRecord.deleteTargetUnit(sourceUnit, targetUnit);
+
+    }
+
+    public void updateConversion() {
+        String sourceUnit;
+        String targetUnit;
+        float conversionFactor;
+
+        try {
+
+            System.out.print("Enter from source unit: ");
+
+            sourceUnit = super.getScanner().nextLine();
+
+            System.out.print("Enter the unit you want to convert: ");
+            targetUnit = super.getScanner().nextLine();
+            System.out.print("Enter the conversion factor: ");
+            conversionFactor = super.getScanner().nextFloat();
+            super.getScanner().nextLine();
+
+            conversionsRecord.updateTargetUnit(sourceUnit, targetUnit, conversionFactor);
+
+        } catch (InputMismatchException ex) {
+            System.out.println("Enter the correct conversion factor");
+            
+        }
+    }
+
 }

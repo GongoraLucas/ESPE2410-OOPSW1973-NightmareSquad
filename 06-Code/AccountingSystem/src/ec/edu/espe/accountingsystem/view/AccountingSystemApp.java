@@ -14,6 +14,6 @@ public class AccountingSystemApp {
         
         Access access;
         access = new Access();
-        access.runMenu();
+        access.run();
     }  
 }

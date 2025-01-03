@@ -1,23 +1,17 @@
 package ec.edu.espe.accountingsystem.model;
 
-import utils.JsonFileManager;
-import java.util.Scanner;
 
-public class AdministratorMenu {
+public class AdministratorMenu extends Menu {
+    private final BillingMenu billingMenu;
+    private final InventoryMenu inventoryMenu;
+    private final TransactionMenu transactionsMenu;
+    private final ConverterUnitsMenu converterUnitsMenu;
+    private final BranchesMenu branchesMenu;
+    private final CustomersMenu customersMenu;
+    private final SuppliersMenu suppliersMenu;
+    private final VoucherMenu voucherMenu;
 
-    private Scanner scanner;
-    private int option;
-    private boolean executionMenu;
-    private Inventory inventory;
-    private InventoryMenu inventoryMenu;
-    private VouchersRecord vouchersRecord;
-    private TransactionsRecord transactionsRecord;
-    private VoucherMenu voucherMenu;
-    private TransactionRecordsMenu transactionsMenu;
-   private ConverterUnitsMenu converterUnitsMenu;
-    
-    
-     // ANSI Color Codes
+    // ANSI Color Codes
     private static final String RESET = "\u001B[0m";
     private static final String HEADER_COLOR = "\u001B[34m";  // Blue
     private static final String SUBHEADER_COLOR = "\u001B[35m";  // Magenta
@@ -25,81 +19,67 @@ public class AdministratorMenu {
     private static final String ERROR_COLOR = "\u001B[31m";  // Red
     private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
 
-
     public AdministratorMenu() {
-        this.scanner = new Scanner(System.in);
-        this.option = 0;
-        this.executionMenu = true;
-        this.inventory = new Inventory();
-        this.inventoryMenu = new InventoryMenu(this.inventory);
-        this.vouchersRecord = new VouchersRecord();
-        this.transactionsRecord = new TransactionsRecord();
-        this.transactionsMenu = new TransactionRecordsMenu(this.transactionsRecord);
+        super();
+        this.inventoryMenu = new InventoryMenu();
+        this.billingMenu = new BillingMenu();
+        this.transactionsMenu = new TransactionMenu();
         this.converterUnitsMenu = new ConverterUnitsMenu();
+        this.branchesMenu = new BranchesMenu();
+        this.customersMenu =  new CustomersMenu();
+        this.suppliersMenu =  new SuppliersMenu();
+        this.voucherMenu = new VoucherMenu();
     }
 
-    public void runMenu() {
-        do {
-            try {
-                displayMainMenu();
-                option = getUserInput();
-
-                switch (option) {
-                    case 1:
-                        this.inventoryMenu.runMenu();
-                        break;
-                    case 2:
-                        this.voucherMenu = new VoucherMenu(inventory, vouchersRecord, transactionsRecord);
-                        this.voucherMenu.runMenu();
-                        break;
-                    case 3:
-                        this.transactionsMenu.runMenu();
-                        break;
-                    case 4:
-                        this.converterUnitsMenu.runMenu();
-                        break;
-                    case 5:
-                        executionMenu = false;
-                      
-                        break;
-                    default:
-                        System.out.println(ERROR_COLOR + "Invalid option. Please enter a number between 1 and 4." + RESET);
-                }
-            } catch (Exception e) {
-                System.out.print(ERROR_COLOR + "An error occurred: " + e.getMessage() + RESET);
-                this.scanner.nextLine(); 
-            }
-        } while (this.executionMenu);
-        
-    }
-
-    private void displayMainMenu() {
+    @Override
+    public void showOptions() {
         System.out.println(HEADER_COLOR + "\n\tAccounting System\t" + RESET);
         System.out.println(SUBHEADER_COLOR + "Menu" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "1. Manage Inventory" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "2. Billing" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "3. Manage transaction records" + RESET);
-        System.out.println(MENU_OPTION_COLOR+ "4. Converter of units" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "5. Exit" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "1. Branches" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "2. Inventory" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "3. Customers" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "4. Suppliers" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "5. Billing" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "6. Vouchers" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "7. Transactions" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "8. Conversions" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "9. Exit" + RESET);
         System.out.print("Enter the option number: ");
     }
 
-    private int getUserInput() {
-        int input = -1;
-        while (input == -1) {
-            try {
-                input = this.scanner.nextInt();
-                this.scanner.nextLine();
-                if (input < 1 || input > 5) {
-                    System.out.println(ERROR_COLOR + "Please enter a number between 1 and 4." + RESET);
-                    input = -1;
-                }
-            } catch (Exception e) {
-                System.out.println(ERROR_COLOR + "Invalid input. Please enter a valid number." + RESET);
-                this.scanner.nextLine();
-            }
+    @Override
+    public void processOption(int option) throws IllegalArgumentException {
+        switch (option) {
+            case 1:
+                this.branchesMenu.run();
+                break;
+            case 2:
+                this.inventoryMenu.run();
+                break;
+            case 3:
+                this.customersMenu.run();
+                break;
+            case 4:
+                this.suppliersMenu.run();
+                break;
+            case 5:
+                this.billingMenu.run();
+                break;
+            case 6:
+                this.voucherMenu.run();
+                break;
+            case 7:
+                this.transactionsMenu.run();
+                break;
+            case 8:
+                this.converterUnitsMenu.run();
+                break;
+            case 9:
+                super.setExecutionMenu(false);
+                break;
+            default:
+                throw new IllegalArgumentException("Option must be between 1 and 9.");
         }
-        return input;
     }
 
 }

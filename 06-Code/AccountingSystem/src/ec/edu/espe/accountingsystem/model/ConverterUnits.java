@@ -18,7 +18,7 @@ public class ConverterUnits {
         conversionMap.put("arroba", arrobaConversions);
     }
     
-    public float convertUnit(float value, String initialUnit, String finalUnit) {
+    public static float convertUnit(float value, String initialUnit, String finalUnit) {
         try {
             if (conversionMap.containsKey(initialUnit)) {
                 if (conversionMap.get(initialUnit).containsKey(finalUnit)) {
@@ -38,7 +38,7 @@ public class ConverterUnits {
 
  
 
-    public void listAvailableConversions() {
+    public static void listAvailableConversions() {
         for (String unit : conversionMap.keySet()) {
             System.out.println("Conversions for " + unit + ":");
             for (String targetUnit : conversionMap.get(unit).keySet()) {

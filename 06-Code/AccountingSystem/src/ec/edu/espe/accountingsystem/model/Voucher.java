@@ -236,7 +236,7 @@ public class Voucher {
 
     public void addToShoppingCart(Inventory inventory, String productId, int amount) {
 
-        this.shoppingCart.add(inventory.getProductQuantity(productId, amount));
+        this.shoppingCart.add(inventory.removeProductQuantity(productId, amount));
     }
 
     public void deleteToShoppingCart(Inventory inventory, String productId) {

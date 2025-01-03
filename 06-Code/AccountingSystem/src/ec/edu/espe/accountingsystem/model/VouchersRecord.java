@@ -43,7 +43,7 @@ public class VouchersRecord {
     }
 
     public void add(Voucher voucher) {
-        this.vouchersJson.create(voucher, Voucher.class);
+        this.vouchersJson.add(voucher, Voucher.class);
     }
 
     public void delete(String voucherId) {
