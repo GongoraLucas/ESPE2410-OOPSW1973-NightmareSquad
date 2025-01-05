@@ -38,13 +38,14 @@ public class PurchaseMenu extends Menu {
     public void showOptions() {
         System.out.println(HEADER_COLOR + "\n\t Accounting system \t" + RESET);
         System.out.println(SUBHEADER_COLOR + "Purchase" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "1. Add new  product to Invenotry " + RESET);
+        System.out.println(MENU_OPTION_COLOR + "1. Add new  product to Inventory " + RESET);
         System.out.println(MENU_OPTION_COLOR + "2. Add an existing product to Inventory" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "3. Modify product in shopping cart" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "4. Generate Voucher" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "5. Save Voucher" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "6. Send Voucher to Transactions Record" + RESET);
-        System.out.println(MENU_OPTION_COLOR + "7. Back to the main menu" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "3. Remove product to shopping cart" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "4. Modify product in shopping cart" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "5. Generate Voucher" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "6. Save Voucher" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "7. Send Voucher to Transactions Record" + RESET);
+        System.out.println(MENU_OPTION_COLOR + "8. Back to the main menu" + RESET);
 
         System.out.print("Enter the number option: ");
     }
@@ -59,18 +60,21 @@ public class PurchaseMenu extends Menu {
                 this.addAnExistingProductToInventary();
                 break;
             case 3:
-                this.modifyProductInShoppingCart();
+                this.removeProductToShoppingCart();
                 break;
             case 4:
-                this.generateVoucher();
+                this.modifyProductInShoppingCart();
                 break;
             case 5:
-                this.saveVoucher();
+                this.generateVoucher();
                 break;
             case 6:
-                this.sendVoucherToTransaction();
+                this.saveVoucher();
                 break;
             case 7:
+                this.sendVoucherToTransaction();
+                break;
+            case 8:
                 super.setExecutionMenu(false);
                 break;
             default:
@@ -78,7 +82,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public void addAnExistingProductToInventary() {
+    private void addAnExistingProductToInventary() {
         String id;
         int amount;
         Product product;
@@ -94,7 +98,7 @@ public class PurchaseMenu extends Menu {
             product = this.inventory.findProductById(id);
             if (product != null) {
                 this.inventory.addProductQuantity(id, amount);
-                productToVoucher = new Product(product.getId(),product.getReference(),product.getDescription(), product.getPrice(), amount, product.getMeasuredItem());
+                productToVoucher = new Product(product.getId(), product.getReference(), product.getDescription(), product.getPrice(), amount, product.getMeasuredItem());
                 this.shoppingCart.add(productToVoucher);
             }
         } catch (Exception e) {
@@ -103,7 +107,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public void addNewProductToInventary() {
+    private void addNewProductToInventary() {
         String id;
         String reference;
         String description;
@@ -144,7 +148,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public Price addPrice() {
+    private Price addPrice() {
         float retail;
         float wholesale;
         float distributor;
@@ -170,7 +174,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public MeasuredItem addMeasuredItem() {
+    private MeasuredItem addMeasuredItem() {
         String description;
         float quantity;
         String unit;
@@ -194,7 +198,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public void removeProductToShoppingCart() {
+    private void removeProductToShoppingCart() {
         String id;
         Product productDeleted;
         System.out.println("Enter the id of the product: ");
@@ -215,7 +219,7 @@ public class PurchaseMenu extends Menu {
 
     }
 
-    public void modifyProductInShoppingCart() {
+    private void modifyProductInShoppingCart() {
         String id;
         int newAmount;
         float newPriceCurrent;
@@ -271,7 +275,7 @@ public class PurchaseMenu extends Menu {
         }
     }
 
-    public void generateVoucher() {
+    private void generateVoucher() {
         String type;
         String id;
         String paymentMethod;
@@ -309,7 +313,7 @@ public class PurchaseMenu extends Menu {
         System.out.printf(this.voucher.toString());
     }
 
-    public void saveVoucher() {
+    private void saveVoucher() {
         try {
             this.vouchersRecord.add(this.voucher);
             this.vouchersRecord.updateJsonFile();

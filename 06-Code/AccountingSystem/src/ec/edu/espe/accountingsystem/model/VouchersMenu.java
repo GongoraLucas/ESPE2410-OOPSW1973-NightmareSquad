@@ -1,6 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
-public class VoucherMenu extends Menu {
+public class VouchersMenu extends Menu {
 
     private  VouchersRecord vouchersRecord;
 
@@ -12,7 +12,7 @@ public class VoucherMenu extends Menu {
     private static final String ERROR_COLOR = "\u001B[31m";  // Red
     private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
 
-    public VoucherMenu() {
+    public VouchersMenu() {
         super();
         this.vouchersRecord = new VouchersRecord();
     }
@@ -46,7 +46,7 @@ public class VoucherMenu extends Menu {
     }
     
     
-    public void showVouchers() {
+    private void showVouchers() {
         try {
             System.out.printf(this.vouchersRecord.toString());
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class VoucherMenu extends Menu {
 
   
 
-    public void deleteVoucher() {
+    private void deleteVoucher() {
         String id;
         Voucher voucher;
 

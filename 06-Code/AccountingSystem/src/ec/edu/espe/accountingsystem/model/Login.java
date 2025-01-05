@@ -3,13 +3,13 @@ package ec.edu.espe.accountingsystem.model;
 
 import java.util.Scanner;
 
-public class Access extends Menu{
+public class Login extends Menu{
 
     private UsersRecord usersRecord;
     private AdministratorMenu administratorMenu;
     private SellerMenu sellerMenu;
 
-    public Access() {
+    public Login() {
         super();
         this.usersRecord = new UsersRecord();
         this.administratorMenu = new AdministratorMenu();

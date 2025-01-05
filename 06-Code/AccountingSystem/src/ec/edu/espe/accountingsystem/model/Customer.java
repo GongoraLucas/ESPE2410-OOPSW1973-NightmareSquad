@@ -1,5 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
+import utils.Identifiable;
+
 /**
  *
  * @author Sebastian Charij
@@ -7,7 +9,7 @@ package ec.edu.espe.accountingsystem.model;
  * @author Andrés Espinosa
  * @author David Cuichan
  */
-public class Customer {
+public class Customer implements Identifiable{
          
     private String id;
     private String type;

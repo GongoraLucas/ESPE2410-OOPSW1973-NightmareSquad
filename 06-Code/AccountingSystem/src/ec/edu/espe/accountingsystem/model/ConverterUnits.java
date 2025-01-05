@@ -1,22 +1,13 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.HashMap;
-import java.util.Map;
+
 
 public class ConverterUnits {
+    private static final ConversionsRecord conversionsRecord = new ConversionsRecord("conversions.json");
+    private static final HashMap<String, HashMap<String, Float>> conversionMap = conversionsRecord.getConversions();
+
     
-    private static final Map<String, Map<String, Float>> conversionMap = new HashMap<>();
-
-    static {
-        Map<String, Float> lbConversions = new HashMap<>();
-        Map<String, Float> arrobaConversions = new HashMap<>();
-
-        lbConversions.put("arroba", 0.0667f);
-        arrobaConversions.put("lb", 15f);
-
-        conversionMap.put("lb", lbConversions);
-        conversionMap.put("arroba", arrobaConversions);
-    }
     
     public static float convertUnit(float value, String initialUnit, String finalUnit) {
         try {

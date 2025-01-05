@@ -9,15 +9,13 @@ public class AdministratorMenu extends Menu {
     private final BranchesMenu branchesMenu;
     private final CustomersMenu customersMenu;
     private final SuppliersMenu suppliersMenu;
-    private final VoucherMenu voucherMenu;
+    private final VouchersMenu vouchersMenu;
 
     // ANSI Color Codes
     private static final String RESET = "\u001B[0m";
     private static final String HEADER_COLOR = "\u001B[34m";  // Blue
     private static final String SUBHEADER_COLOR = "\u001B[35m";  // Magenta
     private static final String MENU_OPTION_COLOR = "\u001B[32m";  // Green
-    private static final String ERROR_COLOR = "\u001B[31m";  // Red
-    private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
 
     public AdministratorMenu() {
         super();
@@ -28,7 +26,7 @@ public class AdministratorMenu extends Menu {
         this.branchesMenu = new BranchesMenu();
         this.customersMenu =  new CustomersMenu();
         this.suppliersMenu =  new SuppliersMenu();
-        this.voucherMenu = new VoucherMenu();
+        this.vouchersMenu = new VouchersMenu();
     }
 
     @Override
@@ -66,7 +64,7 @@ public class AdministratorMenu extends Menu {
                 this.billingMenu.run();
                 break;
             case 6:
-                this.voucherMenu.run();
+                this.vouchersMenu.run();
                 break;
             case 7:
                 this.transactionsMenu.run();

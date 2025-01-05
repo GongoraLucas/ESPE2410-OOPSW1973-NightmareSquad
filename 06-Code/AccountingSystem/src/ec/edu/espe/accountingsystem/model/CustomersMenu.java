@@ -60,7 +60,7 @@ public class CustomersMenu extends Menu {
         }
     }
 
-    public void addCustomer() {
+    private void addCustomer() {
         String id;
         String type;
         String name;
@@ -116,7 +116,7 @@ public class CustomersMenu extends Menu {
         customersRecord.add(customer);
     }
 
-    public IdentityCard addIdentityCard() {
+    private IdentityCard addIdentityCard() {
         String type;
         String id;
         IdentityCard identityCard;
@@ -144,7 +144,7 @@ public class CustomersMenu extends Menu {
 
     }
 
-    public void validateCustomerType(String type) throws InvalidTypeCustomer {
+    private void validateCustomerType(String type) throws InvalidTypeCustomer {
         if (!"retail".equals(type) & !"wholesale".equals(type) & !"distributor".equals(type)) {
             throw new InvalidTypeCustomer();
         }

@@ -1,12 +1,14 @@
 package ec.edu.espe.accountingsystem.model;
 
+import utils.Identifiable;
+
 /**
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-public class Product {
+public class Product implements Identifiable{
 
     private String id;
     private String reference;

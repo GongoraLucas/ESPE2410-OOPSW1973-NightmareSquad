@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class TransactionsRecord {
 
-    private String fileName;
     private JsonFileManager transactionsJson;
     private ArrayList<Transaction> transactions;
 

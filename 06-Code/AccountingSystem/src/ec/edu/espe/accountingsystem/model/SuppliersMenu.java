@@ -59,7 +59,7 @@ public class SuppliersMenu extends Menu {
         }
     }
 
-    public void addSupplier() {
+    private void addSupplier() {
         String id;
         String name;
         IdentityCard identityCard;
@@ -99,7 +99,7 @@ public class SuppliersMenu extends Menu {
         suppliersRecord.add(supplier);
     }
 
-    public IdentityCard addIdentityCard() {
+    private IdentityCard addIdentityCard() {
         String type;
         String id;
         IdentityCard identityCard;

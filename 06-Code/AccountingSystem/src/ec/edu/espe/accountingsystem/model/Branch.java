@@ -1,10 +1,12 @@
 package ec.edu.espe.accountingsystem.model;
 
+import utils.Identifiable;
+
 /**
  *
  * @author Lucas Gongora
  */
-public class Branch {
+public class Branch implements Identifiable {
 
     private String id;
     private String name;
@@ -21,8 +23,7 @@ public class Branch {
                 id,              
                 name,       
                 address,     
-                address,
-                phoneNumber,          
+                phoneNumber,         
                 manager, 
                 horizontalLine); 
 

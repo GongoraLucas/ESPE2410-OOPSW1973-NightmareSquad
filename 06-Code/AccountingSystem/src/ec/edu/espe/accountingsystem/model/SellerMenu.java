@@ -11,8 +11,7 @@ public class SellerMenu extends Menu {
     private static final String HEADER_COLOR = "\u001B[34m";  // Blue
     private static final String SUBHEADER_COLOR = "\u001B[35m";  // Magenta
     private static final String MENU_OPTION_COLOR = "\u001B[32m";  // Green
-    private static final String ERROR_COLOR = "\u001B[31m";  // Red
-    private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
+
 
     public SellerMenu() {
         super();

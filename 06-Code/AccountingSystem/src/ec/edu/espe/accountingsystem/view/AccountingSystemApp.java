@@ -1,7 +1,6 @@
 package ec.edu.espe.accountingsystem.view;
 
-import ec.edu.espe.accountingsystem.model.Access;
-import ec.edu.espe.accountingsystem.model.AdministratorMenu;
+import ec.edu.espe.accountingsystem.model.Login;
 /**
  * @author Lucas Gongora
  * @author Sebastian Charij
@@ -12,8 +11,8 @@ public class AccountingSystemApp {
 
     public static void main(String[] args){
         
-        Access access;
-        access = new Access();
+        Login access;
+        access = new Login();
         access.run();
     }  
 }

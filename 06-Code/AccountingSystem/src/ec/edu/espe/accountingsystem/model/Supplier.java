@@ -1,12 +1,14 @@
 package ec.edu.espe.accountingsystem.model;
 
+import utils.Identifiable;
+
 /**
  *
  * @author Sebastian Charij
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-public class Supplier {
+public class Supplier implements Identifiable{
 
     private String id;
     private String name;

@@ -3,6 +3,7 @@ package ec.edu.espe.accountingsystem.model;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import utils.Identifiable;
 
 /**
  *
@@ -10,7 +11,7 @@ import java.util.Date;
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-public class Voucher {
+public class Voucher implements Identifiable {
 
     private String type;
     private String id;
