@@ -1,7 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
-import ec.edu.espe.accountingsystem.exception.InvalidTypeCustomer;
+
 
 /**
  *
@@ -64,7 +64,7 @@ public class SuppliersMenu extends Menu {
         String name;
         IdentityCard identityCard;
         String address;
-        int phoneNumber;
+        String phoneNumber;
         String email;
         Supplier supplier;
 
@@ -88,8 +88,8 @@ public class SuppliersMenu extends Menu {
         address = super.getScanner().nextLine();
 
         System.out.print("Enter the phone number: ");
-        phoneNumber = super.getScanner().nextInt();
-        super.getScanner().nextLine();
+        phoneNumber = super.getScanner().nextLine();
+ 
 
         System.out.print("Enter the email: ");
         email = super.getScanner().nextLine();
@@ -112,14 +112,10 @@ public class SuppliersMenu extends Menu {
                 type = super.getScanner().nextLine();
                 System.out.print("Enter the number of identity document: ");
                 id = super.getScanner().nextLine();
-                isValid = id != null & id.matches("^\\d{10}(\\d{3})?$");
-                if (!isValid) {
-                    throw new InvalidIdentityCardException("Invalid identity card");
-                }
                 identityCard = new IdentityCard(type, id);
                 break;
             } catch (InvalidIdentityCardException ex) {
-                System.out.println(ex.getMessage());
+                 continue;   
             }
         }
         return identityCard;
@@ -135,7 +131,7 @@ public class SuppliersMenu extends Menu {
         String name;
         IdentityCard identityCard;
         String address;
-        int phoneNumber;
+        String phoneNumber;
         String email;
         Supplier supplier;
 
@@ -157,8 +153,7 @@ public class SuppliersMenu extends Menu {
         address = super.getScanner().nextLine();
 
         System.out.print("Enter the phone number: ");
-        phoneNumber = super.getScanner().nextInt();
-        super.getScanner().nextLine();
+        phoneNumber = super.getScanner().nextLine();
 
         System.out.print("Enter the email: ");
         email = super.getScanner().nextLine();

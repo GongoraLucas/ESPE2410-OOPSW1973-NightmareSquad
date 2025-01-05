@@ -1,6 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ public abstract class Menu {
     private int option;
 
     public Menu() {
-        this.scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in).useLocale(Locale.US);
         this.executionMenu = true;
         this.option = 0;
     }

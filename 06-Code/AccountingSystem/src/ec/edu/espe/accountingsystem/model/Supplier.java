@@ -14,7 +14,7 @@ public class Supplier implements Identifiable{
     private String name;
     private IdentityCard identityCard;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
 
     @Override
@@ -34,7 +34,7 @@ public class Supplier implements Identifiable{
 
     }
 
-    public Supplier(String id, String name, IdentityCard identityCard, String address, int phoneNumber, String email) {
+    public Supplier(String id, String name, IdentityCard identityCard, String address, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.identityCard = identityCard;
@@ -102,14 +102,14 @@ public class Supplier implements Identifiable{
     /**
      * @return the phoneNumber
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
      * @param phoneNumber the phoneNumber to set
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

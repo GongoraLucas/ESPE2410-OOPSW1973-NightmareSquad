@@ -3,7 +3,6 @@ package ec.edu.espe.accountingsystem.model;
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
 import ec.edu.espe.accountingsystem.exception.InvalidTypeCustomer;
 
-
 /**
  *
  * @author Lucas Gongora
@@ -66,19 +65,19 @@ public class CustomersMenu extends Menu {
         String name;
         IdentityCard identityCard;
         String address;
-        int phoneNumber;
+        String phoneNumber;
         String email;
         Customer customer;
 
         System.out.println("Enter the customer data");
         System.out.print("Enter the id of the customer: ");
-        id =  super.getScanner().nextLine();
+        id = super.getScanner().nextLine();
         customer = this.customersRecord.findCustomerById(id);
-        if (customer !=null){
+        if (customer != null) {
             System.out.println("the customer already exist");
             return;
         }
-        
+
         while (true) {
             System.out.print("Enter the type of customer (retail, wholesale, distributor): ");
             type = super.getScanner().nextLine();
@@ -105,7 +104,7 @@ public class CustomersMenu extends Menu {
         address = super.getScanner().nextLine();
 
         System.out.print("Enter the phone number: ");
-        phoneNumber = super.getScanner().nextInt();
+        phoneNumber = super.getScanner().nextLine();
         super.getScanner().nextLine();
 
         System.out.print("Enter the email: ");
@@ -120,9 +119,8 @@ public class CustomersMenu extends Menu {
         String type;
         String id;
         IdentityCard identityCard;
-       Boolean isValid;
-       
-      
+        Boolean isValid;
+
         while (true) {
             try {
                 System.out.println("Enter the identity card data");
@@ -130,14 +128,10 @@ public class CustomersMenu extends Menu {
                 type = super.getScanner().nextLine();
                 System.out.print("Enter the number of identity document: ");
                 id = super.getScanner().nextLine();
-                isValid = id != null & id.matches("^\\d{10}(\\d{3})?$");
-                if (!isValid){
-                    throw new InvalidIdentityCardException("Invalid identity card");
-                }
                 identityCard = new IdentityCard(type, id);
                 break;
-            } catch(InvalidIdentityCardException ex){
-                System.out.println(ex.getMessage());
+            } catch (InvalidIdentityCardException ex) {
+                continue;
             }
         }
         return identityCard;
@@ -160,25 +154,25 @@ public class CustomersMenu extends Menu {
         String name;
         IdentityCard identityCard;
         String address;
-        int phoneNumber;
+        String phoneNumber;
         String email;
         Customer customer;
 
         System.out.println("Enter the customer data");
         System.out.print("Enter the id of the customer: ");
-        id =  super.getScanner().nextLine();
+        id = super.getScanner().nextLine();
         customer = this.customersRecord.findCustomerById(id);
-        if (customer ==null){
+        if (customer == null) {
             System.out.println("the customer does not exist");
             return;
         }
-        
+
         while (true) {
             System.out.print("Enter the type of customer (retail, wholesale, distributor): ");
             type = super.getScanner().nextLine();
             try {
                 validateCustomerType(type);
-                
+
                 break;
             } catch (InvalidTypeCustomer ex) {
                 System.out.println(ex.getMessage());
@@ -199,15 +193,14 @@ public class CustomersMenu extends Menu {
         address = super.getScanner().nextLine();
 
         System.out.print("Enter the phone number: ");
-        phoneNumber = super.getScanner().nextInt();
-        super.getScanner().nextLine();
+        phoneNumber = super.getScanner().nextLine();
 
         System.out.print("Enter the email: ");
         email = super.getScanner().nextLine();
 
         customer = new Customer(id, type, name, identityCard, address, phoneNumber, email);
 
-        customersRecord.update(id,customer);
+        customersRecord.update(id, customer);
 
     }
 

@@ -25,23 +25,22 @@ public class IdentityCard {
     public IdentityCard(String type, String id) throws InvalidIdentityCardException {
         this.type = type;
         try {
-            setId(id); // Usar el método setId para validar
+            setId(id);
         } catch (InvalidIdentityCardException e) {
             System.out.println("Error: " + e.getMessage());
-            throw e; // Re-lanzar la excepción si es necesario
         }
     }
 
     public void setId(String id) throws InvalidIdentityCardException {
         if (!isValidId(id)) {
-            throw new InvalidIdentityCardException("La cédula ingresada no es válida.");
+            throw new InvalidIdentityCardException("The number card entered is not valid.");
         }
         this.id = id;
     }
 
     private boolean isValidId(String id) {
-        // Lógica de validación de cédula (ejemplo simple)
-        return id != null && id.matches("\\d{10}"); // Debe ser un número de 10 dígitos
+      
+        return id != null && id.matches("^\\d{10}(\\d{3})?$"); 
     }
 
     /**

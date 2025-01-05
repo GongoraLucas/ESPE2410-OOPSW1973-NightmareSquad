@@ -28,28 +28,28 @@ public class InventoryMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "5. Back to the main menu" + RESET);
         System.out.print("Enter the number option: ");
     }
-    
+
     @Override
-    public void processOption(int option) throws IllegalArgumentException{
-         switch (option) {
-                    case 1:
-                        addProduct();
-                        break;
-                    case 2:
-                        viewProducts();
-                        break;
-                    case 3:
-                        updateProduct();
-                        break;
-                    case 4:
-                        deleteProduct();
-                        break;  
-                    case 5:
-                        super.setExecutionMenu(false);
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Option must be between 1 and 7.");
-                }
+    public void processOption(int option) throws IllegalArgumentException {
+        switch (option) {
+            case 1:
+                addProduct();
+                break;
+            case 2:
+                viewProducts();
+                break;
+            case 3:
+                updateProduct();
+                break;
+            case 4:
+                deleteProduct();
+                break;
+            case 5:
+                super.setExecutionMenu(false);
+                break;
+            default:
+                throw new IllegalArgumentException("Option must be between 1 and 7.");
+        }
     }
 
     public void addProduct() {
@@ -235,26 +235,28 @@ public class InventoryMenu extends Menu {
         float retail;
         float wholesale;
         float distributor;
+        while (true) {
+            try {
+                System.out.println("Enter the data for the price");
+                System.out.print("Enter the retail price: ");
+                retail = super.getScanner().nextFloat();
+                super.getScanner().nextLine();
 
-        try {
-            System.out.println("Enter the data for the price");
-            System.out.print("Enter the retail price: ");
-            retail = super.getScanner().nextFloat();
-            super.getScanner().nextLine();
+                System.out.print("Enter the wholesale price: ");
+                wholesale = super.getScanner().nextFloat();
+                super.getScanner().nextLine();
 
-            System.out.print("Enter the wholesale price: ");
-            wholesale = super.getScanner().nextFloat();
-            super.getScanner().nextLine();
+                System.out.print("Enter the distributor price: ");
+                distributor = super.getScanner().nextFloat();
+                super.getScanner().nextLine();
 
-            System.out.print("Enter the distributor price: ");
-            distributor = super.getScanner().nextFloat();
-            super.getScanner().nextLine();
+                return new Price(retail, wholesale, distributor);
+            } catch (Exception e) {
+                System.out.println(ERROR_COLOR + "Error adding price: " + e.getMessage() + RESET);
+            }
 
-            return new Price(retail, wholesale, distributor);
-        } catch (Exception e) {
-            System.out.println(ERROR_COLOR + "Error adding price: " + e.getMessage() + RESET);
-            return null;
         }
+
     }
 
     public MeasuredItem addMeasuredItem() {
@@ -273,10 +275,10 @@ public class InventoryMenu extends Menu {
             unit = super.getScanner().nextLine();
 
             return new MeasuredItem(description, quantity, unit);
-            
+
         } catch (Exception e) {
             System.out.println(ERROR_COLOR + "Error adding measured item: " + e.getMessage() + RESET);
-            
+
             return null;
         }
     }

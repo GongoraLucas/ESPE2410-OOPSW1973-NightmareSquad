@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1",
+    "reference": "chocolate",
+    "description": "manicho",
+    "price": {
+      "current": 5.9,
+      "retail": 5.9,
+      "wholesale": 5.4,
+      "distributor": 5.0
+    },
+    "amount": 46,
+    "measuredItem": {
+      "description": "bag",
+      "value": 1.2,
+      "unit": "kg"
+    }
+  }
+]
