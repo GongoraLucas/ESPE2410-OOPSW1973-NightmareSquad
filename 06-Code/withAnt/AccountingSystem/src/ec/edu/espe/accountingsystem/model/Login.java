@@ -1,8 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
 
-import java.util.Scanner;
-
 public class Login extends Menu{
 
     private UsersRecord usersRecord;
