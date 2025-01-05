@@ -25,7 +25,6 @@ public class Login extends Menu{
         System.out.println("1. Administrator");
         System.out.println("2. Seller");
         System.out.println("3. Exit");
-        System.out.print("Enter the number option: ");
     }
     
     @Override

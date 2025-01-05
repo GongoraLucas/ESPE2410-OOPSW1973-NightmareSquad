@@ -42,7 +42,6 @@ public class AdministratorMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "7. Transactions" + RESET);
         System.out.println(MENU_OPTION_COLOR + "8. Conversions" + RESET);
         System.out.println(MENU_OPTION_COLOR + "9. Exit" + RESET);
-        System.out.print("Enter the option number: ");
     }
 
     @Override

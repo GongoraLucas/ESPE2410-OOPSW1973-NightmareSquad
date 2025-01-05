@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  *
  * @author Lucas Gongora
- */
+*/
 public abstract class Menu {
 
     private Scanner scanner;
@@ -22,42 +22,42 @@ public abstract class Menu {
 
     /**
      * @return the scanner
-     */
+    */
     public Scanner getScanner() {
         return scanner;
     }
 
     /**
      * @param scanner the scanner to set
-     */
+    */
     public void setScanner(Scanner scanner) {
         this.scanner = scanner;
     }
 
     /**
      * @return the executionMenu
-     */
+    */
     public boolean isExecutionMenu() {
         return executionMenu;
     }
 
     /**
      * @param executionMenu the executionMenu to set
-     */
+    */
     public void setExecutionMenu(boolean executionMenu) {
         this.executionMenu = executionMenu;
     }
 
     /**
      * @return the option
-     */
+    */
     public int getOption() {
         return option;
     }
 
     /**
      * @param option the option to set
-     */
+    */
     public void setOption(int option) {
         this.option = option;
     }
@@ -65,7 +65,7 @@ public abstract class Menu {
     public int getUserInput() {
         int userInput = 0;
             try {
-                System.out.print("Enter a number: ");
+                System.out.print("Please, enter a number option: ");
                 userInput = scanner.nextInt(); 
                 scanner.nextLine(); 
             } catch (InputMismatchException e) {
