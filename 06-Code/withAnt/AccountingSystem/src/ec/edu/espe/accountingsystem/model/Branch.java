@@ -1,4 +1,5 @@
 package ec.edu.espe.accountingsystem.model;
+import ec.edu.espe.accountingsystem.exception.InvalidBranchException;
 
 import utils.Identifiable;
 
@@ -29,7 +30,11 @@ public class Branch implements Identifiable {
 
     }
 
-    public Branch(String id, String name, String address, int phoneNumber, String manager) {
+    public Branch(String id, String name, String address, int phoneNumber, String manager) throws InvalidBranchException {
+        if (id == null || id.isEmpty() || name == null || name.isEmpty() || address == null || address.isEmpty()) {
+            throw new InvalidBranchException("Branch fields cannot be null or empty.");
+        }
+        
         this.id = id;
         this.name = name;
         this.address = address;
