@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
  */
 public class BranchesMenu extends Menu {
 
-    BranchesRecord branchesRecord;
+    BranchRecord branchesRecord;
 
     // ANSI Color Codes
     private static final String RESET = "\u001B[0m";
@@ -18,7 +18,7 @@ public class BranchesMenu extends Menu {
     private static final String MENU_OPTION_COLOR = "\u001B[32m";  // Green
 
     public BranchesMenu() {
-        branchesRecord = new BranchesRecord("branches.json");
+        branchesRecord = new BranchRecord("branches.json");
     }
 
     @Override

@@ -2,14 +2,12 @@
 
 package ec.edu.espe.accountingsystem.model;
 
-import java.util.ArrayList;
-import utils.JsonFileManager;
-
 /**
  *
  * @author Lucas Gongora
  */
-public class BranchesRecord {
+public class BranchRecord extends Record<Branch>{
+    /*
     JsonFileManager branches;
 
     @Override
@@ -36,7 +34,7 @@ public class BranchesRecord {
     }
     
     
-    public BranchesRecord(String branchesFile) {
+    public BranchRecord(String branchesFile) {
         this.branches = new JsonFileManager(branchesFile);
     }
     
@@ -62,5 +60,40 @@ public class BranchesRecord {
     }
     public ArrayList<Branch> getBranches(){
         return this.branches.read(Branch.class);
+    }
+    */
+    public BranchRecord(String filename) {
+        super(filename);
+    }
+    
+    @Override
+    protected Class<Branch> getEntityClass() {
+        return Branch.class;
+    }
+    
+    @Override
+    public Branch findBranchById(String id) {
+        return getAll().stream()
+            .filter(branch -> branch.getId().equals(id))
+            .findFirst()
+            .orElse(null);
+    }
+    
+    @Override
+    public String toString() {
+        String horizontalLine = "------------------------------------------------------";
+        StringBuilder content = new StringBuilder();
+        
+        content.append(horizontalLine)
+               .append(horizontalLine)
+               .append(String.format("\n| %12s | %12s | %30s | %12s | %12s |\n",
+                    "ID", "Name", "Address", "Phone number", "Manager"));
+        
+        getAll().forEach(branch -> content.append(branch.toString()));
+        
+        content.append(horizontalLine)
+               .append("\n");
+        
+        return content.toString();
     }
 }

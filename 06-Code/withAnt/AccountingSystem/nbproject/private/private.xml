@@ -3,50 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/SuppliersRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/SellerMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/CustomersMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/InventoryMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Branch.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/SuppliersMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Price.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/BillingMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/VouchersRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/ConverterUnits.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/ConverterUnitsMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/BranchesMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/IdentityCard.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/TransactionMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/ConversionsRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/SaleMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/exception/RecordNotFoundException.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/UsersRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/CustomersRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/exception/InvalidBranchException.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/exception/InvalidTypeCustomer.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/VouchersMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/BranchesRecord.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Customer.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Inventory.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/exception/InvalidIdentityCardException.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/PurchaseMenu.java</file>
-            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Menu.java</file>
-=======
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/InventoryAdd.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/VoucherSubTotal.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/InventoryRemove.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/BranchesMenu.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/ConverterUnits.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/PriceCurrent.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Voucher.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/exception/InvalidBranchException.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/ProductTest.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/SaleMenu.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/test/ec/edu/espe/accountingsystem/model/PriceDiscount.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/PurchaseMenu.java</file>
-            <file>file:/C:/Users/Lucas/Desktop/Carrera/segundo-tercer-semestre/POO/proyecto/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Branch.java</file>
->>>>>>> 9a17041885379f49410d9dfa77fcf0f5ebe67b4b
+            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/BranchRecord.java</file>
+            <file>file:/C:/Users/hecto/OneDrive/Desktop/ASIGNATURAS/POO/ESPE2410-OOPSW1973-NightmareSquad/06-Code/withAnt/AccountingSystem/src/ec/edu/espe/accountingsystem/model/Record.java</file>
         </group>
     </open-files>
 </project-private>
