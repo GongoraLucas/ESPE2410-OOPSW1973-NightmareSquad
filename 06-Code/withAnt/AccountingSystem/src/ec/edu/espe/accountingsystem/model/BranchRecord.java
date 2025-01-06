@@ -27,15 +27,15 @@ public class BranchRecord extends Record<Branch>{
         String horizontalLine = "------------------------------------------------------";
         StringBuilder content = new StringBuilder();
         
-        content.append(horizontalLine)
-               .append(horizontalLine)
-               .append(String.format("\n| %12s | %12s | %30s | %12s | %12s |\n",
+        content.append(horizontalLine);
+        content.append(horizontalLine);
+        content.append(String.format("\n| %12s | %12s | %30s | %12s | %12s |\n",
                     "ID", "Name", "Address", "Phone number", "Manager"));
         
         getAll().forEach(branch -> content.append(branch.toString()));
         
-        content.append(horizontalLine)
-               .append("\n");
+        content.append(horizontalLine);
+        content.append("\n");
         
         return content.toString();
     }    
