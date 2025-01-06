@@ -47,7 +47,6 @@ public class TransactionMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "2. Update payment status" + RESET);
         System.out.println(MENU_OPTION_COLOR + "3. Delete transactions" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Back to the main menu" + RESET);
-        System.out.print(MENU_OPTION_COLOR + "Enter the option number: " + RESET);
     }
     
     

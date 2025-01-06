@@ -46,8 +46,6 @@ public class PurchaseMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "6. Save Voucher" + RESET);
         System.out.println(MENU_OPTION_COLOR + "7. Send Voucher to Transactions Record" + RESET);
         System.out.println(MENU_OPTION_COLOR + "8. Back to the main menu" + RESET);
-
-        System.out.print("Enter the number option: ");
     }
 
     @Override

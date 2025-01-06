@@ -36,8 +36,6 @@ public class BranchesRecord {
     }
     
     
-    
-
     public BranchesRecord(String branchesFile) {
         this.branches = new JsonFileManager(branchesFile);
     }

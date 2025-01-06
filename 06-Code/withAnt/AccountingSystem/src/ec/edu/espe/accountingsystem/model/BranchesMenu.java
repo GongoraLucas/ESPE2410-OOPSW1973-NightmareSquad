@@ -29,7 +29,6 @@ public class BranchesMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "3. Update branch" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Delete branch" + RESET);
         System.out.println(MENU_OPTION_COLOR + "5. Exit" + RESET);
-        System.out.print("Enter the option number: ");
     }
 
     @Override

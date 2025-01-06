@@ -29,7 +29,6 @@ public class SellerMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "2. Suppliers" + RESET);
         System.out.println(MENU_OPTION_COLOR + "3. Billing" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Exit" + RESET);
-        System.out.print("Enter the option number: ");
     }
 
     @Override
