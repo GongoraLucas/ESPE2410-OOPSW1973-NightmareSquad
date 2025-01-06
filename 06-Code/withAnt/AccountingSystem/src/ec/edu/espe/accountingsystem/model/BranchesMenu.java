@@ -1,5 +1,6 @@
 package ec.edu.espe.accountingsystem.model;
 
+import ec.edu.espe.accountingsystem.exception.InvalidBranchException;
 import java.util.InputMismatchException;
 
 /**
@@ -54,7 +55,7 @@ public class BranchesMenu extends Menu {
         }
     }
 
-    private void addBranch() {
+    private void addBranch()  {
         String id;
         String name;
         String address;
@@ -87,6 +88,8 @@ public class BranchesMenu extends Menu {
 
         } catch (InputMismatchException ex) {
             System.out.println("Enter the correct phone number");
+        }catch (InvalidBranchException ex){
+            System.out.println(ex.getMessage());
         }
 
     }
@@ -95,7 +98,7 @@ public class BranchesMenu extends Menu {
         System.out.println(this.branchesRecord.toString());
     }
 
-    private void updateBranch() {
+    private void updateBranch()  {
         String id;
         String name;
         String address;
@@ -128,6 +131,8 @@ public class BranchesMenu extends Menu {
 
         } catch (InputMismatchException ex) {
             System.out.println("Enter the correct phone number");
+        } catch (InvalidBranchException ex){
+            System.out.println(ex.getMessage());
         }
 
     }

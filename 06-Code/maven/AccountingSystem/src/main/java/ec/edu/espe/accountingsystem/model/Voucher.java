@@ -19,7 +19,7 @@ public class Voucher implements Identifiable {
     private ArrayList<Product> shoppingCart;
     private Customer client;
     private Supplier supplier;
-    private static float  VAT = 0.15f;
+    private float  VAT;
     private float subtotal;
     private float valueWithVAT;
     private float total;
@@ -54,8 +54,8 @@ public class Voucher implements Identifiable {
 
 
         content.append("-------------------------------------------\n");
-        content.append(String.format("%-40s: $%s%n", "Subtotal", df.format(this.subtotal)));
-        content.append(String.format("%-40s: $%s%n", "Total", df.format(this.total)));
+        content.append(String.format("%-40s: $%s%n", "Subtotal", df.format(this.getSubtotal())));
+        content.append(String.format("%-40s: $%s%n", "Total", df.format(this.getTotal())));
         content.append("===========================================");
         
         return content.toString();
@@ -64,17 +64,18 @@ public class Voucher implements Identifiable {
 
     
 
-    public Voucher(String type, String id, Customer client, Supplier supplier,String paymentMethod, ArrayList<Product> shoppingCart) {
+    public Voucher(String type, String id, Customer client, Supplier supplier,String paymentMethod, ArrayList<Product> shoppingCart,float vat) {
         this.type = type;
         this.id = id;
-        this.issueDate = new Date();
         this.shoppingCart = shoppingCart;
         this.client = client;
         this.supplier = supplier;
+        this.paymentMethod=paymentMethod;
+        this.VAT = vat;
+        this.issueDate = new Date();
         this.subtotal = this.calculateSubtotal();
         this.valueWithVAT = this.calculateVAT();
         this.total = this.calculateTotal();
-        this.paymentMethod=paymentMethod;
     }
 
     /**
@@ -203,6 +204,21 @@ public class Voucher implements Identifiable {
         this.total = total;
     }
     
+        /**
+     * @return the subtotal
+     */
+    public float getSubtotal() {
+        return subtotal;
+    }
+
+    /**
+     * @return the valueWithVAT
+     */
+    public float getValueWithVAT() {
+        return valueWithVAT;
+    }
+    
+    
     public float calculateSubtotal() {
         float subTotal;
 
@@ -217,23 +233,16 @@ public class Voucher implements Identifiable {
     public float calculateVAT() {
         float valueWithVAT;
 
-        valueWithVAT = subtotal * VAT;
+        valueWithVAT = getSubtotal() * VAT;
 
         return valueWithVAT;
     }
 
     public float calculateTotal() {
 
-        return this.subtotal + this.valueWithVAT;
+        return this.getSubtotal() + this.getValueWithVAT();
     }
 
-    public void generateVoucher() {
-        //TODO algorithm
-    }
-
-    public void sendVoucher() {
-        //TODO algorithm
-    }
 
     public void addToShoppingCart(Inventory inventory, String productId, int amount) {
 
@@ -256,6 +265,8 @@ public class Voucher implements Identifiable {
         throw new Error("the product was not found");
 
     }
+
+
     
     
 

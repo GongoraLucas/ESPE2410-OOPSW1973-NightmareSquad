@@ -307,7 +307,7 @@ public class PurchaseMenu extends Menu {
             return;
         }
 
-        this.voucher = new Voucher(type, id, customer, supplier, paymentMethod, this.shoppingCart);
+        this.voucher = new Voucher(type, id, customer, supplier, paymentMethod, this.shoppingCart,0.15f);
         System.out.printf(this.voucher.toString());
     }
 

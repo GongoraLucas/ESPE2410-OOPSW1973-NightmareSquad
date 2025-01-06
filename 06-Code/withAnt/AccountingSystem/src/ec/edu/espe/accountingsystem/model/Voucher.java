@@ -19,7 +19,7 @@ public class Voucher implements Identifiable {
     private ArrayList<Product> shoppingCart;
     private Customer client;
     private Supplier supplier;
-    private static float  VAT = 0.15f;
+    private float  VAT;
     private float subtotal;
     private float valueWithVAT;
     private float total;
@@ -64,17 +64,19 @@ public class Voucher implements Identifiable {
 
     
 
-    public Voucher(String type, String id, Customer client, Supplier supplier,String paymentMethod, ArrayList<Product> shoppingCart) {
+    public Voucher(String type, String id, Customer client, Supplier supplier,String paymentMethod, ArrayList<Product> shoppingCart,float vat) {
         this.type = type;
         this.id = id;
-        this.issueDate = new Date();
         this.shoppingCart = shoppingCart;
         this.client = client;
         this.supplier = supplier;
+        this.VAT = vat;
+        this.paymentMethod=paymentMethod;
         this.subtotal = this.calculateSubtotal();
         this.valueWithVAT = this.calculateVAT();
         this.total = this.calculateTotal();
-        this.paymentMethod=paymentMethod;
+         this.issueDate = new Date();
+        
     }
 
     /**
