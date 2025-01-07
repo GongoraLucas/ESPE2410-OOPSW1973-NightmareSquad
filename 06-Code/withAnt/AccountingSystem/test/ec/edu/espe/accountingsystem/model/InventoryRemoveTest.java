@@ -1,5 +1,3 @@
-
-
 package ec.edu.espe.accountingsystem.model;
 
 import org.junit.jupiter.api.Test;
@@ -8,10 +6,9 @@ import org.junit.jupiter.api.Test;
  *
  * @author Lucas Gongora
  */
-public class InventoryAdd {
+public class InventoryRemoveTest {
     @Test
-    public void testAddProductQuantity(){
-    
-    }
+    public void testRemoveProductQuantity(){
         
+    }
 }

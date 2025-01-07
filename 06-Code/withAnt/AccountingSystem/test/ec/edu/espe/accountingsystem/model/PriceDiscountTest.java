@@ -6,6 +6,6 @@ package ec.edu.espe.accountingsystem.model;
  *
  * @author Lucas Gongora
  */
-public class TransactionRecords {
+public class PriceDiscountTest {
 
 }

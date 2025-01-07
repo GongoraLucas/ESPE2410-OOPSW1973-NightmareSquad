@@ -1,5 +1,3 @@
-
-
 package ec.edu.espe.accountingsystem.model;
 
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
@@ -7,13 +5,10 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author Lucas Gongora
- */
-public class VoucherVat {
+public class VoucherSubTotalTest {
+
     @Test
-    public void testCalculateVAT() throws InvalidIdentityCardException {
+    public void testCalculateSubtotal() throws InvalidIdentityCardException {
      
         Product product = new Product(
             "1", 
@@ -58,7 +53,7 @@ public class VoucherVat {
             0.15f
         );
 
-       
-        assertEquals(40.5f, voucher.calculateVAT(), "The subtotal with vat must be the multiplication of the subtotal with VAT.");
+
+        assertEquals(270, voucher.calculateSubtotal(), "The subtotal must be the sum of the retail prices of the products.");
     }
 }

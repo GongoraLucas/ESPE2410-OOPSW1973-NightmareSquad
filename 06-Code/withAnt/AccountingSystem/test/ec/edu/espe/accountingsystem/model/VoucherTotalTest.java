@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class VoucherSubTotal {
+public class VoucherTotalTest {
 
     @Test
-    public void testCalculateSubtotal() throws InvalidIdentityCardException {
+    public void testCalculateTotal() throws InvalidIdentityCardException {
      
         Product product = new Product(
             "1", 
@@ -53,7 +53,7 @@ public class VoucherSubTotal {
             0.15f
         );
 
-
-        assertEquals(270, voucher.calculateSubtotal(), "The subtotal must be the sum of the retail prices of the products.");
+        // Comprobación de que el subtotal es correcto
+        assertEquals(310.5f, voucher.calculateTotal(), "The subtotal must be the sum of the retail prices of the products.");
     }
 }

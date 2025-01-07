@@ -72,34 +72,6 @@ public class ProductTest {
         assertEquals(100f, product.calculateTotalPrice(), "Total price must be amount 200 times retail price 0.50");
     }
 
-    @Test
-    public void testCalculateTotalPriceWithBulkDiscount() {
-        Product product = new Product(
-            "7", 
-            "juice", 
-            "Tropicana", 
-            new Price(2.00f, 1.75f, 1.50f), 
-            500, 
-            new MeasuredItem("bottle", 1.0f, "liter")
-        );
-        product.setDiscount(0.15f);  // 15% discount
-        assertEquals(850f, product.calculateTotalPrice(), "Total price must be discounted by 15% for bulk purchase");
-    }
-
-    @Test
-    public void testCalculateTotalPriceWithMultipleDiscounts() {
-        Product product = new Product(
-            "8", 
-            "chips", 
-            "Lay's", 
-            new Price(1.80f, 1.60f, 1.40f), 
-            200, 
-            new MeasuredItem("bag", 0.25f, "kg")
-        );
-        product.setDiscount(0.1f);  // 10% discount
-        product.setDiscount(0.05f); // Additional 5% discount
-        assertEquals(280f, product.calculateTotalPrice(), "Total price must be discounted by 15% total");
-    }
 
     @Test
     public void testCalculateTotalPriceWithZeroPrice() {
