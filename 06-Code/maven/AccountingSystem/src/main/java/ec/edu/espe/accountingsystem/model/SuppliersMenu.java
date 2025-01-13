@@ -32,7 +32,6 @@ public class SuppliersMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "3. Update supplier" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Delete supplier" + RESET);
         System.out.println(MENU_OPTION_COLOR + "5. Exit" + RESET);
-        System.out.print("Enter the option number: ");
     }
 
     @Override

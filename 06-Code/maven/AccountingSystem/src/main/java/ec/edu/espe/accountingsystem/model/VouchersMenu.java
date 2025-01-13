@@ -42,7 +42,6 @@ public class VouchersMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "1. View transactions" + RESET);
         System.out.println(MENU_OPTION_COLOR + "2. Delete transactions" + RESET);
         System.out.println(MENU_OPTION_COLOR + "3. Back to the main menu" + RESET);
-        System.out.print( "Enter the option number: ");
     }
     
     

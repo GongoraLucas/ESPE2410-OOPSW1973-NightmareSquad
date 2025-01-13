@@ -26,7 +26,6 @@ public class InventoryMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "3. Update product" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Delete product" + RESET);
         System.out.println(MENU_OPTION_COLOR + "5. Back to the main menu" + RESET);
-        System.out.print("Enter the number option: ");
     }
 
     @Override

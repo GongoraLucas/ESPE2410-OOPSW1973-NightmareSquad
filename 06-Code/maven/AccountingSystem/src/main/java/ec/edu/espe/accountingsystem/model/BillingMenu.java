@@ -30,7 +30,6 @@ public class BillingMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "2. Purchase" + RESET);
         System.out.println(MENU_OPTION_COLOR + "3. Back to the main menu" + RESET);
 
-        System.out.print("Enter the number option: ");
     }
 
     @Override

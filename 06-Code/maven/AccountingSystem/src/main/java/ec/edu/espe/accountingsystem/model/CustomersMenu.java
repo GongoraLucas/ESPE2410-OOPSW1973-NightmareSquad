@@ -32,7 +32,6 @@ public class CustomersMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "3. Update customer" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Delete customer" + RESET);
         System.out.println(MENU_OPTION_COLOR + "5. Exit" + RESET);
-        System.out.print("Enter the option number: ");
     }
 
     @Override

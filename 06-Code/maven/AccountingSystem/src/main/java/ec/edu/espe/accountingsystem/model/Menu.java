@@ -65,7 +65,7 @@ public abstract class Menu {
     public int getUserInput() {
         int userInput = 0;
             try {
-                System.out.print("Enter a number: ");
+                System.out.print("Please, press a option number: ");
                 userInput = scanner.nextInt(); 
                 scanner.nextLine(); 
             } catch (InputMismatchException e) {

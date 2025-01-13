@@ -30,7 +30,6 @@ public class ConverterUnitsMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "5. Delete conversion" + RESET);
         System.out.println(MENU_OPTION_COLOR + "6. Update conversion" + RESET);
         System.out.println(MENU_OPTION_COLOR + "7. Back to main menu" + RESET);
-        System.out.print("Enter the number option: ");
     }
 
     @Override
