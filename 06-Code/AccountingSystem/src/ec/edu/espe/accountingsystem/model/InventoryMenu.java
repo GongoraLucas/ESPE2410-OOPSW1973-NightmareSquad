@@ -85,6 +85,7 @@ public class InventoryMenu {
         
         this.inventory.addProductQuantity(id,amount);
         
+        
     }
     public void sellProduct(){
         System.out.println("Enter de ID of product to buy: ");
