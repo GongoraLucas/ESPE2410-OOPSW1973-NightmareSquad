@@ -28,6 +28,25 @@ public class InventoryMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "5. Back to the main menu" + RESET);
     }
 
+<<<<<<< HEAD:06-Code/AccountingSystem/src/ec/edu/espe/accountingsystem/model/InventoryMenu.java
+        System.out.println("Enter de amount to buy:  ");
+        int amount = scanner.nextInt();
+        
+        this.inventory.addProductQuantity(id,amount);
+        
+        
+    }
+    public void sellProduct(){
+        System.out.println("Enter de ID of product to buy: ");
+        String id = scanner.nextLine();
+   
+        
+        System.out.println("Enter de amount to buy:  ");
+        int amount = scanner.nextInt();
+        amount*=-1;
+        
+        this.inventory.addProductQuantity(id,amount);
+=======
     @Override
     public void processOption(int option) throws IllegalArgumentException {
         switch (option) {
@@ -49,6 +68,7 @@ public class InventoryMenu extends Menu {
             default:
                 throw new IllegalArgumentException("Option must be between 1 and 7.");
         }
+>>>>>>> 5969a12cc356090fb7305c59d88a59747c9d89e8:06-Code/maven/AccountingSystem/src/main/java/ec/edu/espe/accountingsystem/model/InventoryMenu.java
     }
 
     public void addProduct() {
