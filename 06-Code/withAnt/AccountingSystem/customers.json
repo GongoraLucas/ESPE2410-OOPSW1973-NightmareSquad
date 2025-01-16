@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "type": "retail",
+    "name": "Dulces Travesuras",
+    "identityCard": {
+      "type": "9999999999999",
+      "id": "9999999999999"
+    },
+    "address": "Mayorista",
+    "phoneNumber": 923923,
+    "email": "dsdvs"
+  }
+]
