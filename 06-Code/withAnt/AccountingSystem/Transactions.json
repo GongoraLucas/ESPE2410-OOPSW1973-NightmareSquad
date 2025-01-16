@@ -1,0 +1,12 @@
+[
+  {
+    "id": "0",
+    "type": "sale",
+    "paymentStatus": "0"
+  },
+  {
+    "id": "1",
+    "type": "sale",
+    "paymentStatus": "5"
+  }
+]
