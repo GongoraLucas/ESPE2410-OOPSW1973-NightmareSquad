@@ -1,8 +1,8 @@
-package utils;
+package Utils;
 
 /**
  *
- * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public interface Identifiable {
     String getId();
