@@ -21,6 +21,7 @@ public class MongoDbManager {
     public MongoDbManager(String dbname) throws CredentialsNotFoundInPath {
         String user = System.getenv("MONGO_USER");
         String password = System.getenv("MONGO_PASSWORD");
+        System.out.println("CORRIENDO" + user + "  -->"+password);
 
         if (user == null || password == null) {
             throw new CredentialsNotFoundInPath();
