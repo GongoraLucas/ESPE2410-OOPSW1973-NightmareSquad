@@ -1,13 +1,13 @@
-package ec.edu.espe.accountingsystem.model;
+package ec.edu.espe.accountingsystem.controller;
 
 import ec.edu.espe.accountingsystem.exception.VariablesNotFoundInPathException;
 import utils.MongoDbManager;
 
-public abstract class Record {
+public abstract class DAO {
 
     private MongoDbManager database;
 
-    public Record() {
+    public DAO() {
         try {
             
             this.database = new MongoDbManager("AccountingSystem");

@@ -1,5 +1,6 @@
-package ec.edu.espe.accountingsystem.model;
+package ec.edu.espe.accountingsystem.controller;
 
+import ec.edu.espe.accountingsystem.controller.DAO;
 import java.util.HashMap;
 
 
@@ -7,11 +8,11 @@ import java.util.HashMap;
  *
  * @author Lucas Gongora
  */
-public class ConversionsRecord extends Record {
+public class ConversionsDAO extends DAO {
 
     private static String collection = "conversions";
 
-    public ConversionsRecord() {
+    public ConversionsDAO() {
         super();
     }
 

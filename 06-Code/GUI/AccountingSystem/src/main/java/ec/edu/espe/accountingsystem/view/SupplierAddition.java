@@ -7,7 +7,7 @@ package ec.edu.espe.accountingsystem.view;
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
 import ec.edu.espe.accountingsystem.model.IdentityCard;
 import ec.edu.espe.accountingsystem.model.Supplier;
-import ec.edu.espe.accountingsystem.model.SuppliersRecord;
+import ec.edu.espe.accountingsystem.controller.SuppliersDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -204,7 +204,7 @@ public class SupplierAddition extends javax.swing.JFrame {
         System.out.println(supplier + "printed");
         
         
-        SuppliersRecord suppliers = new SuppliersRecord("Suppliers");
+        SuppliersDAO suppliers = new SuppliersDAO("Suppliers");
         
         suppliers.add(supplier);
         

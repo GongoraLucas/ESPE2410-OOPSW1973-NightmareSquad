@@ -1,7 +1,6 @@
 package ec.edu.espe.accountingsystem.controller;
 
 import ec.edu.espe.accountingsystem.model.User;
-import ec.edu.espe.accountingsystem.model.UsersRecord;
 
 public class UserController {
 

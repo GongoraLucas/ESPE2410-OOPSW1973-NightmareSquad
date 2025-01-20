@@ -1,18 +1,20 @@
-package ec.edu.espe.accountingsystem.model;
+package ec.edu.espe.accountingsystem.controller;
 
+import ec.edu.espe.accountingsystem.controller.DAO;
+import ec.edu.espe.accountingsystem.model.Transaction;
 import java.util.ArrayList;
 
 /**
  *
  * @author Lucas Gongora
  */
-public class TransactionsRecord extends Record{
+public class TransactionsDAO extends DAO{
 
    private static String collection="transactions";
 
     
 
-    public TransactionsRecord() {
+    public TransactionsDAO() {
        super();
     }
 

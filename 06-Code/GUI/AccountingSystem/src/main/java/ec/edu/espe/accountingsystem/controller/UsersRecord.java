@@ -1,8 +1,10 @@
-package ec.edu.espe.accountingsystem.model;
+package ec.edu.espe.accountingsystem.controller;
 
+import ec.edu.espe.accountingsystem.controller.DAO;
+import ec.edu.espe.accountingsystem.model.User;
 import java.util.ArrayList;
 
-public class UsersRecord extends Record {
+public class UsersRecord extends DAO {
     private static String collection = "users";
     private boolean areTwoUsers;
 
