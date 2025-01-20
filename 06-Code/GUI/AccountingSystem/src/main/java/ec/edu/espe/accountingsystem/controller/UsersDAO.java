@@ -4,11 +4,11 @@ import ec.edu.espe.accountingsystem.controller.DAO;
 import ec.edu.espe.accountingsystem.model.User;
 import java.util.ArrayList;
 
-public class UsersRecord extends DAO {
+public class UsersDAO extends DAO {
     private static String collection = "users";
     private boolean areTwoUsers;
 
-    public UsersRecord() {
+    public UsersDAO() {
         super();
         this.areTwoUsers = false;
     }

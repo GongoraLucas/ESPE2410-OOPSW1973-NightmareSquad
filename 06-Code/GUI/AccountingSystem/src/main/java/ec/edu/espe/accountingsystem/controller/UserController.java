@@ -4,10 +4,10 @@ import ec.edu.espe.accountingsystem.model.User;
 
 public class UserController {
 
-    private UsersRecord usersRecord;
+    private UsersDAO usersRecord;
 
     public UserController() {
-        usersRecord = new UsersRecord();
+        usersRecord = new UsersDAO();
     }
 
     public boolean checkUserExists(String type) {
