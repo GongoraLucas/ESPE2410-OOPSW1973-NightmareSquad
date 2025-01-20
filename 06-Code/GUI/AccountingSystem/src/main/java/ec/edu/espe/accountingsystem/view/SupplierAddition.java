@@ -211,7 +211,7 @@ public class SupplierAddition extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
-        Administrator administratorWindow = new Administrator();
+        FrmAdministrator administratorWindow = new FrmAdministrator();
         administratorWindow.setVisible(true);
         
         this.dispose();

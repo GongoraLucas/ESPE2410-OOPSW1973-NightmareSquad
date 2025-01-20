@@ -9,29 +9,29 @@ package ec.edu.espe.accountingsystem.model;
 public class User {
 
     private String type;
-    private String userName;
+    private String username;
     private String password;
 
     @Override
     public String toString() {
-        return "User{" + "type=" + type + ", userName=" + userName + ", password=" + password + '}';
+        return "User{" + "type=" + type + ", userName=" + username + ", password=" + password + '}';
     }
     
     
 
     public User(String type,String userName, String password) {
         this.type = type;
-        this.userName = userName;
+        this.username = userName;
         this.password = this.encryptPassword(password);
 
     }
 
     public boolean verifyCredential(String loginUser, String loginPassword) {
-        return this.userName.equals(loginUser) && this.password.equals(this.encryptPassword(loginPassword));
+        return this.username.equals(loginUser) && this.password.equals(this.encryptPassword(loginPassword));
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {

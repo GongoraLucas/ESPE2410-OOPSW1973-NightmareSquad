@@ -1,33 +1,32 @@
 package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.exception.CredentialsNotFoundInPath;
+import ec.edu.espe.accountingsystem.exception.VariablesNotFoundInPathException;
 import utils.MongoDbManager;
 
-/**
- *
- * @author Lucas Gongora
- */
 public abstract class Record {
 
     private MongoDbManager database;
 
     public Record() {
         try {
-            database = new MongoDbManager("AccountingSystem");
+            
+            this.database = new MongoDbManager("AccountingSystem");
 
-        } catch ( CredentialsNotFoundInPath ex){
-            System.out.println(ex.getMessage());
+        } catch (VariablesNotFoundInPathException ex) {
+           
+            System.err.println("Error con las variables de entorno: " + ex.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Error inesperado al conectar con la base de datos: " + ex.getMessage());
         }
-       
     }
 
     /**
-     * @return the database
+     * @return la instancia de la base de datos.
      */
     public MongoDbManager getDatabase() {
+        if (this.database == null) {
+            System.err.println("No hay conexión a la base de datos.");
+        }
         return database;
     }
-    
-    
-
 }
