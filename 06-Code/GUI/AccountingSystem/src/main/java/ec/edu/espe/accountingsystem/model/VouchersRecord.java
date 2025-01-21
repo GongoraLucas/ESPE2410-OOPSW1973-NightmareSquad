@@ -1,8 +1,8 @@
 
 
-package ec.edu.espe.accountingsystem.controller;
+package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.controller.DAO;
+import ec.edu.espe.accountingsystem.model.Record;
 import ec.edu.espe.accountingsystem.model.Voucher;
 import java.util.ArrayList;
 
@@ -10,11 +10,11 @@ import java.util.ArrayList;
  *
  * @author Lucas Gongora
  */
-public class VouchersDAO extends DAO{
+public class VouchersRecord extends Record{
     private static String collection="vouchers";
 
     
-    public VouchersDAO() {
+    public VouchersRecord() {
         super();
     }
     

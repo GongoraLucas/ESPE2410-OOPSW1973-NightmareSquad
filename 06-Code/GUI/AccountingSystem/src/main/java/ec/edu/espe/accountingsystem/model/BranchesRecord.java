@@ -1,8 +1,8 @@
 
 
-package ec.edu.espe.accountingsystem.controller;
+package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.controller.DAO;
+import ec.edu.espe.accountingsystem.model.Record;
 import ec.edu.espe.accountingsystem.model.Branch;
 import java.util.ArrayList;
 
@@ -10,10 +10,10 @@ import java.util.ArrayList;
  *
  * @author Lucas Gongora
  */
-public class BranchesDAO extends DAO{
+public class BranchesRecord extends Record{
     private static String collection = "branches";
 
-    public BranchesDAO() {
+    public BranchesRecord() {
         super();
     }
     

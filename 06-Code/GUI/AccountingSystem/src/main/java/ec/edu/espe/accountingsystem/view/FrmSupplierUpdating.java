@@ -8,12 +8,12 @@ package ec.edu.espe.accountingsystem.view;
  *
  * @author Andrés Espinosa
  */
-public class CostumerUpdating extends javax.swing.JFrame {
+public class FrmSupplierUpdating extends javax.swing.JFrame {
 
     /**
-     * Creates new form CostumerUpdating
+     * Creates new form SupplierUpdating
      */
-    public CostumerUpdating() {
+    public FrmSupplierUpdating() {
         initComponents();
     }
 
@@ -26,44 +26,31 @@ public class CostumerUpdating extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelEditACostumer = new javax.swing.JLabel();
+        labelEditASupplier = new javax.swing.JLabel();
         labelInserId = new javax.swing.JLabel();
         txtInsertId = new javax.swing.JTextField();
+        labelName = new javax.swing.JLabel();
+        labelIdentityCardName = new javax.swing.JLabel();
+        labelIdentityCardId = new javax.swing.JLabel();
+        labelAdress = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtIdentityCardName = new javax.swing.JTextField();
         txtIdentityCardId = new javax.swing.JTextField();
         txtAdress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
+        labelPhoneNumber = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        labelEmail = new javax.swing.JLabel();
         btnUpdateChanges = new javax.swing.JButton();
         btnBacktoMenu = new javax.swing.JButton();
-        labelName = new javax.swing.JLabel();
-        labelIdentityCardName = new javax.swing.JLabel();
-        labelIdentityCardId = new javax.swing.JLabel();
-        labelAdress = new javax.swing.JLabel();
-        labelPhoneNumber = new javax.swing.JLabel();
-        labelEmail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelEditACostumer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelEditACostumer.setText("Edit a Costumer");
+        labelEditASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelEditASupplier.setText("Edit a Supplier");
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelInserId.setText("Insert the ID of the Costumer you want to edit");
-
-        btnUpdateChanges.setBackground(new java.awt.Color(34, 51, 186));
-        btnUpdateChanges.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdateChanges.setText("Update Changes");
-        btnUpdateChanges.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateChangesActionPerformed(evt);
-            }
-        });
-
-        btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
-        btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnBacktoMenu.setText("Back to Menu");
+        labelInserId.setText("Insert the ID of the Supplier you want to edit");
 
         labelName.setText("Name:");
 
@@ -77,71 +64,83 @@ public class CostumerUpdating extends javax.swing.JFrame {
 
         labelEmail.setText("Email");
 
+        btnUpdateChanges.setBackground(new java.awt.Color(34, 51, 186));
+        btnUpdateChanges.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateChanges.setText("Update Changes");
+        btnUpdateChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateChangesActionPerformed(evt);
+            }
+        });
+
+        btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
+        btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnBacktoMenu.setText("Back to Menu");
+        btnBacktoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBacktoMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelEditASupplier)
+                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(labelEditACostumer))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelInserId)
-                            .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(labelName)
-                                .addGap(88, 88, 88))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelIdentityCardId)
+                                    .addComponent(labelName)
                                     .addComponent(labelIdentityCardName)
+                                    .addComponent(labelIdentityCardId)
                                     .addComponent(labelAdress)
                                     .addComponent(labelPhoneNumber)
                                     .addComponent(labelEmail))
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdentityCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(92, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(btnUpdateChanges)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBacktoMenu)
-                .addGap(30, 30, 30))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIdentityCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(108, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnUpdateChanges)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBacktoMenu)
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(labelEditACostumer)
+                .addGap(16, 16, 16)
+                .addComponent(labelEditASupplier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelInserId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelName))
+                    .addComponent(labelName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdentityCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelIdentityCardName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdentityCardId))
+                    .addComponent(labelIdentityCardId)
+                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,11 +153,11 @@ public class CostumerUpdating extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateChanges)
                     .addComponent(btnBacktoMenu))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -167,6 +166,10 @@ public class CostumerUpdating extends javax.swing.JFrame {
     private void btnUpdateChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateChangesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateChangesActionPerformed
+
+    private void btnBacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBacktoMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,20 +188,21 @@ public class CostumerUpdating extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CostumerUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CostumerUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CostumerUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CostumerUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierUpdating.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CostumerUpdating().setVisible(true);
+                new FrmSupplierUpdating().setVisible(true);
             }
         });
     }
@@ -207,7 +211,7 @@ public class CostumerUpdating extends javax.swing.JFrame {
     private javax.swing.JButton btnBacktoMenu;
     private javax.swing.JButton btnUpdateChanges;
     private javax.swing.JLabel labelAdress;
-    private javax.swing.JLabel labelEditACostumer;
+    private javax.swing.JLabel labelEditASupplier;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelIdentityCardId;
     private javax.swing.JLabel labelIdentityCardName;

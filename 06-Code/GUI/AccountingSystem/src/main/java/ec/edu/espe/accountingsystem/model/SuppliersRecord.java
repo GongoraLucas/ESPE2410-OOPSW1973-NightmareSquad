@@ -1,6 +1,6 @@
-package ec.edu.espe.accountingsystem.controller;
+package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.controller.DAO;
+import ec.edu.espe.accountingsystem.model.Record;
 import ec.edu.espe.accountingsystem.model.Supplier;
 import java.util.ArrayList;
 
@@ -10,11 +10,11 @@ import java.util.ArrayList;
  * @author Lucas Gongora
  * @author Andrés Espinosa
  */
-public class SuppliersDAO extends DAO {
+public class SuppliersRecord extends Record {
 
     private static String collection = "suppliers";
 
-    public SuppliersDAO(String suppliersFile) {
+    public SuppliersRecord(String suppliersFile) {
         super();
     }
 

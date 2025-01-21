@@ -1,6 +1,5 @@
 package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.controller.DAO;
 import java.util.ArrayList;
 
 
@@ -11,7 +10,7 @@ import java.util.ArrayList;
  * @author Andrés Espinosa
  * @author David Cuichan
  */
-public class Inventory extends DAO {
+public class Inventory extends Record {
 
     private static String collection = "inventory";
 

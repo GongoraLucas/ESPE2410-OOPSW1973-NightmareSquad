@@ -7,7 +7,7 @@ package ec.edu.espe.accountingsystem.view;
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
 import ec.edu.espe.accountingsystem.model.IdentityCard;
 import ec.edu.espe.accountingsystem.model.Supplier;
-import ec.edu.espe.accountingsystem.controller.SuppliersDAO;
+import ec.edu.espe.accountingsystem.model.SuppliersRecord;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Andrés Espinosa
  */
-public class SupplierAddition extends javax.swing.JFrame {
+public class FrmSupplierAddition extends javax.swing.JFrame {
     
         String id;
         String name;
@@ -27,7 +27,7 @@ public class SupplierAddition extends javax.swing.JFrame {
     /**
      * Creates new form SupplierAddition
      */
-    public SupplierAddition() {
+    public FrmSupplierAddition() {
         initComponents();
     }
 
@@ -62,7 +62,6 @@ public class SupplierAddition extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 400));
 
         labelAddASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelAddASupplier.setText("Add a Supplier: ");
@@ -194,7 +193,7 @@ public class SupplierAddition extends javax.swing.JFrame {
             try {
                 identityCard = new IdentityCard(txtIdentityCardType.getText(), txtIdentityCardId.getText());
             } catch (InvalidIdentityCardException ex) {
-                Logger.getLogger(SupplierAddition.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FrmSupplierAddition.class.getName()).log(Level.SEVERE, null, ex);
             }
         address = txtAddress.getText();
         phoneNumber = txtPhoneNumber.getText();
@@ -204,7 +203,7 @@ public class SupplierAddition extends javax.swing.JFrame {
         System.out.println(supplier + "printed");
         
         
-        SuppliersDAO suppliers = new SuppliersDAO("Suppliers");
+        SuppliersRecord suppliers = new SuppliersRecord("Suppliers");
         
         suppliers.add(supplier);
         
@@ -234,20 +233,21 @@ public class SupplierAddition extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSupplierAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SupplierAddition().setVisible(true);
+                new FrmSupplierAddition().setVisible(true);
             }
         });
     }

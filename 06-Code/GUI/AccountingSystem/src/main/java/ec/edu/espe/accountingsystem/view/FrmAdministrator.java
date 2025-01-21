@@ -28,10 +28,9 @@ public class FrmAdministrator extends javax.swing.JFrame {
 
         jMenu9 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
@@ -42,32 +41,29 @@ public class FrmAdministrator extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        mnItemAddCustomer = new javax.swing.JMenuItem();
+        mnItemUpdateCustomer = new javax.swing.JMenuItem();
+        mnItemViewCustomers = new javax.swing.JMenuItem();
+        mnItemDeleteCustomer = new javax.swing.JMenuItem();
+        mntItemAddSupplier = new javax.swing.JMenu();
+        mnItemAddSupplier = new javax.swing.JMenuItem();
+        mnItemUpdateSupplier = new javax.swing.JMenuItem();
+        mnItemViewSuppliers = new javax.swing.JMenuItem();
+        mnItemDeleteSupplier = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
 
         jMenu9.setText("jMenu9");
 
         jMenuItem1.setText("jMenuItem1");
 
+        jMenuItem4.setText("jMenuItem4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Dulces Travesuras");
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lucas\\Desktop\\Carrera\\segundo-tercer-semestre\\POO\\proyecto\\ESPE2410-OOPSW1973-NightmareSquad\\06-Code\\GUI\\AccountingSystem\\src\\main\\java\\images\\logo.jpg")); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 261, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
-        );
-
-        jLabel2.setText("Administrator name: ");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel4.setText("StockBill");
 
         jMenu1.setText("Billing");
 
@@ -94,14 +90,125 @@ public class FrmAdministrator extends javax.swing.JFrame {
         jMenu6.setText("Vouchers");
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText("Customers");
+        jMenu7.setText("Cliente");
+
+        mnItemAddCustomer.setText("Añadir");
+        mnItemAddCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemAddCustomerMouseClicked(evt);
+            }
+        });
+        mnItemAddCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemAddCustomerActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnItemAddCustomer);
+
+        mnItemUpdateCustomer.setText("Actualizar");
+        mnItemUpdateCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemUpdateCustomerMouseClicked(evt);
+            }
+        });
+        mnItemUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemUpdateCustomerActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnItemUpdateCustomer);
+
+        mnItemViewCustomers.setText("Mostrar");
+        mnItemViewCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemViewCustomersMouseClicked(evt);
+            }
+        });
+        mnItemViewCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemViewCustomersActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnItemViewCustomers);
+
+        mnItemDeleteCustomer.setText("Eliminar");
+        mnItemDeleteCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemDeleteCustomerMouseClicked(evt);
+            }
+        });
+        mnItemDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemDeleteCustomerActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnItemDeleteCustomer);
+
         jMenuBar1.add(jMenu7);
 
-        jMenu8.setText("Suppliers");
-        jMenuBar1.add(jMenu8);
+        mntItemAddSupplier.setText("Proveedor");
+
+        mnItemAddSupplier.setText("Añadir");
+        mnItemAddSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemAddSupplierMouseClicked(evt);
+            }
+        });
+        mnItemAddSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemAddSupplierActionPerformed(evt);
+            }
+        });
+        mntItemAddSupplier.add(mnItemAddSupplier);
+
+        mnItemUpdateSupplier.setText("Actualizar");
+        mnItemUpdateSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemUpdateSupplierMouseClicked(evt);
+            }
+        });
+        mnItemUpdateSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemUpdateSupplierActionPerformed(evt);
+            }
+        });
+        mntItemAddSupplier.add(mnItemUpdateSupplier);
+
+        mnItemViewSuppliers.setText("Mostrar");
+        mnItemViewSuppliers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemViewSuppliersMouseClicked(evt);
+            }
+        });
+        mnItemViewSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemViewSuppliersActionPerformed(evt);
+            }
+        });
+        mntItemAddSupplier.add(mnItemViewSuppliers);
+
+        mnItemDeleteSupplier.setText("Eliminar");
+        mnItemDeleteSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnItemDeleteSupplierMouseClicked(evt);
+            }
+        });
+        mnItemDeleteSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemDeleteSupplierActionPerformed(evt);
+            }
+        });
+        mntItemAddSupplier.add(mnItemDeleteSupplier);
+
+        jMenuBar1.add(mntItemAddSupplier);
 
         jMenu10.setText("Exit");
         jMenu10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu10);
 
         setJMenuBar(jMenuBar1);
@@ -111,37 +218,115 @@ public class FrmAdministrator extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(80, 80, 80))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(419, 419, 419)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        FrmLogin frmLogin = new FrmLogin();
+        frmLogin.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void mnItemAddCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemAddCustomerMouseClicked
+
+    }//GEN-LAST:event_mnItemAddCustomerMouseClicked
+
+    private void mnItemUpdateCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemUpdateCustomerMouseClicked
+
+    }//GEN-LAST:event_mnItemUpdateCustomerMouseClicked
+
+    private void mnItemViewCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemViewCustomersMouseClicked
+
+
+    }//GEN-LAST:event_mnItemViewCustomersMouseClicked
+
+    private void mnItemDeleteCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemDeleteCustomerMouseClicked
+
+
+    }//GEN-LAST:event_mnItemDeleteCustomerMouseClicked
+
+    private void mnItemAddSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemAddSupplierMouseClicked
+
+    }//GEN-LAST:event_mnItemAddSupplierMouseClicked
+
+    private void mnItemUpdateSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemUpdateSupplierMouseClicked
+
+    }//GEN-LAST:event_mnItemUpdateSupplierMouseClicked
+
+    private void mnItemViewSuppliersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemViewSuppliersMouseClicked
+
+    }//GEN-LAST:event_mnItemViewSuppliersMouseClicked
+
+    private void mnItemDeleteSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnItemDeleteSupplierMouseClicked
+
+    }//GEN-LAST:event_mnItemDeleteSupplierMouseClicked
+
+    private void mnItemAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemAddCustomerActionPerformed
+        FrmCustomerAddition frmCustomerAddition = new FrmCustomerAddition();
+        frmCustomerAddition.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemAddCustomerActionPerformed
+
+    private void mnItemUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemUpdateCustomerActionPerformed
+        FrmCustomerUpdating frmCustomerUpdating = new FrmCustomerUpdating();
+        frmCustomerUpdating.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemUpdateCustomerActionPerformed
+
+    private void mnItemViewCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemViewCustomersActionPerformed
+        System.out.println("Holaaaaa");
+        FrmCustomerView frmCustomerView = new FrmCustomerView();
+        frmCustomerView.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemViewCustomersActionPerformed
+
+    private void mnItemDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteCustomerActionPerformed
+        FrmCustomerElimination frmCustomerElimination = new FrmCustomerElimination();
+        frmCustomerElimination.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemDeleteCustomerActionPerformed
+
+    private void mnItemAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemAddSupplierActionPerformed
+        FrmSupplierAddition frmSupplierAddition = new FrmSupplierAddition();
+        frmSupplierAddition.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemAddSupplierActionPerformed
+
+    private void mnItemUpdateSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemUpdateSupplierActionPerformed
+        FrmSupplierUpdating frmSupplierUpdating = new FrmSupplierUpdating();
+        frmSupplierUpdating.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemUpdateSupplierActionPerformed
+
+    private void mnItemViewSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemViewSuppliersActionPerformed
+        FrmSuppliersView frmSuppliersView = new FrmSuppliersView();
+        frmSuppliersView.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemViewSuppliersActionPerformed
+
+    private void mnItemDeleteSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteSupplierActionPerformed
+        FrmSupplierElimination frmSupplierElimination = new FrmSupplierElimination();
+        frmSupplierElimination.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemDeleteSupplierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,8 +365,8 @@ public class FrmAdministrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -192,11 +377,18 @@ public class FrmAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem mnItemAddCustomer;
+    private javax.swing.JMenuItem mnItemAddSupplier;
+    private javax.swing.JMenuItem mnItemDeleteCustomer;
+    private javax.swing.JMenuItem mnItemDeleteSupplier;
+    private javax.swing.JMenuItem mnItemUpdateCustomer;
+    private javax.swing.JMenuItem mnItemUpdateSupplier;
+    private javax.swing.JMenuItem mnItemViewCustomers;
+    private javax.swing.JMenuItem mnItemViewSuppliers;
+    private javax.swing.JMenu mntItemAddSupplier;
     // End of variables declaration//GEN-END:variables
 }

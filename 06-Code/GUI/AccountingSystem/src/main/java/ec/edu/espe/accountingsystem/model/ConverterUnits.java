@@ -1,11 +1,10 @@
 package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.controller.ConversionsDAO;
 import java.util.HashMap;
 
 
 public class ConverterUnits {
-    private static final ConversionsDAO conversionsRecord = new ConversionsDAO();
+    private static final ConversionsRecord conversionsRecord = new ConversionsRecord();
     private static final HashMap<String, HashMap<String, Float>> conversionMap = conversionsRecord.getConversions();
 
     

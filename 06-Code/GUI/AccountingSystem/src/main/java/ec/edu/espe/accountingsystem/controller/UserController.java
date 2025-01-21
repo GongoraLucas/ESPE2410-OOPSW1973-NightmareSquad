@@ -1,13 +1,14 @@
 package ec.edu.espe.accountingsystem.controller;
 
+import ec.edu.espe.accountingsystem.model.UsersRecord;
 import ec.edu.espe.accountingsystem.model.User;
 
 public class UserController {
 
-    private UsersDAO usersRecord;
+    private UsersRecord usersRecord;
 
     public UserController() {
-        usersRecord = new UsersDAO();
+        usersRecord = new UsersRecord();
     }
 
     public boolean checkUserExists(String type) {

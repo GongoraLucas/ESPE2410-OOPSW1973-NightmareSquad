@@ -8,12 +8,12 @@ package ec.edu.espe.accountingsystem.view;
  *
  * @author Andrés Espinosa
  */
-public class SupplierElimination extends javax.swing.JFrame {
+public class FrmCustomerElimination extends javax.swing.JFrame {
 
     /**
-     * Creates new form SupplierElimination
+     * Creates new form CostumerElimination
      */
-    public SupplierElimination() {
+    public FrmCustomerElimination() {
         initComponents();
     }
 
@@ -26,7 +26,7 @@ public class SupplierElimination extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelDeleteASupplier = new javax.swing.JLabel();
+        labelDeleteACostumer = new javax.swing.JLabel();
         labelInserId = new javax.swing.JLabel();
         txtInsertId = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
@@ -34,11 +34,11 @@ public class SupplierElimination extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelDeleteASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelDeleteASupplier.setText("Delete a Supplier");
+        labelDeleteACostumer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelDeleteACostumer.setText("Delete a Costumer");
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelInserId.setText("Insert the ID of the Supplier you want to edit");
+        labelInserId.setText("Insert the ID of the Costumer you want to edit");
 
         btnDelete.setBackground(new java.awt.Color(34, 51, 186));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -57,36 +57,38 @@ public class SupplierElimination extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelDeleteACostumer)
+                .addGap(125, 125, 125))
             .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(labelDeleteASupplier))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelInserId)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                                .addComponent(btnBacktoMenu)))))
-                .addGap(26, 26, 26))
+                            .addComponent(labelInserId))
+                        .addContainerGap(95, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBacktoMenu)
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(labelDeleteASupplier)
+                .addGap(22, 22, 22)
+                .addComponent(labelDeleteACostumer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelInserId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete)
                     .addComponent(btnBacktoMenu))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -113,20 +115,23 @@ public class SupplierElimination extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SupplierElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomerElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SupplierElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomerElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SupplierElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomerElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SupplierElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomerElimination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SupplierElimination().setVisible(true);
+                new FrmCustomerElimination().setVisible(true);
             }
         });
     }
@@ -134,7 +139,7 @@ public class SupplierElimination extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBacktoMenu;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JLabel labelDeleteASupplier;
+    private javax.swing.JLabel labelDeleteACostumer;
     private javax.swing.JLabel labelInserId;
     private javax.swing.JTextField txtInsertId;
     // End of variables declaration//GEN-END:variables
