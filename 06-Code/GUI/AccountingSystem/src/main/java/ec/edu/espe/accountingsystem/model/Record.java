@@ -10,7 +10,7 @@ public abstract class Record {
     public Record() {
         try {
             
-            this.database = new MongoDbManager("AccountingSystem");
+            this.database = new MongoDbManager("StockBill");
 
         } catch (VariablesNotFoundInPathException ex) {
            

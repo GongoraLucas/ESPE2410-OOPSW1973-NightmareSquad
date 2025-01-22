@@ -17,20 +17,20 @@ public class UsersRecord extends Record {
         return super.getDatabase().readAllData(collection, User.class);
     }
 
-    public void addUser(User user) {
+    public boolean addUser(User user) {
 
         if (this.areTwoUsers) {
             System.out.println("Ya hay dos usuarios registrados.");
-            return;
+            return false;
         }
 
 
         if (getUsers().stream().anyMatch(existingUser -> existingUser.getUsername().equals(user.getUsername()))) {
             System.out.println("El nombre de usuario ya está en uso.");
-            return;
+            return false;
         }
 
-        super.getDatabase().insertData(collection, user);
+        return super.getDatabase().insertData(collection, user);
     }
 
     public User findAdministrator() {

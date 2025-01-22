@@ -10,32 +10,34 @@ import java.util.HashMap;
  */
 public class ConversionsRecord extends Record {
 
-    private static String collection = "conversions";
+    private static final String COLLECTION = "conversions";
 
     public ConversionsRecord() {
         super();
     }
 
-    public void add(String sourceUnit, String targetUnit, float conversionFactor) {
-        super.getDatabase().addItemInMap(collection, sourceUnit, targetUnit, conversionFactor);
+    public boolean add(String sourceUnit, String targetUnit, float conversionFactor) {
+        boolean successfulAddition= super.getDatabase().addItemInMap(COLLECTION, sourceUnit, targetUnit, conversionFactor);
+        return successfulAddition;
     }
 
     public HashMap<String, HashMap<String, Float>> getConversions() {
-        return super.getDatabase().readItemsFromMap(collection);
+       
+        return super.getDatabase().readItemsFromMap(COLLECTION);
     }
 
-    public void deleteSourceUnit(String sourceUnit) {
-        super.getDatabase().deleteKeyInMap(collection, sourceUnit);
-
-    }
-
-    public void deleteTargetUnit(String sourceUnit, String targetUnit) {
-        super.getDatabase().deleteSubkeyInMap(collection, sourceUnit, targetUnit);
+    public boolean deleteSourceUnit(String sourceUnit) {
+        return super.getDatabase().deleteKeyInMap(COLLECTION, sourceUnit);
 
     }
 
-    public void updateTargetUnit(String sourceUnit, String targetUnit, float factorConversion) {
-        super.getDatabase().addItemInMap(collection, sourceUnit, targetUnit, factorConversion);
+    public boolean deleteTargetUnit(String sourceUnit, String targetUnit) {
+        return super.getDatabase().deleteSubkeyInMap(COLLECTION, sourceUnit, targetUnit);
+
+    }
+
+    public boolean updateTargetUnit(String sourceUnit, String targetUnit, float factorConversion) {
+        return super.getDatabase().addItemInMap(COLLECTION, sourceUnit, targetUnit, factorConversion);
 
     }
 

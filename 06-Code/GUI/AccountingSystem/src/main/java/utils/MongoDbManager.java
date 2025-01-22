@@ -60,7 +60,9 @@ public class MongoDbManager {
     }
 
     public boolean insertData(String collectionName, Object object) {
-        if (isInvalidCollection(collectionName)) return false;
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -78,7 +80,9 @@ public class MongoDbManager {
 
     public <T> ArrayList<T> readData(String collectionName, Class<T> objectType, Document query) {
         ArrayList<T> objectsFound = new ArrayList<>();
-        if (isInvalidCollection(collectionName)) return objectsFound;
+        if (isInvalidCollection(collectionName)) {
+            return objectsFound;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -98,7 +102,9 @@ public class MongoDbManager {
     }
 
     public boolean updateData(String collectionName, String id, Object newObject) {
-        if (isInvalidCollection(collectionName)) return false;
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -123,7 +129,9 @@ public class MongoDbManager {
     }
 
     public boolean deleteData(String collectionName, String id) {
-        if (isInvalidCollection(collectionName)) return false;
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -142,8 +150,10 @@ public class MongoDbManager {
         return false;
     }
 
-    public void addItemInMap(String collectionName, String key, String subkey, float valueOfSubkey) {
-        if (isInvalidCollection(collectionName)) return;
+    public boolean addItemInMap(String collectionName, String key, String subkey, float valueOfSubkey) {
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -160,13 +170,17 @@ public class MongoDbManager {
             }
 
             System.out.println("Item added or updated successfully in collection: " + collectionName);
+            return true;
         } catch (MongoException e) {
             System.err.println("Error adding item to MongoDB in collection " + collectionName + ": " + e.getMessage());
+            return false;
         }
     }
 
-    public void deleteKeyInMap(String collectionName, String key) {
-        if (isInvalidCollection(collectionName)) return;
+    public boolean deleteKeyInMap(String collectionName, String key) {
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -176,16 +190,21 @@ public class MongoDbManager {
             if (existingItem != null) {
                 collection.deleteOne(query);
                 System.out.println("Key deleted successfully in collection: " + collectionName);
+                return true;
             } else {
                 System.out.println("The key does not exist.");
+                return false;
             }
         } catch (MongoException e) {
             System.err.println("Error deleting key from MongoDB in collection " + collectionName + ": " + e.getMessage());
+            return false;
         }
     }
 
-    public void deleteSubkeyInMap(String collectionName, String key, String subkey) {
-        if (isInvalidCollection(collectionName)) return;
+    public boolean deleteSubkeyInMap(String collectionName, String key, String subkey) {
+        if (isInvalidCollection(collectionName)) {
+            return false;
+        }
 
         try {
             MongoCollection<Document> collection = database.getCollection(collectionName);
@@ -197,41 +216,56 @@ public class MongoDbManager {
                 UpdateResult result = collection.updateOne(query, updateDoc);
                 if (result.getModifiedCount() > 0) {
                     System.out.println("Subkey deleted successfully in collection: " + collectionName);
+                    return true;
                 } else {
                     System.out.println("The subkey does not exist.");
+                    return false;
                 }
             } else {
                 System.out.println("The key does not exist.");
+                return false;
             }
         } catch (MongoException e) {
             System.err.println("Error deleting subkey from MongoDB in collection " + collectionName + ": " + e.getMessage());
+            return false;
         }
     }
 
-    public HashMap<String, HashMap<String, Float>> readItemsFromMap(String collectionName) {
-        HashMap<String, HashMap<String, Float>> map = new HashMap<>();
-        if (isInvalidCollection(collectionName)) return map;
-
-        try {
-            MongoCollection<Document> collection = database.getCollection(collectionName);
-            FindIterable<Document> documents = collection.find();
-
-            for (Document doc : documents) {
-                String key = doc.getString("key");
-                Document itemsDoc = (Document) doc.get("items");
-
-                HashMap<String, Float> submap = new HashMap<>();
-                for (String subkey : itemsDoc.keySet()) {
-                    submap.put(subkey, itemsDoc.getDouble(subkey).floatValue());
-                }
-                map.put(key, submap);
-            }
-
-        } catch (MongoException e) {
-            System.err.println("Error reading items from MongoDB collection " + collectionName + ": " + e.getMessage());
-        }
+   public HashMap<String, HashMap<String, Float>> readItemsFromMap(String collectionName) {
+    HashMap<String, HashMap<String, Float>> map = new HashMap<>();
+    if (isInvalidCollection(collectionName)) {
         return map;
     }
+
+    try {
+        MongoCollection<Document> collection = database.getCollection(collectionName);
+        FindIterable<Document> documents = collection.find();
+
+        for (Document doc : documents) {
+            String key = doc.getString("key");
+            Document itemsDoc = (Document) doc.get("items");
+
+            if (itemsDoc != null) {
+                HashMap<String, Float> submap = new HashMap<>();
+
+                for (String subkey : itemsDoc.keySet()) {
+                    Object value = itemsDoc.get(subkey);
+                    if (value instanceof Double) {
+                        submap.put(subkey, ((Double) value).floatValue());
+                    }
+                }
+
+                map.put(key, submap);
+             
+            }
+        }
+
+    } catch (MongoException e) {
+        System.err.println("Error reading items from MongoDB collection " + collectionName + ": " + e.getMessage());
+    }
+    return map;
+}
+
 
     private boolean isInvalidCollection(String collectionName) {
         if (database == null || collectionName == null || collectionName.isEmpty()) {

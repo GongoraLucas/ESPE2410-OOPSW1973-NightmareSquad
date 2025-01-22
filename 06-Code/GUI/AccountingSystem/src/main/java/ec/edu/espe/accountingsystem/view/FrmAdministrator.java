@@ -38,6 +38,11 @@ public class FrmAdministrator extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        mnItemConvertUnits = new javax.swing.JMenuItem();
+        mnItemAddConversion = new javax.swing.JMenuItem();
+        mnItemUpdateConversion = new javax.swing.JMenuItem();
+        mnItemDeleteSubUnit = new javax.swing.JMenuItem();
+        mnItemDeleteUnit = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -81,7 +86,48 @@ public class FrmAdministrator extends javax.swing.JFrame {
         jMenu3.setText("Transactions");
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Conversions");
+        jMenu4.setText("Conversión");
+
+        mnItemConvertUnits.setText("Convertir unidades");
+        mnItemConvertUnits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemConvertUnitsActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnItemConvertUnits);
+
+        mnItemAddConversion.setText("Añadir");
+        mnItemAddConversion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemAddConversionActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnItemAddConversion);
+
+        mnItemUpdateConversion.setText("Actualizar");
+        mnItemUpdateConversion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemUpdateConversionActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnItemUpdateConversion);
+
+        mnItemDeleteSubUnit.setText("Eliminar valor de conversión");
+        mnItemDeleteSubUnit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemDeleteSubUnitActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnItemDeleteSubUnit);
+
+        mnItemDeleteUnit.setText("Eliminar conversiones de una unidad");
+        mnItemDeleteUnit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemDeleteUnitActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnItemDeleteUnit);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Branches");
@@ -328,6 +374,38 @@ public class FrmAdministrator extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_mnItemDeleteSupplierActionPerformed
 
+    private void mnItemUpdateConversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemUpdateConversionActionPerformed
+        FrmConversionUpdating frmConversionUpdating = new FrmConversionUpdating();
+        frmConversionUpdating.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemUpdateConversionActionPerformed
+
+    private void mnItemAddConversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemAddConversionActionPerformed
+        FrmConversionAddition frmConversionAddition = new FrmConversionAddition();
+        frmConversionAddition.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemAddConversionActionPerformed
+
+    private void mnItemConvertUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemConvertUnitsActionPerformed
+        FrmConverterUnits frmConverterUnits = new FrmConverterUnits();
+        frmConverterUnits.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemConvertUnitsActionPerformed
+
+    private void mnItemDeleteSubUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteSubUnitActionPerformed
+        FrmFinalUnitElimination frmFinalUnitElimination = new FrmFinalUnitElimination();
+        frmFinalUnitElimination.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_mnItemDeleteSubUnitActionPerformed
+
+    private void mnItemDeleteUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteUnitActionPerformed
+       FrmSourceUnitElimination frmSourceUnitElimination;
+       frmSourceUnitElimination = new FrmSourceUnitElimination();
+       frmSourceUnitElimination.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_mnItemDeleteUnitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,10 +459,15 @@ public class FrmAdministrator extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem mnItemAddConversion;
     private javax.swing.JMenuItem mnItemAddCustomer;
     private javax.swing.JMenuItem mnItemAddSupplier;
+    private javax.swing.JMenuItem mnItemConvertUnits;
     private javax.swing.JMenuItem mnItemDeleteCustomer;
+    private javax.swing.JMenuItem mnItemDeleteSubUnit;
     private javax.swing.JMenuItem mnItemDeleteSupplier;
+    private javax.swing.JMenuItem mnItemDeleteUnit;
+    private javax.swing.JMenuItem mnItemUpdateConversion;
     private javax.swing.JMenuItem mnItemUpdateCustomer;
     private javax.swing.JMenuItem mnItemUpdateSupplier;
     private javax.swing.JMenuItem mnItemViewCustomers;

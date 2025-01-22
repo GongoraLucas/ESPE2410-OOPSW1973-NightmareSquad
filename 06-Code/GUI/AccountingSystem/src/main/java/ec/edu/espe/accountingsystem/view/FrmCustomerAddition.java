@@ -66,6 +66,11 @@ public class FrmCustomerAddition extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(34, 51, 186));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnBackToMenu.setBackground(new java.awt.Color(34, 51, 186));
         btnBackToMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,6 +163,10 @@ public class FrmCustomerAddition extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
