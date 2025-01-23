@@ -6,9 +6,11 @@ import ec.edu.espe.accountingsystem.model.User;
 public class UserController {
 
     private UsersRecord usersRecord;
+    private boolean isAdministrator;
 
     public UserController() {
         usersRecord = new UsersRecord();
+        isAdministrator = false;
     }
 
     public boolean checkUserExists(String type) {
@@ -61,5 +63,19 @@ public class UserController {
         }
 
         return false;
+    }
+
+    /**
+     * @return the isAdministrator
+     */
+    public boolean isAdministrator() {
+        return isAdministrator;
+    }
+
+    /**
+     * @param isAdministrator the isAdministrator to set
+     */
+    public void setIsAdministrator(boolean isAdministrator) {
+        this.isAdministrator = isAdministrator;
     }
 }

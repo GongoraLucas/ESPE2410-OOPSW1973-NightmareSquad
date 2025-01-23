@@ -1,8 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ec.edu.espe.accountingsystem.view;
+
+import ec.edu.espe.accountingsystem.controller.SupplierController;
+import ec.edu.espe.accountingsystem.controller.UserController;
+import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
+import ec.edu.espe.accountingsystem.model.Supplier;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,11 +13,16 @@ package ec.edu.espe.accountingsystem.view;
  */
 public class FrmSupplierUpdating extends javax.swing.JFrame {
 
+    SupplierController supplierController;
+    UserController userController;
+
     /**
      * Creates new form SupplierUpdating
      */
     public FrmSupplierUpdating() {
         initComponents();
+        supplierController = new SupplierController();
+        userController = new UserController();
     }
 
     /**
@@ -26,150 +34,347 @@ public class FrmSupplierUpdating extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         labelEditASupplier = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         labelInserId = new javax.swing.JLabel();
         txtInsertId = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
         labelIdentityCardName = new javax.swing.JLabel();
         labelIdentityCardId = new javax.swing.JLabel();
         labelAdress = new javax.swing.JLabel();
+        labelPhoneNumber = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtIdentityCardName = new javax.swing.JTextField();
+        cmbxIdentityCardType = new javax.swing.JComboBox<>();
         txtIdentityCardId = new javax.swing.JTextField();
         txtAdress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
-        labelPhoneNumber = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        labelEmail = new javax.swing.JLabel();
-        btnUpdateChanges = new javax.swing.JButton();
-        btnBacktoMenu = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelEditASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelEditASupplier.setText("Edit a Supplier");
+        labelEditASupplier.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelEditASupplier.setText("Actualizar Proveedor");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(labelEditASupplier)
+                .addContainerGap(209, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(labelEditASupplier)
+                .addGap(35, 35, 35))
+        );
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelInserId.setText("Insert the ID of the Supplier you want to edit");
+        labelInserId.setText("Ingresa el id del cliente que quieres actualizar");
 
-        labelName.setText("Name:");
-
-        labelIdentityCardName.setText("Identity Card Name:");
-
-        labelIdentityCardId.setText("Identity Card ID:");
-
-        labelAdress.setText("Adress");
-
-        labelPhoneNumber.setText("Phone Number");
-
-        labelEmail.setText("Email");
-
-        btnUpdateChanges.setBackground(new java.awt.Color(34, 51, 186));
-        btnUpdateChanges.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdateChanges.setText("Update Changes");
-        btnUpdateChanges.addActionListener(new java.awt.event.ActionListener() {
+        txtInsertId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateChangesActionPerformed(evt);
+                txtInsertIdActionPerformed(evt);
+            }
+        });
+        txtInsertId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInsertIdKeyTyped(evt);
             }
         });
 
-        btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
-        btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnBacktoMenu.setText("Back to Menu");
-        btnBacktoMenu.addActionListener(new java.awt.event.ActionListener() {
+        labelName.setText("Nombre:");
+
+        labelIdentityCardName.setText("Tipo de documento de identidad:");
+
+        labelIdentityCardId.setText("Número de documento de identidad");
+
+        labelAdress.setText("Dirección:");
+
+        labelPhoneNumber.setText("Número de teléfono:");
+
+        labelEmail.setText("Correo electrónico:");
+
+        txtName.setEnabled(false);
+
+        cmbxIdentityCardType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cedula", "ruc" }));
+        cmbxIdentityCardType.setEnabled(false);
+        cmbxIdentityCardType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBacktoMenuActionPerformed(evt);
+                cmbxIdentityCardTypeActionPerformed(evt);
             }
         });
+
+        txtIdentityCardId.setEnabled(false);
+
+        txtAdress.setEnabled(false);
+
+        txtPhoneNumber.setEnabled(false);
+
+        txtEmail.setEnabled(false);
+
+        btnUpdate.setBackground(new java.awt.Color(34, 51, 186));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Actualizar");
+        btnUpdate.setEnabled(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Teclea ENTER para ver datos del proveedor");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelInserId)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelName)
+                            .addComponent(labelIdentityCardName)
+                            .addComponent(labelIdentityCardId)
+                            .addComponent(labelAdress)
+                            .addComponent(labelPhoneNumber)
+                            .addComponent(labelEmail))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbxIdentityCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(txtIdentityCardId)
+                            .addComponent(txtAdress)
+                            .addComponent(txtPhoneNumber)
+                            .addComponent(txtEmail))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUpdate)
+                .addGap(49, 49, 49))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelInserId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdentityCardName)
+                    .addComponent(cmbxIdentityCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdentityCardId)
+                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAdress)
+                    .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPhoneNumber)
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(btnUpdate)
+                .addGap(28, 28, 28))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("Regresar al menu principal");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelEditASupplier)
-                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelInserId)
-                            .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelName)
-                                    .addComponent(labelIdentityCardName)
-                                    .addComponent(labelIdentityCardId)
-                                    .addComponent(labelAdress)
-                                    .addComponent(labelPhoneNumber)
-                                    .addComponent(labelEmail))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdentityCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(108, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnUpdateChanges)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBacktoMenu)
-                        .addGap(50, 50, 50))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(labelEditASupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelInserId)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdentityCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdentityCardName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdentityCardId)
-                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAdress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPhoneNumber))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEmail))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateChanges)
-                    .addComponent(btnBacktoMenu))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateChangesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateChangesActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        String id;
+        String name;
+        String identityCardType;
+        String identityCardNumber;
+        String address;
+        String phoneNumber;
+        String email;
+        boolean isValid;
+        Supplier supplier;
 
-    private void btnBacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMenuActionPerformed
+        id = txtInsertId.getText();
+        name = txtName.getText();
+        identityCardType = cmbxIdentityCardType.getSelectedItem().toString();
+        identityCardNumber = txtIdentityCardId.getText();
+        address = txtAdress.getText();
+        phoneNumber = txtPhoneNumber.getText();
+        email = txtEmail.getText();
+        supplier = supplierController.getSupplier(id);
+        if (supplier != null) {
+            try {
+                isValid = supplierController.update(id, name, identityCardType, identityCardNumber, address, phoneNumber, email);
+                if (isValid) {
+                    JOptionPane.showMessageDialog(rootPane, "Actualizado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (InvalidIdentityCardException ex) {
+                JOptionPane.showMessageDialog(rootPane, "No se pudo actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "ID inválido", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void cmbxIdentityCardTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxIdentityCardTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBacktoMenuActionPerformed
+    }//GEN-LAST:event_cmbxIdentityCardTypeActionPerformed
+
+    private void txtInsertIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInsertIdActionPerformed
+        String id = txtInsertId.getText().trim();
+        updateFields(id);
+
+    }//GEN-LAST:event_txtInsertIdActionPerformed
+
+    private void txtInsertIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInsertIdKeyTyped
+
+    }//GEN-LAST:event_txtInsertIdKeyTyped
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        if(userController.isAdministrator()){
+            FrmAdministrator frmAdministrator = new FrmAdministrator();
+            frmAdministrator.setVisible(true);
+        }else{
+            FrmSeller frmSeller = new FrmSeller();
+            frmSeller.setVisible(true);
+        }
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void updateFields(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            txtName.setText("");
+            txtIdentityCardId.setText("");
+            cmbxIdentityCardType.setSelectedItem("");
+            txtAdress.setText("");
+            txtPhoneNumber.setText("");
+            txtEmail.setText("");
+
+            txtName.setEnabled(false);
+            txtIdentityCardId.setEnabled(false);
+            cmbxIdentityCardType.setEnabled(false);
+            txtAdress.setEnabled(false);
+            txtPhoneNumber.setEnabled(false);
+            txtEmail.setEnabled(false);
+            btnUpdate.setEnabled(false);
+        } else {
+            Supplier supplier = supplierController.getSupplier(id);
+
+            if (supplier != null) {
+                String name = supplier.getName();
+                String identityCardNumber = supplier.getIdentityCard().getId();
+                String identityCardType = supplier.getIdentityCard().getType();
+                String address = supplier.getAddress();
+                String phoneNumber = supplier.getPhoneNumber();
+                String email = supplier.getEmail();
+
+                txtName.setText(name);
+                txtIdentityCardId.setText(identityCardNumber);
+                cmbxIdentityCardType.setSelectedItem(identityCardType);
+                txtAdress.setText(address);
+                txtPhoneNumber.setText(phoneNumber);
+                txtEmail.setText(email);
+
+                txtName.setEnabled(true);
+                txtIdentityCardId.setEnabled(true);
+                cmbxIdentityCardType.setEnabled(true);
+                txtAdress.setEnabled(true);
+                txtPhoneNumber.setEnabled(true);
+                txtEmail.setEnabled(true);
+                btnUpdate.setEnabled(true);
+            } else {
+                txtName.setText("");
+                txtIdentityCardId.setText("");
+                cmbxIdentityCardType.setSelectedItem("");
+                txtAdress.setText("");
+                txtPhoneNumber.setText("");
+                txtEmail.setText("");
+
+                txtName.setEnabled(false);
+                txtIdentityCardId.setEnabled(false);
+                cmbxIdentityCardType.setEnabled(false);
+                txtAdress.setEnabled(false);
+                txtPhoneNumber.setEnabled(false);
+                txtEmail.setEnabled(false);
+                btnUpdate.setEnabled(false);
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -208,8 +413,14 @@ public class FrmSupplierUpdating extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBacktoMenu;
-    private javax.swing.JButton btnUpdateChanges;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cmbxIdentityCardType;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelAdress;
     private javax.swing.JLabel labelEditASupplier;
     private javax.swing.JLabel labelEmail;
@@ -221,7 +432,6 @@ public class FrmSupplierUpdating extends javax.swing.JFrame {
     private javax.swing.JTextField txtAdress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIdentityCardId;
-    private javax.swing.JTextField txtIdentityCardName;
     private javax.swing.JTextField txtInsertId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;

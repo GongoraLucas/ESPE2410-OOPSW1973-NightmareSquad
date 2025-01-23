@@ -13,13 +13,15 @@ import javax.swing.JOptionPane;
  * @author Lucas Gongora
  */
 public class FrmConversionUpdating extends javax.swing.JFrame {
+
     ConversionController conversionController;
+
     /**
      * Creates new form FrmConversionUpdating
      */
     public FrmConversionUpdating() {
         initComponents();
-         conversionController = new ConversionController();
+        conversionController = new ConversionController();
         for (String sourceUnit : this.conversionController.getSourceUnits()) {
             cmbxSourceUnit.addItem(sourceUnit);
         }
@@ -149,31 +151,36 @@ public class FrmConversionUpdating extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void cmbxSourceUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxSourceUnitActionPerformed
-        String sourceUnit = cmbxSourceUnit.getSelectedItem().toString();
+        cmbxDestinyUnit.removeAllItems();
+        String sourceUnit = cmbxSourceUnit.getSelectedItem() != null ? cmbxSourceUnit.getSelectedItem().toString() : "";
 
-        for (String finalUnit : this.conversionController.getFinalUnits(sourceUnit)) {
-            boolean existFinalUnit = ((DefaultComboBoxModel<String>) cmbxDestinyUnit.getModel()).getIndexOf(finalUnit) != -1;
-            if (!existFinalUnit) {
-                cmbxDestinyUnit.addItem(finalUnit);
+        if (!sourceUnit.isEmpty()) {
+            for (String finalUnit : this.conversionController.getFinalUnits(sourceUnit)) {
+                boolean existFinalUnit = ((DefaultComboBoxModel<String>) cmbxDestinyUnit.getModel()).getIndexOf(finalUnit) != -1;
+                if (!existFinalUnit) {
+                    cmbxDestinyUnit.addItem(finalUnit);
+                }
             }
 
+            cmbxDestinyUnit.setEnabled(true);
+        } else {
+            cmbxDestinyUnit.setEnabled(false);
         }
 
-        cmbxDestinyUnit.setEnabled(true);
+        checkAndEnableUpdateButton();
     }//GEN-LAST:event_cmbxSourceUnitActionPerformed
 
     private void cmbxDestinyUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxDestinyUnitActionPerformed
-        String sourceUnit;
-        String finalUnit;
-        String conversionFactor;
-        
-        sourceUnit = cmbxSourceUnit.getSelectedItem().toString();
-        finalUnit = cmbxDestinyUnit.getSelectedItem().toString();
-        
-        conversionFactor=String.valueOf(conversionController.getConversionFactor(sourceUnit, finalUnit));
-        
-        txtNewValueOfFinalUnit.setText(conversionFactor);
-        btnUpdate.setEnabled(true);
+        checkAndEnableUpdateButton();
+
+        String sourceUnit = cmbxSourceUnit.getSelectedItem() != null ? cmbxSourceUnit.getSelectedItem().toString() : "";
+        String finalUnit = cmbxDestinyUnit.getSelectedItem() != null ? cmbxDestinyUnit.getSelectedItem().toString() : "";
+
+        if (!sourceUnit.isEmpty() && !finalUnit.isEmpty()) {
+            String conversionFactor = String.valueOf(conversionController.getConversionFactor(sourceUnit, finalUnit));
+            txtNewValueOfFinalUnit.setText(conversionFactor);
+        }
+
     }//GEN-LAST:event_cmbxDestinyUnitActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -181,19 +188,28 @@ public class FrmConversionUpdating extends javax.swing.JFrame {
         String finalUnit;
         String newConversionFactor;
         boolean isConversionUpdated;
-        
+
         sourceUnit = cmbxSourceUnit.getSelectedItem().toString();
         finalUnit = cmbxDestinyUnit.getSelectedItem().toString();
         newConversionFactor = txtNewValueOfFinalUnit.getText();
         isConversionUpdated = conversionController.updateConversion(sourceUnit, finalUnit, newConversionFactor);
-        if (isConversionUpdated){
-            JOptionPane.showMessageDialog(rootPane, "La conversion se actualizado correctamente", "Éxito",JOptionPane.INFORMATION_MESSAGE);
+        if (isConversionUpdated) {
+            JOptionPane.showMessageDialog(rootPane, "La conversion se actualizado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(rootPane, "La conversion no se ha podido actualizar", "Error",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "La conversion no se ha podido actualizar", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        
+
+
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void checkAndEnableUpdateButton() {
+        if (cmbxSourceUnit.getSelectedItem() != null && !cmbxSourceUnit.getSelectedItem().toString().isEmpty()
+                && cmbxDestinyUnit.getItemCount() > 0 && cmbxDestinyUnit.getSelectedItem() != null) {
+            btnUpdate.setEnabled(true);
+        } else {
+            btnUpdate.setEnabled(false);
+        }
+    }
 
     /**
      * @param args the command line arguments

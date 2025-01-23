@@ -11,11 +11,11 @@ public class Branch{
     private String id;
     private String name;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
     private String manager;
 
 
-    public Branch(String id, String name, String address, int phoneNumber, String manager) {
+    public Branch(String id, String name, String address, String phoneNumber, String manager) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -68,14 +68,14 @@ public class Branch{
     /**
      * @return the phoneNumber
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
      * @param phoneNumber the phoneNumber to set
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

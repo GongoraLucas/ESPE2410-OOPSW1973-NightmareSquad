@@ -14,20 +14,20 @@ public class CustomersRecord extends Record {
     private static String collection = "customers";
 
     
-    public CustomersRecord(String customersFile) {
+    public CustomersRecord() {
         super();
     }
 
-    public void add(Customer customer) {
-        super.getDatabase().insertData(collection, customer);
+    public boolean add(Customer customer) {
+        return super.getDatabase().insertData(collection, customer);
     }
 
-    public void delete(String customerId) {
-        super.getDatabase().deleteData(collection, customerId);
+    public boolean delete(String customerId) {
+        return super.getDatabase().deleteData(collection, customerId);
     }
 
-    public void update(String customerId, Customer customer) {
-        super.getDatabase().updateData(collection, customerId, customer);
+    public boolean update(String customerId, Customer customer) {
+        return super.getDatabase().updateData(collection, customerId, customer);
     }
     
     public Customer findCustomerById(String customerId) {

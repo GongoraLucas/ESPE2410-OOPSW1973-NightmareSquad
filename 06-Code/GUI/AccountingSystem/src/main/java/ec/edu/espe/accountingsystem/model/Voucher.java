@@ -25,41 +25,7 @@ public class Voucher{
     private float total;
     private String paymentMethod;
 
-    @Override
-    public String toString() {
-        
-        StringBuilder content;
-        
-        content = new StringBuilder();
-        DecimalFormat df = new DecimalFormat("#.00");
-
-        content.append("===========================================\n");
-        content.append("               VOUCHER\n");
-        content.append("===========================================\n");
-        content.append(String.format("%-20s: %s%n", "Supplier", this.supplier.getName()));
-        content.append(String.format("%-20s: %s%n", "Client", this.client.getName()));
-        content.append(String.format("%-20s: %s%n", "Issue Date", this.issueDate));
-        content.append(String.format("%-20s: %s%n", "Id", id));
-        content.append(String.format("%-20s: %s%n", "Type", this.type));
-        content.append(String.format("%-20s: %s%n", "Payment method", this.paymentMethod));
-        content.append("-------------------------------------------\n");
-
-
-        content.append(String.format("%n%-30s %-10s %-10s %-10s%n", "Producto", "Cantidad", "Precio", "Total"));
-        content.append("-------------------------------------------\n");
-        for (Product product : this.shoppingCart) {
-            content.append(String.format("%-30s %-10d %-10s %-10s%n", product.getDescription(), product.getAmount(),
-                    "$" + df.format(product.getPrice().getCurrent()), "$" + df.format(product.calculateTotalPrice())));
-        }
-
-
-        content.append("-------------------------------------------\n");
-        content.append(String.format("%-40s: $%s%n", "Subtotal", df.format(this.getSubtotal())));
-        content.append(String.format("%-40s: $%s%n", "Total", df.format(this.getTotal())));
-        content.append("===========================================");
-        
-        return content.toString();
-    }
+    
     
 
     

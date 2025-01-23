@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ec.edu.espe.accountingsystem.view;
 
 import ec.edu.espe.accountingsystem.controller.ConversionController;
@@ -116,7 +113,7 @@ public class FrmConversionAddition extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         String sourceUnit = txtSourceUnit.getText();
         String finalUnit = txtFinalUnit.getText();
-        String conversionFactor = txtConversionFactor.getText();
+        float conversionFactor = Float.parseFloat(txtConversionFactor.getText());
         boolean isConversionAdded=conversionController.createConversion(sourceUnit, finalUnit, conversionFactor);
         if (isConversionAdded){
             JOptionPane.showMessageDialog(rootPane, "La conversion se añadido correctamente", "Éxito",JOptionPane.INFORMATION_MESSAGE);

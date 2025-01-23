@@ -27,32 +27,36 @@ public class Inventory extends Record {
         return super.getDatabase().readAllData(collection, Product.class);
     }
 
-    public void add(Product product) {
-       super.getDatabase().insertData(collection, product);
+    public boolean add(Product product) {
+       return super.getDatabase().insertData(collection, product);
     }
 
-    public void delete(String productId) {
-       super.getDatabase().deleteData(collection, productId);
+    public boolean delete(String productId) {
+       return super.getDatabase().deleteData(collection, productId);
     }
 
-    public void update(String productId, Product product) {
-        super.getDatabase().updateData(collection, productId, product);
+    public boolean update(String productId, Product product) {
+        return super.getDatabase().updateData(collection, productId, product);
 
     }
 
 
-    public void updateInventoryByTypeCustomer(String typeCustomer) {
- 
+    public ArrayList<Product> updateInventoryByTypeCustomer(String typeCustomer) {
+        ArrayList<Product> inventoryByTypeCustomer;
+        inventoryByTypeCustomer = new ArrayList<>();
         for (int i = 0; i < this.getProducts().size(); i++) {
             Product product = this.getProducts().get(i);
             try {
                 product.getPrice().adjustCurrentPrice(typeCustomer);
-                super.getDatabase().updateData(collection, product.getId(), product);
+                inventoryByTypeCustomer.add(product);
+            
+               
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException("Valid price types: retail, wholesale and distributor");
             }
       
         }
+        return inventoryByTypeCustomer;
     }
 
     public Product findProductById(String productId) {

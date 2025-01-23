@@ -17,16 +17,16 @@ public class BranchesRecord extends Record{
         super();
     }
     
-    public void add(Branch branch){
-        super.getDatabase().insertData(collection, branch);
+    public boolean add(Branch branch){
+        return super.getDatabase().insertData(collection, branch);
     }
     
-    public void delete(String branchId){
-        super.getDatabase().deleteData(collection, branchId);
+    public boolean delete(String branchId){
+        return super.getDatabase().deleteData(collection, branchId);
     }
     
-    public void update(String branchId,Branch branch){
-        super.getDatabase().updateData(collection, branchId, branch);
+    public boolean update(String branchId,Branch branch){
+        return super.getDatabase().updateData(collection, branchId, branch);
     }
     
     public Branch findBranchById(String branchId) {

@@ -43,22 +43,10 @@ public class ConversionController {
         return finalUnits;
     }
 
-    public boolean createConversion(String sourceUnit, String finalUnit, String inputConversionFactor) {
-        boolean successfullAddition = false;
-        boolean sourceUnitValidation = sourceUnit == null || sourceUnit.isEmpty();
-        boolean finalUnitValidation = finalUnit == null || finalUnit.isEmpty();
-        if (sourceUnitValidation || finalUnitValidation) {
-            return false;
-        }
-        try {
-            float conversionFactor = Float.parseFloat(inputConversionFactor);
-            successfullAddition = this.conversionsRecord.add(sourceUnit, finalUnit, conversionFactor);
-            return successfullAddition;
-
-        } catch (NumberFormatException ex) {
-            System.err.println("conversionFactor must be a floating number");
-            return false;
-        }
+    public boolean createConversion(String sourceUnit, String finalUnit, Float conversionFactor) {
+        
+           return  this.conversionsRecord.add(sourceUnit, finalUnit, conversionFactor);
+           
 
     }
 

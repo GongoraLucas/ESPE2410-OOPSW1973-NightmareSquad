@@ -4,6 +4,8 @@
  */
 package ec.edu.espe.accountingsystem.view;
 
+import ec.edu.espe.accountingsystem.controller.SupplierController;
+import ec.edu.espe.accountingsystem.controller.UserController;
 import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
 import ec.edu.espe.accountingsystem.model.IdentityCard;
 import ec.edu.espe.accountingsystem.model.Supplier;
@@ -17,31 +19,17 @@ import javax.swing.JOptionPane;
  * @author Andrés Espinosa
  */
 public class FrmSupplierAddition extends javax.swing.JFrame {
-    
-        String id;
-        String name;
-        IdentityCard identityCard;
-        String identityCardType;
-        String identityCardId;
-        String address;
-        String phoneNumber;
-        String email;
 
+    SupplierController supplierController;
+    UserController userController;
     /**
      * Creates new form SupplierAddition
      */
     public FrmSupplierAddition() {
         initComponents();
-        
-        lblIdVoidField.setVisible(false);
-        lblIdOnlyNumbers.setVisible(false);
-        lblNameVoidField.setVisible(false);
-        lblIdentityCardTypeVoidField.setVisible(false);
-        lblIdentityCardIdVoidField.setVisible(false);
-        lblIdentityCardIdOnlyNumbers.setVisible(false);
-        lblAddressVoidField.setVisible(false);
-        lblPhoneNumberVoidField.setVisible(false);
-        lblEmailVoidField.setVisible(false);
+        supplierController = new SupplierController();
+        userController = new UserController();
+
     }
 
     /**
@@ -54,43 +42,64 @@ public class FrmSupplierAddition extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         labelAddASupplier = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         labelId = new javax.swing.JLabel();
         labelName = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         labelIdcardType = new javax.swing.JLabel();
         labelIdCardId = new javax.swing.JLabel();
         labelAddress = new javax.swing.JLabel();
         labelPhoneNumber = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
-        txtIdentityCardType = new javax.swing.JTextField();
+        cmbxIdentityCardType = new javax.swing.JComboBox<>();
         txtIdentityCardId = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtPhoneNumber = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        btnBackToMenu = new javax.swing.JButton();
-        lblIdVoidField = new javax.swing.JLabel();
-        lblIdOnlyNumbers = new javax.swing.JLabel();
-        lblNameVoidField = new javax.swing.JLabel();
-        lblIdentityCardTypeVoidField = new javax.swing.JLabel();
-        lblIdentityCardIdVoidField = new javax.swing.JLabel();
-        lblIdentityCardIdOnlyNumbers = new javax.swing.JLabel();
-        lblAddressVoidField = new javax.swing.JLabel();
-        lblPhoneNumberVoidField = new javax.swing.JLabel();
-        lblEmailVoidField = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelAddASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelAddASupplier.setText("Add a Supplier: ");
+        labelAddASupplier.setText("Añadir proveedor ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelAddASupplier)
+                .addGap(262, 262, 262))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(labelAddASupplier)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         labelId.setText("ID:");
 
-        labelName.setText("Name:");
+        labelName.setText("Nombre:");
+
+        labelIdcardType.setText("Tipo de documento de identidad:");
+
+        labelIdCardId.setText("Número de documento de identidad:");
+
+        labelAddress.setText("Dirección:");
+
+        labelPhoneNumber.setText("Número de teléfono:");
+
+        labelEmail.setText("Correo electrónico:");
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,267 +107,176 @@ public class FrmSupplierAddition extends javax.swing.JFrame {
             }
         });
 
-        labelIdcardType.setText("Identity card type: ");
-
-        labelIdCardId.setText("Identity Card ID:");
-
-        labelAddress.setText("Address:");
-
-        labelPhoneNumber.setText("Phone Number:");
-
-        labelEmail.setText("Email:");
+        cmbxIdentityCardType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cedula", "ruc" }));
 
         btnAdd.setBackground(new java.awt.Color(34, 51, 186));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Add");
+        btnAdd.setText("Añadir");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnBackToMenu.setBackground(new java.awt.Color(34, 51, 186));
-        btnBackToMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnBackToMenu.setText("Back to Menu");
-        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackToMenuActionPerformed(evt);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelId)
+                            .addComponent(labelName))
+                        .addGap(158, 158, 158)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtId)
+                            .addComponent(txtName))
+                        .addGap(155, 155, 155))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEmail)
+                            .addComponent(labelAddress)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(labelIdcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbxIdentityCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelIdCardId)
+                                    .addComponent(labelPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(166, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdd)
+                .addGap(23, 23, 23))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelId)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdcardType)
+                    .addComponent(cmbxIdentityCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelIdCardId)
+                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAddress)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPhoneNumber)
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(btnAdd)
+                .addGap(17, 17, 17))
+        );
+
+        jMenu1.setText("Regresar menu principal");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
             }
         });
+        jMenuBar1.add(jMenu1);
 
-        lblIdVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblIdVoidField.setText("* Void Field");
-
-        lblIdOnlyNumbers.setForeground(new java.awt.Color(255, 51, 51));
-        lblIdOnlyNumbers.setText("*Only numbers allowerd");
-
-        lblNameVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblNameVoidField.setText("* Void Field");
-
-        lblIdentityCardTypeVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblIdentityCardTypeVoidField.setText("* Void Field");
-
-        lblIdentityCardIdVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblIdentityCardIdVoidField.setText("* Void Field");
-
-        lblIdentityCardIdOnlyNumbers.setForeground(new java.awt.Color(255, 51, 51));
-        lblIdentityCardIdOnlyNumbers.setText("*Only numbers allowerd");
-
-        lblAddressVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblAddressVoidField.setText("* Void Field");
-
-        lblPhoneNumberVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblPhoneNumberVoidField.setText("* Void Field");
-
-        lblEmailVoidField.setForeground(new java.awt.Color(255, 51, 51));
-        lblEmailVoidField.setText("* Void Field");
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(labelAddASupplier)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAdd)
-                .addGap(59, 59, 59)
-                .addComponent(btnBackToMenu)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelId)
-                            .addComponent(labelName)
-                            .addComponent(labelIdCardId)
-                            .addComponent(labelAddress)
-                            .addComponent(labelPhoneNumber)
-                            .addComponent(labelEmail))
-                        .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelIdcardType, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNameVoidField)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblIdentityCardIdVoidField)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                                .addComponent(lblIdentityCardIdOnlyNumbers))
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdentityCardType, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdentityCardId, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblIdVoidField)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblIdOnlyNumbers))
-                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblAddressVoidField)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtPhoneNumber))
-                        .addGap(15, 15, 15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEmailVoidField)
-                            .addComponent(lblPhoneNumberVoidField)
-                            .addComponent(lblIdentityCardTypeVoidField))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(labelAddASupplier)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelId)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdVoidField)
-                    .addComponent(lblIdOnlyNumbers))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNameVoidField)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdentityCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdcardType))
-                .addGap(3, 3, 3)
-                .addComponent(lblIdentityCardTypeVoidField)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdentityCardId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdCardId))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdentityCardIdVoidField)
-                    .addComponent(lblIdentityCardIdOnlyNumbers))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAddress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAddressVoidField)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(labelPhoneNumber)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPhoneNumberVoidField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelEmail))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblEmailVoidField)
-                        .addGap(8, 8, 8)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBackToMenu)
-                    .addComponent(btnAdd))
-                .addGap(14, 14, 14))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        
+
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
-        boolean validatedData;
-        if(txtId.getText().trim().isEmpty()){
-            
-            JOptionPane.showMessageDialog(rootPane, "Filed cannot be empty", "Error", JOptionPane.WARNING_MESSAGE);
-            lblIdVoidField.setVisible(true);
-            validatedData = false;
-        }else{
-            lblIdVoidField.setVisible(false);
-            id = txtId.getText();
-            validatedData = true;
-        }
-        
-        if(txtName.getText().trim().isEmpty()){
-            
-            JOptionPane.showMessageDialog(rootPane, "Filed cannot be empty", "Error", JOptionPane.WARNING_MESSAGE);
-            lblNameVoidField.setVisible(true);
-            validatedData = false;
-        }else{
-            lblNameVoidField.setVisible(false);
-            name = txtName.getText();
-            validatedData = true;
-        }
-        
-        if(txtIdentityCardType.getText().trim().isEmpty()){
-            
-            JOptionPane.showMessageDialog(rootPane, "Filed cannot be empty", "Error", JOptionPane.WARNING_MESSAGE);
-            lblIdentityCardTypeVoidField.setVisible(true);
-            validatedData = false;
-        }else{
-            lblIdentityCardTypeVoidField.setVisible(false);
-            identityCardType = txtIdentityCardType.getText();
-            validatedData = true;
-        }
-        
-        if(txtIdentityCardId.getText().trim().isEmpty()){
-            
-            JOptionPane.showMessageDialog(rootPane, "Filed cannot be empty", "Error", JOptionPane.WARNING_MESSAGE);
-            lblIdentityCardIdVoidField.setVisible(true);
-            validatedData = false;
-        }else{
-            lblIdentityCardIdVoidField.setVisible(false);
-            identityCardId = txtIdentityCardId.getText();
-            validatedData = true;
-        }
-        
-        
-            try {
-                identityCard = new IdentityCard(identityCardType, identityCardId);
-                validatedDate = true;
-            } catch (InvalidIdentityCardException ex) {
-                Logger.getLogger(FrmSupplierAddition.class.getName()).log(Level.SEVERE, null, ex);
-                validatedData = false;
-            }
+        String id;
+        String name;
+        String identityCardType;
+        String identityCardNumber;
+        String address;
+        String phoneNumber;
+        String email;
+        boolean isValid;
+
+        id = txtId.getText();
+        name = txtName.getText();
+        identityCardType = cmbxIdentityCardType.getSelectedItem().toString();
+        identityCardNumber = txtIdentityCardId.getText();
         address = txtAddress.getText();
         phoneNumber = txtPhoneNumber.getText();
         email = txtEmail.getText();
         
-        Supplier supplier = new Supplier(id, name, identityCard, address, phoneNumber, email);
-        System.out.println(supplier + "printed");
-        
-        
-        SuppliersRecord suppliers = new SuppliersRecord("Suppliers");
-        
-        suppliers.add(supplier);
-        
+        try {
+            
+            isValid = supplierController.addSupplier(id, name, identityCardType, identityCardNumber, address, phoneNumber, email);
+            
+            if (isValid) {
+                JOptionPane.showMessageDialog(rootPane, "Añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "No se pudo añadir", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (InvalidIdentityCardException ex) {
+            JOptionPane.showMessageDialog(rootPane, "No se pudo añadir", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
-        FrmAdministrator administratorWindow = new FrmAdministrator();
-        administratorWindow.setVisible(true);
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         
-        this.dispose();
-    }//GEN-LAST:event_btnBackToMenuActionPerformed
+        if (userController.isAdministrator()){
+            FrmAdministrator frmAdministrator = new FrmAdministrator();
+            frmAdministrator.setVisible(true);
+        } else{
+            FrmSeller frmSeller = new FrmSeller();
+            frmSeller.setVisible(true); 
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -398,8 +316,12 @@ public class FrmSupplierAddition extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBackToMenu;
+    private javax.swing.JComboBox<String> cmbxIdentityCardType;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelAddASupplier;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelEmail;
@@ -408,20 +330,10 @@ public class FrmSupplierAddition extends javax.swing.JFrame {
     private javax.swing.JLabel labelIdcardType;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelPhoneNumber;
-    private javax.swing.JLabel lblAddressVoidField;
-    private javax.swing.JLabel lblEmailVoidField;
-    private javax.swing.JLabel lblIdOnlyNumbers;
-    private javax.swing.JLabel lblIdVoidField;
-    private javax.swing.JLabel lblIdentityCardIdOnlyNumbers;
-    private javax.swing.JLabel lblIdentityCardIdVoidField;
-    private javax.swing.JLabel lblIdentityCardTypeVoidField;
-    private javax.swing.JLabel lblNameVoidField;
-    private javax.swing.JLabel lblPhoneNumberVoidField;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdentityCardId;
-    private javax.swing.JTextField txtIdentityCardType;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
     // End of variables declaration//GEN-END:variables

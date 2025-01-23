@@ -162,10 +162,14 @@ public class FrmLogin extends javax.swing.JFrame {
             
                 if (userController.validateUserCredentials( rdBtnAdministrator.getText(),username, password)) {
                     
+                    userController.setIsAdministrator(true);
+                    
                     FrmAdministrator frmAdministrator = new FrmAdministrator();
+                    
                     
                     frmAdministrator.setVisible(true);
                     this.setVisible(false);
+                    
                     
                     
                 } else {
