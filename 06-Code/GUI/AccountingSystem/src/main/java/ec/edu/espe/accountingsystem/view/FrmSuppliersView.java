@@ -4,17 +4,47 @@
  */
 package ec.edu.espe.accountingsystem.view;
 
+import ec.edu.espe.accountingsystem.model.Supplier;
+import ec.edu.espe.accountingsystem.model.SuppliersRecord;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Andrés Espinosa
  */
 public class FrmSuppliersView extends javax.swing.JFrame {
+    
+    DefaultTableModel model;
+    ArrayList<Supplier> suppliersList;
+    SuppliersRecord suppliers = new SuppliersRecord();
 
     /**
      * Creates new form SuppliersView
      */
     public FrmSuppliersView() {
         initComponents();
+        model = new DefaultTableModel();
+        suppliersList = new ArrayList<>();
+        suppliersList = suppliers.getSuppliers();
+        
+        model = (DefaultTableModel) tableSuppliers.getModel();
+        
+        Object[] objects = new Object[7];
+        for(int i=0; i < suppliersList.size(); i++){
+            objects[0] = suppliersList.get(i).getId();
+            objects[1] = suppliersList.get(i).getName();
+            objects[2] = suppliersList.get(i).getIdentityCard().getType();
+            objects[3] = suppliersList.get(i).getIdentityCard().getId();
+            objects[4] = suppliersList.get(i).getAddress();
+            objects[5] = suppliersList.get(i).getPhoneNumber();
+            objects[6] = suppliersList.get(i).getEmail();
+            model.addRow(objects);
+            
+        }
+        
+        tableSuppliers.setModel(model);
+        
     }
 
     /**
@@ -141,16 +171,7 @@ public class FrmSuppliersView extends javax.swing.JFrame {
 
         tableSuppliers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Identity Card Type", "Identity Card ID", "Adress", "Phone Number", "Email"
@@ -159,7 +180,7 @@ public class FrmSuppliersView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableSuppliers);
 
         labelSupplier.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelSupplier.setText("Suppliers");
+        labelSupplier.setText("Proveedores");
 
         btnAdd.setBackground(new java.awt.Color(34, 51, 186));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,6 +194,11 @@ public class FrmSuppliersView extends javax.swing.JFrame {
         btnDelete.setBackground(new java.awt.Color(34, 51, 186));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setBackground(new java.awt.Color(34, 51, 186));
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,6 +212,11 @@ public class FrmSuppliersView extends javax.swing.JFrame {
         btnBackToMenu.setBackground(new java.awt.Color(34, 51, 186));
         btnBackToMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,16 +241,16 @@ public class FrmSuppliersView extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(labelSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(282, 282, 282)
+                        .addComponent(labelSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(labelSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -235,12 +266,32 @@ public class FrmSuppliersView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        FrmSupplierUpdating supplierUpdatingWindow = new FrmSupplierUpdating();
+        supplierUpdatingWindow.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        FrmSupplierAddition supplierAdditionWindow = new FrmSupplierAddition();
+        supplierAdditionWindow.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
+        FrmAdministrator administratorWindow = new FrmAdministrator();
+        administratorWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBackToMenuActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        FrmSupplierElimination supplierEliminationWindow = new FrmSupplierElimination();
+        supplierEliminationWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments

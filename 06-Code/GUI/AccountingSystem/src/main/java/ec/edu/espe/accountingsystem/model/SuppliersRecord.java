@@ -14,7 +14,7 @@ public class SuppliersRecord extends Record {
 
     private static String collection = "suppliers";
 
-    public SuppliersRecord(String suppliersFile) {
+    public SuppliersRecord() {
         super();
     }
 
@@ -43,11 +43,13 @@ public class SuppliersRecord extends Record {
     }
 
     public Supplier findSupplierById(String supplierId) {
+        super.getDatabase().connectDB();
         for (Supplier supplier : getSuppliers()) {
             if (supplier.getId().equals(supplierId)) {
                 return supplier;
             }
         }
+        super.getDatabase().closeConnection();
         return null;
     }
 }

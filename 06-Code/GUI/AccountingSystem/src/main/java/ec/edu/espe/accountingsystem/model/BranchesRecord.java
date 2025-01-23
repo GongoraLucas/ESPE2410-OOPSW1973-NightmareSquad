@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class BranchesRecord extends Record{
     private static String collection = "branches";

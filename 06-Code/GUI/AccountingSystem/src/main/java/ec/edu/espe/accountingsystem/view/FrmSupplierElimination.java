@@ -4,17 +4,24 @@
  */
 package ec.edu.espe.accountingsystem.view;
 
+import ec.edu.espe.accountingsystem.model.Supplier;
+import ec.edu.espe.accountingsystem.model.SuppliersRecord;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrés Espinosa
  */
 public class FrmSupplierElimination extends javax.swing.JFrame {
+    
+    String id;
 
     /**
      * Creates new form SupplierElimination
      */
     public FrmSupplierElimination() {
         initComponents();
+        lblIdVoidField.setVisible(false);
     }
 
     /**
@@ -31,18 +38,19 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
         txtInsertId = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnBacktoMenu = new javax.swing.JButton();
+        lblIdVoidField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelDeleteASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelDeleteASupplier.setText("Delete a Supplier");
+        labelDeleteASupplier.setText("Eliminar un Proveedor");
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelInserId.setText("Insert the ID of the Supplier you want to edit");
+        labelInserId.setText("Ingrese el ID del proveedor que desea eliminar");
 
         btnDelete.setBackground(new java.awt.Color(34, 51, 186));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
+        btnDelete.setText("Eliminar");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -51,50 +59,93 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
 
         btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
         btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnBacktoMenu.setText("Back to Menu");
+        btnBacktoMenu.setText("Regresar al Menú");
+        btnBacktoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBacktoMenuActionPerformed(evt);
+            }
+        });
+
+        lblIdVoidField.setForeground(new java.awt.Color(255, 51, 51));
+        lblIdVoidField.setText("* Campo Vacío");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(labelDeleteASupplier))
+                        .addComponent(lblIdVoidField)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelInserId)
+                            .addComponent(txtInsertId)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelDeleteASupplier)
+                                    .addComponent(labelInserId))
+                                .addGap(0, 73, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                                .addComponent(btnBacktoMenu)))))
-                .addGap(26, 26, 26))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBacktoMenu)))
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(labelDeleteASupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelInserId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIdVoidField)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete)
                     .addComponent(btnBacktoMenu))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        
+        Supplier supplier;
+        SuppliersRecord suppliers = new SuppliersRecord();
+        
+        if(txtInsertId.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Campos no llenados correctamente", "Error", JOptionPane.WARNING_MESSAGE);
+            lblIdVoidField.setVisible(true);
+        }else{
+            lblIdVoidField.setVisible(false);
+            id = txtInsertId.getText();
+        }
+        
+        if(suppliers.findSupplierById(id)!=null){
+            suppliers.delete(id);
+            
+            JOptionPane.showMessageDialog(rootPane, "Se han eliminado los datos correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            txtInsertId.setText("");
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No existe ningún proveedor con la ID ingresada", "Error", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMenuActionPerformed
+        FrmAdministrator administratorWindow = new FrmAdministrator();
+        administratorWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBacktoMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +188,7 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JLabel labelDeleteASupplier;
     private javax.swing.JLabel labelInserId;
+    private javax.swing.JLabel lblIdVoidField;
     private javax.swing.JTextField txtInsertId;
     // End of variables declaration//GEN-END:variables
 }

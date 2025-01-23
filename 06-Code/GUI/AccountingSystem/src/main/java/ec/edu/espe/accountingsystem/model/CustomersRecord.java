@@ -8,6 +8,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class CustomersRecord extends Record {
 
@@ -19,23 +20,31 @@ public class CustomersRecord extends Record {
     }
 
     public void add(Customer customer) {
+        super.getDatabase().connectDB();
         super.getDatabase().insertData(collection, customer);
+        super.getDatabase().closeConnection();
     }
 
     public void delete(String customerId) {
+        super.getDatabase().connectDB();
         super.getDatabase().deleteData(collection, customerId);
+        super.getDatabase().closeConnection();
     }
 
     public void update(String customerId, Customer customer) {
+        super.getDatabase().connectDB();
         super.getDatabase().updateData(collection, customerId, customer);
+        super.getDatabase().closeConnection();
     }
     
     public Customer findCustomerById(String customerId) {
+        super.getDatabase().connectDB();
         for (Customer customer : super.getDatabase().readAllData(collection, Customer.class)) {
             if (customer.getId().equals(customerId)) {
                 return customer;
             }
         }
+        super.getDatabase().closeConnection();
         return null;
     }
         
