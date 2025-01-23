@@ -143,9 +143,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblIdentityCardTypeVoidField" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="19" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtIdentityCardId" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelIdentityCardId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIdentityCardId" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblIdentityCardIdVoidField" min="-2" max="-2" attributes="0"/>

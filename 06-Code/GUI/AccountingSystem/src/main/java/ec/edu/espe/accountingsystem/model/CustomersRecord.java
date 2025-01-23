@@ -15,7 +15,7 @@ public class CustomersRecord extends Record {
     private static String collection = "customers";
 
     
-    public CustomersRecord(String customersFile) {
+    public CustomersRecord() {
         super();
     }
 
@@ -50,6 +50,7 @@ public class CustomersRecord extends Record {
         
 
     public ArrayList<Customer> getCustomers() {
+        super.getDatabase().connectDB();
         return super.getDatabase().readAllData(collection, Customer.class);
     }
 }

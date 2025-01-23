@@ -23,6 +23,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnUpdateChanges" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnBacktoMenu" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -31,10 +38,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelInserId" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtInsertId" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelInserId" max="32767" attributes="0"/>
+                          <Component id="labelType" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIdVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtInsertId" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="btnFind" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -47,8 +58,8 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="labelIdentityCardId" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelIdentityCardName" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelAdress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelIdentityCardType" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelAddress" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelPhoneNumber" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -56,23 +67,26 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtIdentityCardName" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtName" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtIdentityCardId" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtAdress" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPhoneNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAddressVoidField" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblTypeVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtType" alignment="0" pref="235" max="32767" attributes="0"/>
+                              <Component id="lblNameVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblIdentityCardTypeVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblIdentityCardIdVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtIdentityCardType" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtIdentityCardId" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtPhoneNumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="lblPhoneNumberVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmailVoidField" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="btnUpdateChanges" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnBacktoMenu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,43 +98,67 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="labelInserId" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtInsertId" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtInsertId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFind" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblIdVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtType" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblTypeVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblNameVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtIdentityCardName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelIdentityCardName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIdentityCardType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelIdentityCardType" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblIdentityCardTypeVoidField" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtIdentityCardId" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelIdentityCardId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblIdentityCardIdVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAdress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelAdress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelAddress" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblAddressVoidField" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPhoneNumberVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblEmailVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnUpdateChanges" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBacktoMenu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUpdateChanges" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,7 +169,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Edit a Costumer"/>
+        <Property name="text" type="java.lang.String" value="Editar un Cliente"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelInserId">
@@ -139,18 +177,18 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Insert the ID of the Costumer you want to edit"/>
+        <Property name="text" type="java.lang.String" value="Ingrese el ID del cliente que desea editar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtInsertId">
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIdentityCardName">
+    <Component class="javax.swing.JTextField" name="txtIdentityCardType">
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdentityCardId">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAdress">
+    <Component class="javax.swing.JTextField" name="txtAddress">
     </Component>
     <Component class="javax.swing.JTextField" name="txtPhoneNumber">
     </Component>
@@ -164,7 +202,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Update Changes"/>
+        <Property name="text" type="java.lang.String" value="Actualizar Cambios"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateChangesActionPerformed"/>
@@ -178,15 +216,18 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Back to Menu"/>
+        <Property name="text" type="java.lang.String" value="Regresar al Men&#xfa;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBacktoMenuActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelIdentityCardName">
+    <Component class="javax.swing.JLabel" name="labelIdentityCardType">
       <Properties>
         <Property name="text" type="java.lang.String" value="Identity Card Name:"/>
       </Properties>
@@ -196,7 +237,7 @@
         <Property name="text" type="java.lang.String" value="Identity Card ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelAdress">
+    <Component class="javax.swing.JLabel" name="labelAddress">
       <Properties>
         <Property name="text" type="java.lang.String" value="Adress"/>
       </Properties>
@@ -210,6 +251,91 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtType">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTypeVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNameVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdentityCardTypeVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdentityCardIdVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddressVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPhoneNumberVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEmailVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFind">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ba" green="33" red="22" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Encontrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
