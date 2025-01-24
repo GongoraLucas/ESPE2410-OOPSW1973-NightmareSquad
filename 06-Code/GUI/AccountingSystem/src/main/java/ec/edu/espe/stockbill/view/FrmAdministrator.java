@@ -477,33 +477,23 @@ public class FrmAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_mnItemViewCustomersActionPerformed
 
     private void mnItemDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteCustomerActionPerformed
-        FrmCustomerElimination frmCustomerElimination = new FrmCustomerElimination();
-        frmCustomerElimination.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_mnItemDeleteCustomerActionPerformed
 
     private void mnItemAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemAddSupplierActionPerformed
-        FrmSupplierAddition frmSupplierAddition = new FrmSupplierAddition();
-        frmSupplierAddition.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_mnItemAddSupplierActionPerformed
 
     private void mnItemUpdateSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemUpdateSupplierActionPerformed
-        FrmSupplierUpdating frmSupplierUpdating = new FrmSupplierUpdating();
-        frmSupplierUpdating.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_mnItemUpdateSupplierActionPerformed
 
     private void mnItemViewSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemViewSuppliersActionPerformed
-        FrmSupplierView frmSupplierView = new FrmSupplierView();
-        frmSupplierView.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_mnItemViewSuppliersActionPerformed
 
     private void mnItemDeleteSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteSupplierActionPerformed
-        FrmSupplierElimination frmSupplierElimination = new FrmSupplierElimination();
-        frmSupplierElimination.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_mnItemDeleteSupplierActionPerformed
 
     private void mnItemUpdateConversionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemUpdateConversionActionPerformed
