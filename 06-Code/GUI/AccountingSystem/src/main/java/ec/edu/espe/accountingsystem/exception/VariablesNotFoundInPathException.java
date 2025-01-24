@@ -5,6 +5,7 @@ package ec.edu.espe.accountingsystem.exception;
 /**
  *
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class VariablesNotFoundInPathException extends Exception {
 

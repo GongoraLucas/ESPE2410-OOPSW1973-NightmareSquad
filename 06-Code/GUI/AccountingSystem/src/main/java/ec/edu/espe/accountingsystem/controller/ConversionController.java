@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  *
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class ConversionController {
 

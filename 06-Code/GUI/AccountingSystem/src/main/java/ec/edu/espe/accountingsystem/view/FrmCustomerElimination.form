@@ -41,6 +41,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Component id="txtInsertId" min="-2" pref="85" max="-2" attributes="0"/>
                   <Component id="labelInserId" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -52,10 +53,22 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="labelDeleteACostumer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+=======
+                  <Group type="102" attributes="0">
+                      <Component id="lblIdVoidField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelInserId" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtInsertId" min="-2" pref="330" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -65,14 +78,25 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="labelDeleteACostumer" min="-2" max="-2" attributes="0"/>
+              <Component id="labelDeleteACostumer" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelInserId" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtInsertId" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace pref="7" max="32767" attributes="0"/>
               <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+=======
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblIdVoidField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBacktoMenu" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +107,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
+=======
+        <Property name="text" type="java.lang.String" value="Eliminar un Cliente"/>
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelInserId">
@@ -91,7 +119,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Ingresa el id del Cliente"/>
+=======
+        <Property name="text" type="java.lang.String" value="Ingrese el ID del cliente que desea eliminar"/>
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtInsertId">
@@ -110,5 +142,30 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
+=======
+    <Component class="javax.swing.JButton" name="btnBacktoMenu">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ba" green="33" red="22" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Regresar al Men&#xfa;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBacktoMenuActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblIdVoidField">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campo Vac&#xed;o"/>
+      </Properties>
+    </Component>
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
   </SubComponents>
 </Form>

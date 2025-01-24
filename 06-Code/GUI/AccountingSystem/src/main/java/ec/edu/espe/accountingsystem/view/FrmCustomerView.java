@@ -4,17 +4,47 @@
  */
 package ec.edu.espe.accountingsystem.view;
 
+import ec.edu.espe.accountingsystem.model.Customer;
+import ec.edu.espe.accountingsystem.model.CustomersRecord;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Andrés Espinosa
  */
 public class FrmCustomerView extends javax.swing.JFrame {
+    
+    DefaultTableModel model;
+    ArrayList<Customer> customersList;
+    CustomersRecord customer = new CustomersRecord();
 
     /**
      * Creates new form CostumerView
      */
     public FrmCustomerView() {
         initComponents();
+        model = new DefaultTableModel();
+        customersList = new ArrayList<>();
+        customersList = customer.getCustomers();
+        
+        model = (DefaultTableModel) tableCustomers.getModel();
+        
+        Object[] objects = new Object[8];
+        for(int i=0; i < customersList.size(); i++){
+            objects[0] = customersList.get(i).getId();
+            objects[1] = customersList.get(i).getType();
+            objects[2] = customersList.get(i).getName();
+            objects[3] = customersList.get(i).getIdentityCard().getType();
+            objects[4] = customersList.get(i).getIdentityCard().getId();
+            objects[5] = customersList.get(i).getAddress();
+            objects[6] = customersList.get(i).getPhoneNumber();
+            objects[7] = customersList.get(i).getEmail();
+            model.addRow(objects);
+            
+        }
+        
+        tableCustomers.setModel(model);
     }
 
     /**
@@ -27,7 +57,7 @@ public class FrmCustomerView extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableCostumer = new javax.swing.JTable();
+        tableCustomers = new javax.swing.JTable();
         labelCostumer = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -36,27 +66,18 @@ public class FrmCustomerView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tableCostumer.setModel(new javax.swing.table.DefaultTableModel(
+        tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Name", "Identity Card Type", "Identity Card ID", "Adress", "Phone Number", "Email"
+                "ID", "Type", "Name", "Identity Card Type", "Identity Card ID", "Address", "Phone Number", "Email"
             }
         ));
-        jScrollPane1.setViewportView(tableCostumer);
+        jScrollPane1.setViewportView(tableCustomers);
 
         labelCostumer.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelCostumer.setText("Costumer");
+        labelCostumer.setText("Cliente");
 
         btnAdd.setBackground(new java.awt.Color(34, 51, 186));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,27 +104,27 @@ public class FrmCustomerView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(313, 313, 313)
-                .addComponent(labelCostumer, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBackToMenu)
+                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUpdate)
                         .addGap(26, 26, 26)
                         .addComponent(btnDelete)
-                        .addGap(43, 43, 43))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(16, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBackToMenu)
-                .addGap(28, 28, 28))
+                        .addGap(43, 43, 43))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(357, 357, 357)
+                .addComponent(labelCostumer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,6 +195,6 @@ public class FrmCustomerView extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCostumer;
-    private javax.swing.JTable tableCostumer;
+    private javax.swing.JTable tableCustomers;
     // End of variables declaration//GEN-END:variables
 }

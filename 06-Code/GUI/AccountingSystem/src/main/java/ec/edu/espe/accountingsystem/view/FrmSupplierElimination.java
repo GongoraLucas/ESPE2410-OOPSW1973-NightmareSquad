@@ -4,8 +4,12 @@
  */
 package ec.edu.espe.accountingsystem.view;
 
+<<<<<<< HEAD
 import ec.edu.espe.accountingsystem.controller.SupplierController;
 import ec.edu.espe.accountingsystem.controller.UserController;
+=======
+import ec.edu.espe.accountingsystem.model.Supplier;
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 import ec.edu.espe.accountingsystem.model.SuppliersRecord;
 import javax.swing.JOptionPane;
 
@@ -14,15 +18,25 @@ import javax.swing.JOptionPane;
  * @author Andrés Espinosa
  */
 public class FrmSupplierElimination extends javax.swing.JFrame {
+<<<<<<< HEAD
     UserController userController;
     SupplierController supplierController;
+=======
+    
+    String id;
+
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
     /**
      * Creates new form SupplierElimination
      */
     public FrmSupplierElimination() {
         initComponents();
+<<<<<<< HEAD
         userController = new UserController();
         supplierController = new SupplierController();
+=======
+        lblIdVoidField.setVisible(false);
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
     }
 
     /**
@@ -40,12 +54,18 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
         labelInserId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
+<<<<<<< HEAD
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+=======
+        btnBacktoMenu = new javax.swing.JButton();
+        lblIdVoidField = new javax.swing.JLabel();
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelDeleteASupplier.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+<<<<<<< HEAD
         labelDeleteASupplier.setText("Eliminar proveedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -67,16 +87,23 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelInserId.setText("Ingresa el id del proveedor");
+=======
+        labelDeleteASupplier.setText("Eliminar un Proveedor");
+
+        labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelInserId.setText("Ingrese el ID del proveedor que desea eliminar");
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         btnDelete.setBackground(new java.awt.Color(34, 51, 186));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
+        btnDelete.setText("Eliminar");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -113,32 +140,83 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
+=======
+        btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
+        btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnBacktoMenu.setText("Regresar al Menú");
+        btnBacktoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBacktoMenuActionPerformed(evt);
+            }
+        });
+
+        lblIdVoidField.setForeground(new java.awt.Color(255, 51, 51));
+        lblIdVoidField.setText("* Campo Vacío");
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblIdVoidField)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtInsertId)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelDeleteASupplier)
+                                    .addComponent(labelInserId))
+                                .addGap(0, 73, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnDelete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBacktoMenu)))
+                        .addGap(26, 26, 26))))
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addGap(18, 18, 18)
+                .addComponent(labelDeleteASupplier)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelInserId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIdVoidField)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDelete)
+                    .addComponent(btnBacktoMenu))
+                .addGap(29, 29, 29))
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+<<<<<<< HEAD
         String id;
         boolean isValid;
         
@@ -163,6 +241,39 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
         }
         this.setVisible(false);
     }//GEN-LAST:event_jMenu1MouseClicked
+=======
+        
+        Supplier supplier;
+        SuppliersRecord suppliers = new SuppliersRecord();
+        
+        if(txtInsertId.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Campos no llenados correctamente", "Error", JOptionPane.WARNING_MESSAGE);
+            lblIdVoidField.setVisible(true);
+        }else{
+            lblIdVoidField.setVisible(false);
+            id = txtInsertId.getText();
+        }
+        
+        if(suppliers.findSupplierById(id)!=null){
+            suppliers.delete(id);
+            
+            JOptionPane.showMessageDialog(rootPane, "Se han eliminado los datos correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            txtInsertId.setText("");
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No existe ningún proveedor con la ID ingresada", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMenuActionPerformed
+        FrmAdministrator administratorWindow = new FrmAdministrator();
+        administratorWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBacktoMenuActionPerformed
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
     /**
      * @param args the command line arguments
@@ -208,6 +319,11 @@ public class FrmSupplierElimination extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelDeleteASupplier;
     private javax.swing.JLabel labelInserId;
+<<<<<<< HEAD
     private javax.swing.JTextField txtId;
+=======
+    private javax.swing.JLabel lblIdVoidField;
+    private javax.swing.JTextField txtInsertId;
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
     // End of variables declaration//GEN-END:variables
 }

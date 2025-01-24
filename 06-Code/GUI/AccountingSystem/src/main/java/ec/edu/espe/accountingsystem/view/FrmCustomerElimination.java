@@ -1,7 +1,12 @@
 package ec.edu.espe.accountingsystem.view;
 
+<<<<<<< HEAD
 import ec.edu.espe.accountingsystem.controller.CustomerController;
 import ec.edu.espe.accountingsystem.controller.UserController;
+=======
+import ec.edu.espe.accountingsystem.model.Customer;
+import ec.edu.espe.accountingsystem.model.CustomersRecord;
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 import javax.swing.JOptionPane;
 
 /**
@@ -9,15 +14,25 @@ import javax.swing.JOptionPane;
  * @author Andrés Espinosa
  */
 public class FrmCustomerElimination extends javax.swing.JFrame {
+<<<<<<< HEAD
     UserController userController;
     CustomerController customerController;
+=======
+    
+    String id;
+
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
     /**
      * Creates new form CostumerElimination
      */
     public FrmCustomerElimination() {
         initComponents();
+<<<<<<< HEAD
         userController = new UserController();
         customerController = new CustomerController();
+=======
+        lblIdVoidField.setVisible(false);
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
     }
 
     /**
@@ -33,16 +48,28 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
         labelInserId = new javax.swing.JLabel();
         txtInsertId = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
+<<<<<<< HEAD
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+=======
+        btnBacktoMenu = new javax.swing.JButton();
+        lblIdVoidField = new javax.swing.JLabel();
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelDeleteACostumer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+<<<<<<< HEAD
         labelDeleteACostumer.setText("Eliminar Cliente");
 
         labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelInserId.setText("Ingresa el id del Cliente");
+=======
+        labelDeleteACostumer.setText("Eliminar un Cliente");
+
+        labelInserId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelInserId.setText("Ingrese el ID del cliente que desea eliminar");
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         btnDelete.setBackground(new java.awt.Color(34, 51, 186));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,6 +80,7 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jMenu1.setText("Regresar al menu prinicipal");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -62,6 +90,19 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
+=======
+        btnBacktoMenu.setBackground(new java.awt.Color(34, 51, 186));
+        btnBacktoMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnBacktoMenu.setText("Regresar al Menú");
+        btnBacktoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBacktoMenuActionPerformed(evt);
+            }
+        });
+
+        lblIdVoidField.setForeground(new java.awt.Color(255, 51, 51));
+        lblIdVoidField.setText("* Campo Vacío");
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,6 +111,7 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelInserId))
                 .addContainerGap(242, Short.MAX_VALUE))
@@ -82,25 +124,51 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnDelete)
                         .addGap(27, 27, 27))))
+=======
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblIdVoidField)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBacktoMenu)
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelInserId)
+                            .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(51, Short.MAX_VALUE))))
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(labelDeleteACostumer)
+                .addComponent(labelDeleteACostumer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelInserId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtInsertId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(btnDelete)
                 .addGap(20, 20, 20))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIdVoidField)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDelete)
+                    .addComponent(btnBacktoMenu))
+                .addGap(21, 21, 21))
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+<<<<<<< HEAD
         String id;
         boolean isValid;
         
@@ -123,6 +191,39 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
        }
        this.setVisible(false);
     }//GEN-LAST:event_jMenu1MouseClicked
+=======
+        
+        Customer customer;
+        CustomersRecord customers = new CustomersRecord();
+        
+        if(txtInsertId.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Campos no llenados correctamente", "Error", JOptionPane.WARNING_MESSAGE);
+            lblIdVoidField.setVisible(true);
+        }else{
+            lblIdVoidField.setVisible(false);
+            id = txtInsertId.getText();
+        }
+        
+        if(customers.findCustomerById(id)!=null){
+            customers.delete(id);
+            
+            JOptionPane.showMessageDialog(rootPane, "Se han eliminado los datos correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            txtInsertId.setText("");
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No existe ningún proveedor con la ID ingresada", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBacktoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBacktoMenuActionPerformed
+        FrmAdministrator administratorWindow = new FrmAdministrator();
+        administratorWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBacktoMenuActionPerformed
+>>>>>>> 322cd0604aec6bda80e3c93b9c15319539c9717b
 
     /**
      * @param args the command line arguments
@@ -168,6 +269,7 @@ public class FrmCustomerElimination extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel labelDeleteACostumer;
     private javax.swing.JLabel labelInserId;
+    private javax.swing.JLabel lblIdVoidField;
     private javax.swing.JTextField txtInsertId;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@ package ec.edu.espe.accountingsystem.model;
 /**
  *
  * @author Lucas Gongora
+ * @author Andrés Espinosa
  */
 public class Branch{
 
