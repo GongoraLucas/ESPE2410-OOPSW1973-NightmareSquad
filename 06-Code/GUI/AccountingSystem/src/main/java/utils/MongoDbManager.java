@@ -6,7 +6,7 @@ import com.mongodb.MongoException;
 import com.mongodb.client.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import ec.edu.espe.accountingsystem.exception.VariablesNotFoundInPathException;
+import ec.edu.espe.stockbill.exception.VariablesNotFoundInPathException;
 import org.bson.Document;
 
 import java.util.*;

@@ -2,7 +2,14 @@
 
 package ec.edu.espe.accountingsystem.model;
 
-import ec.edu.espe.accountingsystem.exception.InvalidIdentityCardException;
+import ec.edu.espe.stockbill.model.Customer;
+import ec.edu.espe.stockbill.model.Price;
+import ec.edu.espe.stockbill.model.Product;
+import ec.edu.espe.stockbill.model.Voucher;
+import ec.edu.espe.stockbill.model.IdentityCard;
+import ec.edu.espe.stockbill.model.Supplier;
+import ec.edu.espe.stockbill.model.MeasuredItem;
+import ec.edu.espe.stockbill.exception.InvalidIdentityCardException;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

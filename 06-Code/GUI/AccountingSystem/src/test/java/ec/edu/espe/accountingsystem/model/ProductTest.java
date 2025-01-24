@@ -1,5 +1,8 @@
 package ec.edu.espe.accountingsystem.model;
 
+import ec.edu.espe.stockbill.model.Price;
+import ec.edu.espe.stockbill.model.Product;
+import ec.edu.espe.stockbill.model.MeasuredItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
