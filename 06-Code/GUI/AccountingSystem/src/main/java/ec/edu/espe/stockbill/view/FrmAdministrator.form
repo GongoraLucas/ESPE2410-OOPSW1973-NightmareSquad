@@ -374,7 +374,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="117" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -390,11 +390,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Lucas\Desktop\Carrera\segundo-tercer-semestre\POO\proyecto\ESPE2410-OOPSW1973-NightmareSquad\06-Code\GUI\AccountingSystem\src\main\java\images\logo.jpg"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
