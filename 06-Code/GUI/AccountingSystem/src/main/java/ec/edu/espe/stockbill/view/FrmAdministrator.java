@@ -489,13 +489,11 @@ public class FrmAdministrator extends javax.swing.JFrame {
     }//GEN-LAST:event_mnItemUpdateSupplierActionPerformed
 
     private void mnItemViewSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemViewSuppliersActionPerformed
-<<<<<<< HEAD
+
         FrmSuppliersView frmSupplierView = new FrmSuppliersView();
         frmSupplierView.setVisible(true);
         this.setVisible(false);
-=======
-        
->>>>>>> 46d00246fa5f748cb903cb257ff454beee343391
+
     }//GEN-LAST:event_mnItemViewSuppliersActionPerformed
 
     private void mnItemDeleteSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemDeleteSupplierActionPerformed
