@@ -19,6 +19,12 @@ public class ConverterUnitsMenu extends Menu {
         this.conversionsRecord = new ConversionsRecord("conversions.json");
     }
 
+    public ConverterUnitsMenu(ConversionsRecord conversionsRecord) {
+        this.conversionsRecord = conversionsRecord;
+    }
+    
+    
+
     @Override
     public void showOptions() {
         System.out.println(HEADER_COLOR + "\n\t Accounting system \t" + RESET);

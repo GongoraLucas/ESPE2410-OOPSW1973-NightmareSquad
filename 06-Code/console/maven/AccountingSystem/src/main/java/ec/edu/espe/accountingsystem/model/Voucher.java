@@ -25,6 +25,8 @@ public class Voucher implements Identifiable {
     private float total;
     private String paymentMethod;
 
+    
+    
     @Override
     public String toString() {
         

@@ -13,6 +13,16 @@ public class Price {
     private float wholesale;
     private float distributor;
 
+    public Price(float current, float retail, float wholesale, float distributor) {
+        this.current = current;
+        this.retail = retail;
+        this.wholesale = wholesale;
+        this.distributor = distributor;
+    }
+
+    
+    
+    
     @Override
     public String toString() {
         return "Price{" + "current=" + current + ", retail=" + retail

@@ -11,6 +11,12 @@ public class CustomersMenu extends Menu {
 
     CustomersRecord customersRecord;
 
+    public CustomersMenu(CustomersRecord customersRecord) {
+        this.customersRecord = customersRecord;
+    }
+    
+    
+
     // ANSI Color Codes
     private static final String RESET = "\u001B[0m";
     private static final String HEADER_COLOR = "\u001B[34m";  // Blue

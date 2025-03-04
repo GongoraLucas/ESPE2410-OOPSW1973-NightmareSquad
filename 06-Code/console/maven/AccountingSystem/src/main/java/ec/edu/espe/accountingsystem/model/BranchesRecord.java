@@ -12,6 +12,12 @@ import utils.JsonFileManager;
 public class BranchesRecord {
     JsonFileManager branches;
 
+    public BranchesRecord(JsonFileManager branches) {
+        this.branches = branches;
+    }
+
+    
+        
     @Override
     public String toString() {
        String horizontalLine;

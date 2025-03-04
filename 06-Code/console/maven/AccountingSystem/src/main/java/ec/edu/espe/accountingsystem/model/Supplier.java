@@ -16,6 +16,8 @@ public class Supplier implements Identifiable{
     private String address;
     private String phoneNumber;
     private String email;
+    
+    
 
     @Override
     public String toString() {

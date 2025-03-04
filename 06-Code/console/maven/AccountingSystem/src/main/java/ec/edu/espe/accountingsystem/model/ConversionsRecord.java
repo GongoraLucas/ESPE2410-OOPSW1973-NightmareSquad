@@ -9,6 +9,12 @@ import utils.JsonFileManager;
  */
 public class ConversionsRecord {
 
+    public ConversionsRecord(JsonFileManager conversions) {
+        this.conversions = conversions;
+    }
+    
+    
+
     JsonFileManager conversions;
 
     public ConversionsRecord(String conversionsFile) {

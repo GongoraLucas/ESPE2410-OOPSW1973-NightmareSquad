@@ -13,6 +13,8 @@ public class IdentityCard {
 
     private String type;
     private String id;
+    
+    
 
     @Override
     public String toString() {

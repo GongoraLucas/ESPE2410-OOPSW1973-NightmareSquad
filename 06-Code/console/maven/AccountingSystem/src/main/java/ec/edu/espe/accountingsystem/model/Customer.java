@@ -18,6 +18,8 @@ public class Customer implements Identifiable{
     private String address;
     private String phoneNumber;
     private String email;
+    
+    
 
     @Override
     public String toString() {
@@ -47,6 +49,28 @@ public class Customer implements Identifiable{
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
     
     
 

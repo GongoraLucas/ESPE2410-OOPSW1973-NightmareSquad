@@ -21,6 +21,17 @@ public class BranchesMenu extends Menu {
         branchesRecord = new BranchesRecord("branches.json");
     }
 
+    public BranchesMenu(BranchesRecord branchesRecord) {
+        this.branchesRecord = branchesRecord;
+    }
+
+    @Override
+    public String toString() {
+        return "BranchesMenu{" + "branchesRecord=" + branchesRecord + '}';
+    }
+
+    
+    
     @Override
     public void showOptions() {
         System.out.println(HEADER_COLOR + "\n\tAccounting System\t" + RESET);

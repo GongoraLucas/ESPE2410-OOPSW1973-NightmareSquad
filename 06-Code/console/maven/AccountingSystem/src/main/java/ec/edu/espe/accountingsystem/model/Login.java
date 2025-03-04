@@ -16,6 +16,52 @@ public class Login extends Menu{
         this.sellerMenu = new SellerMenu();
     }
 
+    public Login(UsersRecord usersRecord, AdministratorMenu administratorMenu, SellerMenu sellerMenu) {
+        this.usersRecord = usersRecord;
+        this.administratorMenu = administratorMenu;
+        this.sellerMenu = sellerMenu;
+    }
+
+    @Override
+    public String toString() {
+        return "Login{" + "usersRecord=" + usersRecord + ", administratorMenu=" + administratorMenu + ", sellerMenu=" + sellerMenu + '}';
+    }
+    
+    
+
+    public UsersRecord getUsersRecord() {
+        return usersRecord;
+    }
+
+    public void setUsersRecord(UsersRecord usersRecord) {
+        this.usersRecord = usersRecord;
+    }
+
+    public AdministratorMenu getAdministratorMenu() {
+        return administratorMenu;
+    }
+
+    public void setAdministratorMenu(AdministratorMenu administratorMenu) {
+        this.administratorMenu = administratorMenu;
+    }
+
+    public SellerMenu getSellerMenu() {
+        return sellerMenu;
+    }
+
+    public void setSellerMenu(SellerMenu sellerMenu) {
+        this.sellerMenu = sellerMenu;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    
     
     
     @Override

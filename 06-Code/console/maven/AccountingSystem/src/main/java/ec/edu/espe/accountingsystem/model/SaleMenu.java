@@ -1,6 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SaleMenu extends Menu {
 
@@ -11,6 +12,89 @@ public class SaleMenu extends Menu {
     private VouchersRecord vouchersRecord;
     private Voucher voucher;
     private TransactionsRecord transactionsRecord;
+
+    public SaleMenu(SuppliersRecord suppliersRecord, CustomersRecord customersRecord, Inventory inventory, ArrayList<Product> shoppingCart, VouchersRecord vouchersRecord, Voucher voucher, TransactionsRecord transactionsRecord) {
+        this.suppliersRecord = suppliersRecord;
+        this.customersRecord = customersRecord;
+        this.inventory = inventory;
+        this.shoppingCart = shoppingCart;
+        this.vouchersRecord = vouchersRecord;
+        this.voucher = voucher;
+        this.transactionsRecord = transactionsRecord;
+    }
+
+    @Override
+    public String toString() {
+        return "SaleMenu{" + "suppliersRecord=" + suppliersRecord + ", customersRecord=" + customersRecord + ", inventory=" + inventory + ", shoppingCart=" + shoppingCart + ", vouchersRecord=" + vouchersRecord + ", voucher=" + voucher + ", transactionsRecord=" + transactionsRecord + '}';
+    }
+
+    
+    
+    public SuppliersRecord getSuppliersRecord() {
+        return suppliersRecord;
+    }
+
+    public void setSuppliersRecord(SuppliersRecord suppliersRecord) {
+        this.suppliersRecord = suppliersRecord;
+    }
+
+    public CustomersRecord getCustomersRecord() {
+        return customersRecord;
+    }
+
+    public void setCustomersRecord(CustomersRecord customersRecord) {
+        this.customersRecord = customersRecord;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public ArrayList<Product> getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ArrayList<Product> shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
+    public VouchersRecord getVouchersRecord() {
+        return vouchersRecord;
+    }
+
+    public void setVouchersRecord(VouchersRecord vouchersRecord) {
+        this.vouchersRecord = vouchersRecord;
+    }
+
+    public Voucher getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(Voucher voucher) {
+        this.voucher = voucher;
+    }
+
+    public TransactionsRecord getTransactionsRecord() {
+        return transactionsRecord;
+    }
+
+    public void setTransactionsRecord(TransactionsRecord transactionsRecord) {
+        this.transactionsRecord = transactionsRecord;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+    
+    
 
     // ANSI Color Codes
     private static final String RESET = "\u001B[0m";

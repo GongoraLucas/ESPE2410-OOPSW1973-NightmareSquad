@@ -16,6 +16,8 @@ public class Product implements Identifiable{
     private Price price;
     private int amount;
     private MeasuredItem measuredItem;
+    
+    
 
     @Override
     public String toString() {
