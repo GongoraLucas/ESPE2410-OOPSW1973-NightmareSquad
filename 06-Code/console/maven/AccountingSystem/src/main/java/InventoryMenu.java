@@ -58,7 +58,45 @@ public class InventoryMenu extends Menu {
         this.inventory.addProductQuantity(id,amount);
 
     @Override
+    
+    public class ProductManager {
+
+    private boolean executionMenu = true;
+
+    public void setExecutionMenu(boolean executionMenu) {
+        this.executionMenu = executionMenu;
+    }
+
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        while (executionMenu) {
+            displayMenu();
+            try {
+                int option = Integer.parseInt(scanner.nextLine());
+                processOption(option);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
+        }
+        scanner.close();
+    }
+
+    private void displayMenu() {
+        System.out.println("Please choose an option:");
+        System.out.println("1. Add Product");
+        System.out.println("2. View Products");
+        System.out.println("3. Update Product");
+        System.out.println("4. Delete Product");
+        System.out.println("5. Exit");
+    }
+
     public void processOption(int option) throws IllegalArgumentException {
+        if (option < 1 || option > 5) {
+            throw new IllegalArgumentException("Option must be between 1 and 5.");
+        }
+
         switch (option) {
             case 1:
                 addProduct();
@@ -73,12 +111,36 @@ public class InventoryMenu extends Menu {
                 deleteProduct();
                 break;
             case 5:
-                super.setExecutionMenu(false);
+                setExecutionMenu(false);
+                System.out.println("Exiting the program. Goodbye!");
                 break;
-            default:
-                throw new IllegalArgumentException("Option must be between 1 and 7.");
         }
+    }
 
+    private void addProduct() {
+        // Implementación para agregar un producto
+        System.out.println("Adding a product...");
+    }
+
+    private void viewProducts() {
+        // Implementación para ver productos
+        System.out.println("Viewing products...");
+    }
+
+    private void updateProduct() {
+        // Implementación para actualizar un producto
+        System.out.println("Updating a product...");
+    }
+
+    private void deleteProduct() {
+        // Implementación para eliminar un producto
+        System.out.println("Deleting a product...");
+    }
+
+    public static void main(String[] args) {
+        ProductManager manager = new ProductManager();
+        manager.start();
+    }
 }
 
     public void addProduct() {
