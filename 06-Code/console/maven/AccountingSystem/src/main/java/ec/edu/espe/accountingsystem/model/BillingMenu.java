@@ -1,5 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Lucas Gongora
@@ -21,6 +23,44 @@ public class BillingMenu extends Menu {
         super();
         saleMenu = new SaleMenu();
     }
+
+    public BillingMenu(SaleMenu saleMenu, PurchaseMenu purchaseMenu) {
+        this.saleMenu = saleMenu;
+        this.purchaseMenu = purchaseMenu;
+    }
+    
+    public BillingMenu() {
+        this.saleMenu = saleMenu;
+        this.purchaseMenu = purchaseMenu;
+    }
+
+    public SaleMenu getSaleMenu() {
+        return saleMenu;
+    }
+
+    public void setSaleMenu(SaleMenu saleMenu) {
+        this.saleMenu = saleMenu;
+    }
+
+    public PurchaseMenu getPurchaseMenu() {
+        return purchaseMenu;
+    }
+
+    public void setPurchaseMenu(PurchaseMenu purchaseMenu) {
+        this.purchaseMenu = purchaseMenu;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+    
+    
+    
+    
 
     @Override
     public void showOptions() {

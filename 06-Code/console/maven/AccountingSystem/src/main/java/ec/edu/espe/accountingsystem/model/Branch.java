@@ -36,6 +36,14 @@ public class Branch implements Identifiable {
         this.phoneNumber = phoneNumber;
         this.manager = manager;
     }
+    
+    public Branch() {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.manager = manager;
+    }
 
     /**
      * @return the id

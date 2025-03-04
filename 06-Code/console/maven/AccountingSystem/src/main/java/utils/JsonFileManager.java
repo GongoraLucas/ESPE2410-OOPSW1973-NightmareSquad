@@ -19,6 +19,34 @@ public class JsonFileManager {
     private String filePath;
     private Gson gson;
 
+    public JsonFileManager(String filePath, Gson gson) {
+        this.filePath = filePath;
+        this.gson = gson;
+    }
+    
+    public JsonFileManager() {
+        this.filePath = filePath;
+        this.gson = gson;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public Gson getGson() {
+        return gson;
+    }
+
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
+    
+    
+
     public JsonFileManager(String filePath) {
         gson = new GsonBuilder().setLenient().setPrettyPrinting().create();
         this.filePath = filePath;
