@@ -123,4 +123,8 @@ public class Inventory {
 
     }
 
+    void run() {
+        throw new UnsupportedOperationException("Failed..."); 
+    }
+
 }

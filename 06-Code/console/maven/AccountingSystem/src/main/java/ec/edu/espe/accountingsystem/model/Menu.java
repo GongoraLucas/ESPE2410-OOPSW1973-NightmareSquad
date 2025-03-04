@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public abstract class Menu {
 
-    private Scanner scanner;
+    public Scanner scanner;
     private boolean executionMenu;
     private int option;
 

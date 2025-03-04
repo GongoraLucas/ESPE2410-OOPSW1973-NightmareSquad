@@ -3,7 +3,7 @@ package ec.edu.espe.accountingsystem.model;
 
 public class AdministratorMenu extends Menu {
     private final BillingMenu billingMenu;
-    private final InventoryMenu inventoryMenu;
+    private final Inventory inventoryMenu;
     private final TransactionMenu transactionsMenu;
     private final ConverterUnitsMenu converterUnitsMenu;
     private final BranchesMenu branchesMenu;
@@ -19,7 +19,7 @@ public class AdministratorMenu extends Menu {
 
     public AdministratorMenu() {
         super();
-        this.inventoryMenu = new InventoryMenu();
+        this.inventoryMenu = new Inventory();
         this.billingMenu = new BillingMenu();
         this.transactionsMenu = new TransactionMenu();
         this.converterUnitsMenu = new ConverterUnitsMenu();

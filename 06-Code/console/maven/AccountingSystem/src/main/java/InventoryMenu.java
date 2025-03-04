@@ -1,4 +1,9 @@
-package ec.edu.espe.accountingsystem.model;
+
+package ec.edu.espe.accountingsystem.<deafultpackage>;
+
+import ec.edu.espe.accountingsystem.model.Inventory;
+import ec.edu.espe.accountingsystem.model.Menu;
+
 
 public class InventoryMenu extends Menu {
 
@@ -26,14 +31,13 @@ public class InventoryMenu extends Menu {
         System.out.println(MENU_OPTION_COLOR + "3. Update product" + RESET);
         System.out.println(MENU_OPTION_COLOR + "4. Delete product" + RESET);
         System.out.println(MENU_OPTION_COLOR + "5. Back to the main menu" + RESET);
-    }
+    
 
-<<<<<<< HEAD:06-Code/AccountingSystem/src/ec/edu/espe/accountingsystem/model/InventoryMenu.java
         System.out.println("Enter de amount to buy:  ");
         int amount = scanner.nextInt();
         
-        this.inventory.addProductQuantity(id,amount);
-        
+        this.inventory.addProductQuantity();
+}    
         
     }
     public void sellProduct(){
@@ -46,7 +50,7 @@ public class InventoryMenu extends Menu {
         amount*=-1;
         
         this.inventory.addProductQuantity(id,amount);
-=======
+
     @Override
     public void processOption(int option) throws IllegalArgumentException {
         switch (option) {
@@ -68,8 +72,8 @@ public class InventoryMenu extends Menu {
             default:
                 throw new IllegalArgumentException("Option must be between 1 and 7.");
         }
->>>>>>> 5969a12cc356090fb7305c59d88a59747c9d89e8:06-Code/maven/AccountingSystem/src/main/java/ec/edu/espe/accountingsystem/model/InventoryMenu.java
-    }
+
+}
 
     public void addProduct() {
         String id;
