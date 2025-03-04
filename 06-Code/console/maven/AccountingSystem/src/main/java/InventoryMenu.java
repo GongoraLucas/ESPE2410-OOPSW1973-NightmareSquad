@@ -2,7 +2,10 @@
 package ec.edu.espe.accountingsystem.<deafultpackage>;
 
 import ec.edu.espe.accountingsystem.model.Inventory;
+import ec.edu.espe.accountingsystem.model.MeasuredItem;
 import ec.edu.espe.accountingsystem.model.Menu;
+import static javax.swing.text.html.FormView.RESET;
+import java.util.Scanner;
 
 
 public class InventoryMenu extends Menu {
@@ -16,6 +19,9 @@ public class InventoryMenu extends Menu {
     private static final String MENU_OPTION_COLOR = "\u001B[32m";  // Green
     private static final String ERROR_COLOR = "\u001B[31m";  // Red
     private static final String SUCCESS_COLOR = "\u001B[33m";  // Yellow
+
+    Scanner sc = new Scanner (System.in);
+
 
     public InventoryMenu() {
         super();
@@ -300,9 +306,10 @@ public class InventoryMenu extends Menu {
             return new MeasuredItem(description, quantity, unit);
 
         } catch (Exception e) {
+            String ERROR_COLOR;
+            int ERROR_COLOR;
             System.out.println(ERROR_COLOR + "Error adding measured item: " + e.getMessage() + RESET);
 
             return null;
         }
     }
-}
