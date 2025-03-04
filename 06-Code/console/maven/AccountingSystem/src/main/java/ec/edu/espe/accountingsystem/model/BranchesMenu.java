@@ -1,6 +1,7 @@
 package ec.edu.espe.accountingsystem.model;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
@@ -144,6 +145,22 @@ public class BranchesMenu extends Menu {
         }
         this.branchesRecord.delete(id);
 
+    }
+
+    public BranchesRecord getBranchesRecord() {
+        return branchesRecord;
+    }
+
+    public void setBranchesRecord(BranchesRecord branchesRecord) {
+        this.branchesRecord = branchesRecord;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
     }
 
 }
